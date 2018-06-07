@@ -1,9 +1,13 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const common = require('./webpack.common.js');
-constpath = require('path');
+const common = require('./wp.common.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 const assetsPath = path.resolve(__dirname, '../dist');
 
+/* Shared webpack between clientDev and clientProd.
+*  - shares entry, output, css
+*/
 
 module.exports = merge(common, {
   entry: {

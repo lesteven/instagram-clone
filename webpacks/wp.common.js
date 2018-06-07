@@ -1,5 +1,10 @@
 const webpack = require('webpack');
 
+
+/* Shared webpack between client and server.
+*  - takes care of react code and images
+*/
+
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
@@ -26,9 +31,8 @@ module.exports = {
 
             }
           }
-  
-    ]
+        ]
+    ] 
   }
-
 }
 
