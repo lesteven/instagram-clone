@@ -7,7 +7,7 @@ class App extends Component {
     // mapped out client routes for reactRouter
     return (
       <Fragment>
-        'hello world!'
+        'hello react page!'
       </Fragment>
     )
   }

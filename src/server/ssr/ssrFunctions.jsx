@@ -1,10 +1,9 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { StaticRouter as Router, matchPath } from 'react-router';
+import { StaticRouter as Router } from 'react-router';
 import App from '../../common/App';
 import configureStore from '../../common/configureStore';
-import findComponent from './findComponent';
 
 
 /*
@@ -42,30 +41,21 @@ function renderFullPage(html, preloadedState) {
 }
 
 
-async function getData(req, res) { 
+async function getData(req, res) {
   // create store
   const store = configureStore();
-  
-  let { component, foundPath } = findComponent(req);
 
-
-  const fullUrl = req.protocol + '://' + req.get('host');
-
-  let data = await component.fetchData({ store, params: (foundPath? foundPath.params :
-    {}) }, fullUrl)
-
-
-  let preloadedState = store.getState();
-  let context = {};
+  const preloadedState = store.getState();
+  const context = {};
 
 
   // render component to string
   const html = renderToString(
-  <Provider store={store}>
-    <Router context={context} location={req.url}>
-      <App />
-    </Router>
-  </Provider>);
+    <Provider store={store}>
+      <Router context={context} location={req.url}>
+        <App />
+      </Router>
+    </Provider>);
 
 
   // send to client
@@ -76,10 +66,10 @@ function handleRender(req, res) {
   try {
     getData(req, res);
   }
-  catch(e) {
+  catch (e) {
     res.send('there was an error');
   }
-}    
+}
 
 export { handleRender, renderFullPage };
 
