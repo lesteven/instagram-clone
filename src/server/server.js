@@ -24,7 +24,10 @@ app.use(express.static('imgs'));
 
 
 // use handleRender for each request
-app.use(handleRender);
+app.get('/', (req,res) => {
+  res.send('hello world');
+})
+//app.use(handleRender);
 
 
 // Check mode
