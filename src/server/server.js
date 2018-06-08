@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import { handleRender } from './ssr/ssrFunctions';
 
 
 // server
@@ -24,12 +25,14 @@ app.use(express.static('imgs'));
 
 
 // use handleRender for each request
+/*
 app.get('/', (req, res) => {
   res.send('hello world');
 });
+*/
 
 
-// app.use(handleRender);
+app.use(handleRender);
 
 
 // Check mode
