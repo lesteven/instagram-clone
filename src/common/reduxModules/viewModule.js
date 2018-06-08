@@ -11,10 +11,11 @@ const showFlex = size => (size < maxSize ? 'none' : 'flex');
 
 const showBlock = size => (size < maxSize ? 'none' : 'block');
 
-// toggle display
-// if display is less than maxsize and 
-// is none -> change to flex
-// else if it's flex -> change to none
+/* toggle display
+* if display is less than maxsize and
+* is none -> change to flex
+* else if it's flex -> change to none
+*/
 const toggleFlex = (size, display) => {
   if (size < maxSize) {
     return display === 'none' ? 'flex' : 'none';
@@ -54,7 +55,6 @@ const initialState = {
   screenSize: typeof window === 'object' ? window.innerWidth : null,
 
 };
-
 
 
 // reducer
