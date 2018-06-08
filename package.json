@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/server/server.js",
   "scripts": {
+    "client": " webpack --config ./webpacks/wp.clientDev.js",
     "server": "webpack-dev-server --hot --config ./webpacks/wp.serverDev.js",
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "lint": "eslint src"
