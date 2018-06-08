@@ -3,7 +3,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./wp.common');
 const merge = require('webpack-merge');
-const assetsPath = path.resolve(__dirname, '../serverDist');
+const assetsPath = path.resolve(__dirname, '../distServer');
 
 
 module.exports = merge(common, {

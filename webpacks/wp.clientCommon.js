@@ -11,7 +11,10 @@ const assetsPath = path.resolve(__dirname, '../dist');
 
 module.exports = merge(common, {
   entry: {
-    client: ['babel-polyfill','../src/client/index.jsx']
+    client: [
+      'babel-polyfill',
+      './src/client/index.jsx'
+    ]
   },
   output: {
     path: assetsPath,
@@ -19,11 +22,13 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
-      test: /\.css$/, 
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-      ]
+      {
+        test: /\.css$/, 
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ]
+      }
     ]
   },
   plugins: [new MiniCssExtractPlugin({

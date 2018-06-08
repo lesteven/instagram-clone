@@ -4,8 +4,10 @@
   "description": "",
   "main": "./src/server/server.js",
   "scripts": {
+    "client": " webpack-dev-server --hot --config ./webpacks/wp.clientDev.js",
     "server": "webpack-dev-server --hot --config ./webpacks/wp.serverDev.js",
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
+    "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src"
   },
   "keywords": [],
