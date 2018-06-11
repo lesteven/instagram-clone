@@ -55,7 +55,8 @@ async function getData(req, res) {
       <Router context={context} location={req.url}>
         <App />
       </Router>
-    </Provider>);
+    </Provider>
+  );
 
 
   // send to client

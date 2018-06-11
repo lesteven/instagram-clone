@@ -3,6 +3,7 @@
 *.log
 npm-debug.log*
 /dist
+/distServer
 *.swp
 *.swo
 config.js

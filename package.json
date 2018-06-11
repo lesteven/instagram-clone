@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/server/server.js",
   "scripts": {
-    "client": " webpack-dev-server --hot --config ./webpacks/wp.clientDev.js",
-    "server": "webpack-dev-server --hot --config ./webpacks/wp.serverDev.js",
+    "client": "webpack-dev-server --hot --config ./webpacks/wp.clientDev.js",
+    "server": "nodemon src/server/server --exec babel-node",
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src"
