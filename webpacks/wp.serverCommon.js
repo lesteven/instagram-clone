@@ -23,10 +23,7 @@ module.exports = merge(common, {
       {
         test: /\.css$/, 
         use: {
-          loader: 'css-loader',
-          options: {
-              plugins:['css-modules-transform']
-          }
+          loader: 'ignore-loader',
         }
       }, 
     ]
