@@ -19,19 +19,12 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-// serve js files
+// serve static files
 app.use(express.static('dist'));
 app.use(express.static('imgs'));
 
 
 // use handleRender for each request
-/*
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
-*/
-
-
 app.use(handleRender);
 
 

@@ -1,38 +1,9 @@
+import { showFlex, showBlock, toggleFlex } from './utils/helperFunctions';
+
+
 const updateView = 'redux/view/UPDATE_SCREEN_SIZE';
 const toggleNav = 'redux/view/TOGGLE_NAV';
 const toggleDashSide = 'redux/view/TOGGLE_DASH_NAV';
-
-
-// -----------------------------------------------------------//
-// css state based on screen width
-const maxSize = 812;
-
-const showFlex = size => (size < maxSize ? 'none' : 'flex');
-
-const showBlock = size => (size < maxSize ? 'none' : 'block');
-
-/* toggle display
-* if display is less than maxsize and
-* is none -> change to flex
-* else if it's flex -> change to none
-*/
-const toggleFlex = (size, display) => {
-  if (size < maxSize) {
-    return display === 'none' ? 'flex' : 'none';
-  }
-  return 'flex';
-};
-
-/*
-const toggleBlock = (size, display) => {
-  if (size < maxSize) {
-    return display === 'none' ? 'block' : 'none';
-  }
-  return 'block';
-};
-*/
-
-// -----------------------------------------------------------//
 
 
 // action creator
@@ -59,6 +30,7 @@ const initialState = {
 
 // reducer
 export const view = (state = initialState, action) => {
+  const { screenSize, showDashSideNav, showNav } = state;
   switch (action.type) {
     case updateView:
       return {
@@ -71,12 +43,12 @@ export const view = (state = initialState, action) => {
     case toggleNav:
       return {
         ...state,
-        showNav: toggleFlex(state.screenSize, state.showNav),
+        showNav: toggleFlex(screenSize, showNav),
       };
     case toggleDashSide:
       return {
         ...state,
-        showDashSideNav: toggleFlex(state.screenSize, state.showDashSideNav),
+        showDashSideNav: toggleFlex(screenSize, showDashSideNav),
       };
     default:
       return state;
