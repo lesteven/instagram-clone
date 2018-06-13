@@ -1,4 +1,8 @@
-import { showFlex, showBlock, toggleFlex } from './utils/helperFunctions';
+import {
+  showFlex,
+  showBlock,
+  toggleFlex,
+} from './utils/helperFunctions';
 
 
 const updateView = 'redux/view/UPDATE_SCREEN_SIZE';
