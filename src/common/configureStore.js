@@ -15,7 +15,7 @@ export default function configureStore(preloadedState) {
     compose(
       applyMiddleware(thunk),
       typeof window !== 'undefined' &&
-                window.devToolsExtension ? window.devToolsExtension() : f => f,
+        window.devToolsExtension ? window.devToolsExtension() : f => f,
     ),
   );
 }

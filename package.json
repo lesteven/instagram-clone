@@ -9,7 +9,7 @@
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest src tests"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,8 @@
     "babel-preset-stage-3": "^6.24.1",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",

@@ -72,5 +72,5 @@ function handleRender(req, res) {
   }
 }
 
-export { handleRender, renderFullPage };
+export { handleRender };
 
