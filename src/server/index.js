@@ -9,7 +9,6 @@ import testRouter from './publicRoutes/testRouter';
 const app = express();
 app.use(helmet());
 app.use(morgan('dev'));
-const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({
   extended: true,

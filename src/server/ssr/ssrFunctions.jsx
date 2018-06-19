@@ -68,9 +68,11 @@ function handleRender(req, res) {
     getData(req, res);
   }
   catch (e) {
-    res.send('there was an error');
+    const serverErr = 500;
+    const errorMsg = 'there was an error';
+    res.status(serverErr).send(errorMsg);
   }
 }
 
-export { handleRender };
+export { handleRender, getData, renderFullPage };
 
