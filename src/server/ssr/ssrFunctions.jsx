@@ -12,7 +12,7 @@ import configureStore from '../../common/configureStore';
 * turn react component and redux data to string
 * inject those two data into the html page
 * on client, html takes stringified redux data and
-*  puts in into store
+* put into store
 *
 */
 
@@ -42,14 +42,11 @@ function renderFullPage(html, preloadedState) {
 
 
 async function getData(req, res) {
-  // create store
   const store = configureStore();
 
   const preloadedState = store.getState();
   const context = {};
 
-
-  // render component to string
   const html = renderToString(
     <Provider store={store}>
       <Router context={context} location={req.url}>
@@ -58,9 +55,13 @@ async function getData(req, res) {
     </Provider>
   );
 
-
-  // send to client
   res.send(renderFullPage(html, preloadedState));
+}
+
+function sendError(res) {
+  const serverErr = 500;
+  const errorMsg = 'there was an error';
+  res.status(serverErr).send(errorMsg);
 }
 
 function handleRender(req, res) {
@@ -68,11 +69,9 @@ function handleRender(req, res) {
     getData(req, res);
   }
   catch (e) {
-    const serverErr = 500;
-    const errorMsg = 'there was an error';
-    res.status(serverErr).send(errorMsg);
+    sendError(res);
   }
 }
 
-export { handleRender, getData, renderFullPage };
+export { handleRender, getData, renderFullPage, sendError};
 

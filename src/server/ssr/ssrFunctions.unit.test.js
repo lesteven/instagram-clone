@@ -1,24 +1,29 @@
 import {
   handleRender,
   getData,
-  renderFullPage
+  renderFullPage,
+  sendError
 } from './ssrFunctions';
 import express from 'express';
 import request from 'supertest';
-
-const appFail = express();
-const appSuccess= express();
+import React from 'react';
+import * as testSetup from '../../../test-setup.js';
+import { render } from 'enzyme';
 
 const errorMsg = 'there was an error';
 const serverErr = 500;
+
 const handleFail = (req, res) => {
   try {
     throw new Error('test error');
   }
   catch (e) {
-    res.status(serverErr).send(errorMsg);
+    sendError(res);
   }
 }
+
+const appFail = express();
+const appSuccess= express();
 
 appFail.use(handleFail);
 appSuccess.use(handleRender);
@@ -37,12 +42,15 @@ describe('handleRender', () => {
   });
 });
 
-describe('getData', () => {
-
-});
 
 describe('renderFullPage', () => {
-
+  it('should return hello in preloaded state', () => {
+    const preloadedState = 'hello';
+    const html = <div></div>;
+    const wrapper = render(renderFullPage(html, preloadedState));
+    //const wrapper = render(<renderFullPage />);
+    expect(wrapper.text()).to.contain('hello'); 
+  })
 });
 
 
