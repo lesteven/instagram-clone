@@ -12,12 +12,16 @@ import configureStore from '../../common/configureStore';
 * turn react component and redux data to string
 * inject those two data into the html page
 * on client, html takes stringified redux data and
-*  puts in into store
+* put into store
 *
 */
 
+
+export function sanitizeData(preloadedState) {
+  return JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+}
 // create html and inject redux data into it
-function renderFullPage(html, preloadedState) {
+export function renderFullPage(html, preloadedState) {
   return `
     <!DOCTYPE html>
     <html lang = "en">
@@ -31,8 +35,7 @@ function renderFullPage(html, preloadedState) {
       <body>
         <div id="root">${html}</div>
         <script>
-        window.__PRELOADED_STATE__ = 
-          ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+        window.__PRELOADED_STATE__ = ${ sanitizeData(preloadedState) };
         </script>
         <script src="/client.bundle.js" ></script>
       </body>
@@ -41,15 +44,12 @@ function renderFullPage(html, preloadedState) {
 }
 
 
-async function getData(req, res) {
-  // create store
+export async function getData(req, res) {
   const store = configureStore();
 
   const preloadedState = store.getState();
   const context = {};
 
-
-  // render component to string
   const html = renderToString(
     <Provider store={store}>
       <Router context={context} location={req.url}>
@@ -58,19 +58,22 @@ async function getData(req, res) {
     </Provider>
   );
 
-
-  // send to client
   res.send(renderFullPage(html, preloadedState));
 }
 
-function handleRender(req, res) {
+export function sendError(res) {
+  const serverErr = 500;
+  const errorMsg = 'there was an error';
+  res.status(serverErr).send(errorMsg);
+}
+
+export function handleRender(req, res) {
   try {
     getData(req, res);
   }
   catch (e) {
-    res.send('there was an error');
+    sendError(res);
   }
 }
 
-export { handleRender };
 

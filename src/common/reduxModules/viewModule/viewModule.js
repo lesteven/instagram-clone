@@ -26,7 +26,7 @@ export const toggleDashSideNav = () => ({
 
 
 // initial state
-const initialState = {
+export const initialState = {
   screenSize: typeof window === 'object' ? window.innerWidth : null,
 
 };
