@@ -16,8 +16,12 @@ import configureStore from '../../common/configureStore';
 *
 */
 
+
+export function sanitizeData(preloadedState) {
+  return JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+}
 // create html and inject redux data into it
-function renderFullPage(html, preloadedState) {
+export function renderFullPage(html, preloadedState) {
   return `
     <!DOCTYPE html>
     <html lang = "en">
@@ -31,8 +35,7 @@ function renderFullPage(html, preloadedState) {
       <body>
         <div id="root">${html}</div>
         <script>
-        window.__PRELOADED_STATE__ = 
-          ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+        window.__PRELOADED_STATE__ = ${ sanitizeData(preloadedState) };
         </script>
         <script src="/client.bundle.js" ></script>
       </body>
@@ -41,7 +44,7 @@ function renderFullPage(html, preloadedState) {
 }
 
 
-async function getData(req, res) {
+export async function getData(req, res) {
   const store = configureStore();
 
   const preloadedState = store.getState();
@@ -58,13 +61,13 @@ async function getData(req, res) {
   res.send(renderFullPage(html, preloadedState));
 }
 
-function sendError(res) {
+export function sendError(res) {
   const serverErr = 500;
   const errorMsg = 'there was an error';
   res.status(serverErr).send(errorMsg);
 }
 
-function handleRender(req, res) {
+export function handleRender(req, res) {
   try {
     getData(req, res);
   }
@@ -73,5 +76,4 @@ function handleRender(req, res) {
   }
 }
 
-export { handleRender, getData, renderFullPage, sendError};
 

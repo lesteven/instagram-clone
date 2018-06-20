@@ -2,13 +2,14 @@ import {
   handleRender,
   getData,
   renderFullPage,
-  sendError
+  sendError,
+  sanitizeData
 } from './ssrFunctions';
 import express from 'express';
 import request from 'supertest';
 import React from 'react';
 import * as testSetup from '../../../test-setup.js';
-import { render } from 'enzyme';
+import { render, shallow } from 'enzyme';
 
 const errorMsg = 'there was an error';
 const serverErr = 500;
@@ -42,15 +43,16 @@ describe('handleRender', () => {
   });
 });
 
-
-describe('renderFullPage', () => {
-  it('should return hello in preloaded state', () => {
-    const preloadedState = 'hello';
-    const html = <div></div>;
-    const wrapper = render(renderFullPage(html, preloadedState));
-    //const wrapper = render(<renderFullPage />);
-    expect(wrapper.text()).to.contain('hello'); 
-  })
-});
+describe('sanitize data', () => {
+  const hello = 'hello';
+  const output = JSON.stringify(hello);
+  it('should return back value', () => {
+    expect(sanitizeData(hello)).toBe(output)
+  }) 
+  it('should return back value', () => {
+    const uncleanData = JSON.stringify(`<${hello}/>`);
+    expect(sanitizeData(uncleanData)).not.toMatch(/</) ;
+  }) 
+})
 
 
