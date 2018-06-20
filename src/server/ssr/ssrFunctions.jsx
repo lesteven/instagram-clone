@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter as Router } from 'react-router';
+import serialize from 'serialize-javascript';
 import App from '../../common/App';
 import configureStore from '../../common/configureStore';
 
@@ -18,8 +19,9 @@ import configureStore from '../../common/configureStore';
 
 
 export function sanitizeData(preloadedState) {
-  return JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+  return serialize(preloadedState);
 }
+
 // create html and inject redux data into it
 export function renderFullPage(html, preloadedState) {
   return `
