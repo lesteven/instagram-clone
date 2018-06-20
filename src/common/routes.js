@@ -11,6 +11,8 @@ export const makeRouteObject =
 })
 
 const prefix = '';
+const homeURL = '/';
+
 
 const routes = {
 
@@ -24,7 +26,7 @@ const routes = {
       title: '/',
     },
 */
-    makeRouteObject(prefix, '/', PublicTemplate, false, '/'),
+    makeRouteObject(prefix, homeURL, PublicTemplate, false, homeURL),
   ],
 
 };
