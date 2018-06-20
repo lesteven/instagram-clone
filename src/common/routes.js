@@ -1,14 +1,6 @@
 import PublicTemplate from './views/publicTemplate/PublicTemplate';
+import makeRouteObject from './utils/makeRouteObject';
 
-
-export const makeRouteObject = 
-  (prefix, path, component, exact, title) => ({
-  prefix,
-  path,
-  component,
-  exact,
-  title,
-})
 
 const prefix = '';
 const homeURL = '/';
@@ -17,7 +9,7 @@ const homeURL = '/';
 const routes = {
 
   routes: [
-/*
+  /*
     {
       prefix,
       path: '/',
@@ -25,7 +17,7 @@ const routes = {
       exact: false,
       title: '/',
     },
-*/
+  */
     makeRouteObject(prefix, homeURL, PublicTemplate, false, homeURL),
   ],
 

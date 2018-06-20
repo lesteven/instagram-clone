@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './sharedViews/sharedCss.css';
-import TopLvlRoutes from './sharedViews/topLvlRoutes/TopLvlRoutes';
+import TopLvlRoutes from './views/topLvlRoutes/TopLvlRoutes';
 
 
 class App extends Component {
