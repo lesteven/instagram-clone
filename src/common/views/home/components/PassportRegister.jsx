@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import styles from './css/passportRegister.css';
+
 
 const text = 'text';
 
-const inputObect = (type, name, placeholder) => ({
+const inputObject = (type, name, placeHolder) => ({
   type,
   name,
   placeHolder,
@@ -16,24 +18,26 @@ const inputData = [
 ]
 
 
-class PassportLogin extends Component {
-  mappedInputData = () => {
+class PassportRegister extends Component {
+  mappedInputData = () => 
     inputData.map(e => 
       <input 
+        key = {e.name}
         type = {e.type} 
-        value = {e.name} 
         placeholder = {e.placeHolder}
+        onChange = { () => console.log('hello')}
       />
     )
-  } 
   render() {
+  const { registerAC } = this.props;
     return(
-      <Fragment>
+      <form onSubmit = { registerAC } className='register-form'>
         { this.mappedInputData() }
-      </Fragment>
+        <input type = 'submit' value = 'Sign up' />
+      </form>
     )
   }
 }
 
 
-export default PassportLogin;
+export default PassportRegister;

@@ -1,0 +1,15 @@
+.register-form input[type='text'],input[type='password'] {
+  background-color: #fafafa;
+  color: #b7b7b7;
+  padding:3%;
+  border:none;
+  margin:2%;
+  font-size:14px;
+  font-family: 'Helvetica';
+  width:80%;
+}
+.register-form {
+  width:80%;
+  margin:auto;
+}
+

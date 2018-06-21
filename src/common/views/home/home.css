@@ -4,10 +4,12 @@
   margin:auto;
   margin-top:5vh;
   background-color:white;
+  padding-bottom:8vh;
 }
 .signup-wrapper h4 {
   color:#999999;
   font-family: 'Helvetica';
+  padding:0% 20%;
 }
 .signup-logo {
   font-family: 'Norican';
@@ -15,5 +17,4 @@
   font-size:calc(36px + 1vw);
 }
 .signup-box {
-  padding:0% 20%;
 }
