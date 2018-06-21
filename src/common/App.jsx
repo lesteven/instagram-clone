@@ -17,6 +17,5 @@ class App extends Component {
 
 
 
-
 // use withRouter to pass location to App
 export default withRouter(App);

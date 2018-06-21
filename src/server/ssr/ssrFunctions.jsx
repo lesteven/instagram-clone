@@ -51,9 +51,6 @@ export async function getData(req, res) {
   const store = configureStore();
 
   const { component, foundPath } = findComponent(req);
-  console.log('component', component);
-  console.log('foundpath', foundPath);
-
 
   const preloadedState = store.getState();
   const context = {};

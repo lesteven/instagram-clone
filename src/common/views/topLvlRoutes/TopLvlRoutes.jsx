@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import routes from '../../routes'; 
 
 
@@ -11,7 +11,6 @@ class TopLvlRoutes extends Component {
     )
   }
   render() {
-  console.log(this.routes());
     return (
       <Switch>
         { this.routes() }
@@ -20,4 +19,4 @@ class TopLvlRoutes extends Component {
   }
 }
 
-export default withRouter(TopLvlRoutes);
+export default TopLvlRoutes;

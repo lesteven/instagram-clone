@@ -10,11 +10,9 @@ const aboutTitle = 'About';
 const homeURL = '/';
 const homeTitle = 'Home';
 
-const navRoutes = {
-  routes: [
-    makeRouteObject(prefix, homeURL, Home, true, homeTitle),
-    makeRouteObject(prefix, aboutURL, About, true, aboutTitle),
-  ],
-};
+const navRoutes = [
+  makeRouteObject(prefix, homeURL, Home, true, homeTitle),
+  makeRouteObject(prefix, aboutURL, About, true, aboutTitle),
+];
 
 export default navRoutes;
