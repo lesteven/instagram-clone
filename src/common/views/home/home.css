@@ -1,0 +1,19 @@
+.signup-wrapper {
+  border:1px solid #e6e6e6;
+  max-width:400px;
+  margin:auto;
+  margin-top:5vh;
+  background-color:white;
+}
+.signup-wrapper h4 {
+  color:#999999;
+  font-family: 'Helvetica';
+}
+.signup-logo {
+  font-family: 'Norican';
+  font-weight:normal;
+  font-size:calc(36px + 1vw);
+}
+.signup-box {
+  padding:0% 20%;
+}
