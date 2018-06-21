@@ -5,6 +5,7 @@ import { StaticRouter as Router } from 'react-router';
 import serialize from 'serialize-javascript';
 import App from '../../common/App';
 import configureStore from '../../common/configureStore';
+import findComponent from './findComponent';
 
 
 /*
@@ -48,6 +49,11 @@ export function renderFullPage(html, preloadedState) {
 
 export async function getData(req, res) {
   const store = configureStore();
+
+  const { component, foundPath } = findComponent(req);
+  console.log('component', component);
+  console.log('foundpath', foundPath);
+
 
   const preloadedState = store.getState();
   const context = {};

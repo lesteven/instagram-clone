@@ -1,5 +1,6 @@
 import PublicTemplate from './views/publicTemplate/PublicTemplate';
 import makeRouteObject from './utils/makeRouteObject';
+import navRoutes from './views/navRoutes';
 
 
 const prefix = '';
@@ -18,9 +19,10 @@ const routes = {
       title: '/',
     },
   */
-    makeRouteObject(prefix, homeURL, PublicTemplate, false, homeURL),
+    ...navRoutes.routes,
   ],
 
 };
+
 
 export default routes;
