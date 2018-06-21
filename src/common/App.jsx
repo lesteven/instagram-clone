@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './sharedViews/sharedCss.css';
-
+import TopLvlRoutes from './views/topLvlRoutes/TopLvlRoutes';
+import { withRouter } from 'react-router-dom';
+import routes from './routes';
 
 class App extends Component {
   render() {
     return (
       <Fragment>
-        'hello react page!'
+        <TopLvlRoutes />
       </Fragment>
     )
   }
@@ -15,6 +17,5 @@ class App extends Component {
 
 
 
-
 // use withRouter to pass location to App
-export default App;
+export default withRouter(App);

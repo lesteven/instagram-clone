@@ -1,32 +1,13 @@
-import PublicTemplate from './views/publicTemplate/PublicTemplate';
+import navRoutes from './views/navRoutes';
 
-
-export const makeRouteObject = 
-  (prefix, path, component, exact, title) => ({
-  prefix,
-  path,
-  component,
-  exact,
-  title,
-})
-
-const prefix = '';
 
 const routes = {
 
   routes: [
-/*
-    {
-      prefix,
-      path: '/',
-      component: PublicTemplate,
-      exact: false,
-      title: '/',
-    },
-*/
-    makeRouteObject(prefix, '/', PublicTemplate, false, '/'),
+    ...navRoutes,
   ],
 
 };
+
 
 export default routes;
