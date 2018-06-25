@@ -6,10 +6,20 @@
   margin:2%;
   font-size:14px;
   font-family: 'Helvetica';
-  width:80%;
+  width:90%;
 }
 .register-form {
-  width:80%;
+  width:95%;
   margin:auto;
 }
-
+.register-form input[type='submit'] {
+  width:95%;
+  padding:3%;
+  margin:5% 2%;
+  background-color:#2897f0;
+  color:white;
+  border:none;
+  border-radius:3px;
+  font-size:14px;
+  font-weight:bold;
+}
