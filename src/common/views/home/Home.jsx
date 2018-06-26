@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUp from './components/SignUp';
 import styles from './home.css';
+import LoginLink from './components/LoginLink';
 
 
 class Home extends Component {
@@ -8,6 +9,7 @@ class Home extends Component {
     return (
       <div className='max-width'>  
         <SignUp />
+        <LoginLink />
       </div>  
     )
   }
