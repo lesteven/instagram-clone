@@ -5,6 +5,7 @@ function Logo() {
   return (
     <div className='nav-logo'>
       <img src='ig-logo.svg'/>
+      <div></div>
       <h1> Instagram</h1>
     </div>
   )
