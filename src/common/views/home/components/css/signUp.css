@@ -1,0 +1,70 @@
+.signup-wrapper {
+  border:1px solid #e6e6e6;
+  max-width: 300px;
+  margin:auto;
+  margin-top:5%;
+  background-color:white;
+  padding:2% 3% 5% 3%;
+}
+.signup-wrapper h1 {
+  margin:2%;
+}
+.signup-wrapper h4 {
+  color:#999999;
+  font-family: 'Helvetica';
+  padding:3% 10%;
+  margin:2%;
+}
+
+.signup-logo {
+  font-family: 'Norican';
+  font-weight:normal;
+  font-size:calc(36px + 1vw);
+}
+
+.policy-agreement {
+  margin:3% 20%;
+  color:#999;
+}
+
+.fb-login {
+  margin:2%;
+}
+.fb-login div {
+  background-color:white;
+  color:blue;
+  width:20px;
+  margin: 0% 3%;
+  border-radius:3px;
+}
+.fb-login button {
+  margin:auto;
+  justify-content:center;
+  display:flex;
+  width:96%;
+  border:none;
+  background-color:#3897f0;
+  color:white;
+  padding:3%;
+  border-radius:3px;
+  font-weight:bold;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+}
+.divider p {
+  color:#999;
+  font-weight:bold;
+  font-size:14px;
+}
+.divider span {
+  flex:1;
+  align-items:center;
+  background-color:#efefef;
+  height:1px;
+  margin:5%;
+}
+
+

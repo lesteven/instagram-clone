@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { view } from './reduxModules/viewModule/viewModule';
+import { register } from './reduxModules/registerModule/registerModule';
 
 
 export const reducers = combineReducers({
   view,
+  register,
 });
 
 
