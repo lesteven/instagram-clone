@@ -1,4 +1,4 @@
-import PublicTemplate from './PublicTemplate';
+import PageTemplate from './PageTemplate';
 import React from 'react';
 import * as testSetup from '../../../../test-setup.js';
 import { render, shallow, mount } from 'enzyme';
@@ -7,13 +7,13 @@ import { render, shallow, mount } from 'enzyme';
 /*
 describe('client template', () => {
   it('should have text', () => {
-    expect(render(<PublicTemplate />).text()).toEqual('template');
+    expect(render(<PageTemplate />).text()).toEqual('template');
   })
   it('should have css .max-wdith', () => {
-    expect(shallow(<PublicTemplate />).is('.max-width')).toBe(true);
+    expect(shallow(<PageTemplate />).is('.max-width')).toBe(true);
   })
   it('should render', () => {
-    expect(mount(<PublicTemplate />)
+    expect(mount(<PageTemplate />)
     .find('.max-width')
     .length)
     .toBe(1);
@@ -23,6 +23,6 @@ describe('client template', () => {
 
 describe('client template', () => {
   it('should have text', () => {
-    expect(render(<PublicTemplate />).text()).toBeTruthy;
+    expect(render(<PageTemplate />).text()).toBeTruthy;
   })
 })
