@@ -4,12 +4,13 @@ import styles from './navbar.css';
 function Logo() {
   return (
     <div className='nav-logo'>
-      <img src='ig-logo.svg'/>
+      <img src='/ig-logo.svg'/>
       <div></div>
       <h1> Instagram</h1>
     </div>
   )
 } 
+
 function SearchBar() {
   return (
     <div className='nav-searchbar'>
@@ -17,12 +18,13 @@ function SearchBar() {
     </div>
   )
 }
+
 function UserNavigation() {
   return (
     <div className='user-nav'>
-      <img src='compass.svg'/>
-      <img src='heart.svg'/>
-      <img src='user.svg'/>
+      <img src='/compass.svg'/>
+      <img src='/heart.svg'/>
+      <img src='/user.svg'/>
     </div>
   )
 }

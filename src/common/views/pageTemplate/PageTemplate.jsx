@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
 import NavBar from '../navBar/NavBar';
+import navRoutes from '../navRoutes';
+import MappedRoutes from '../generalComponents/MappedRoutes';
 
 
 class PageTemplate extends Component {
@@ -10,6 +11,7 @@ class PageTemplate extends Component {
       <Fragment>
         <NavBar />
         <div className='max-width view'>
+          <MappedRoutes routes = { navRoutes } />
         </div>
       </Fragment>
     )

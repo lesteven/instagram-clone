@@ -1,36 +1,18 @@
 import makeRouteObject from '../utils/makeRouteObject';
-import Home from './homeAuth/Home';
-import About from './about/About';
-import Accounts from './accounts/Accounts';
-import PageTemplate from './pageTemplate/PageTemplate';
+import Explore from './explore/Explore';
 
-const prefix = '';
+
+const prefix = '/template';
 const exactTrue = true;
 const exactFalse = false;
 
-const homeURL = '/';
-const homeTitle = 'Home';
+const exploreURL = '/explore';
+const exploreTitle = 'Explore';
 
-const aboutURL = '/about';
-const aboutTitle = 'About';
-
-const accountsURL = '/accounts';
-const accountsTitle = 'Accounts';
-
-const templateURL = '/template';
-const templateTitle = 'Test';
 
 const navRoutes = [
-  makeRouteObject(prefix, homeURL, Home, exactTrue, homeTitle),
-  makeRouteObject(prefix, aboutURL, About, exactTrue, aboutTitle),
-  makeRouteObject(
-    prefix, accountsURL, Accounts, exactFalse,
-    accountsTitle,
-  ),
-  makeRouteObject(
-    prefix, templateURL, PageTemplate, exactFalse,
-    templateTitle,
-  ),
+  makeRouteObject(prefix, exploreURL, Explore, exactTrue, exploreTitle),
+
 ];
 
 export default navRoutes;
