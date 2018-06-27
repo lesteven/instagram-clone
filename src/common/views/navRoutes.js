@@ -1,18 +1,18 @@
 import makeRouteObject from '../utils/makeRouteObject';
-import Home from './home/Home';
-import About from './about/About';
+import Explore from './explore/Explore';
 
 
-const prefix = '';
-const aboutURL = '/about';
-const aboutTitle = 'About';
+const prefix = '/template';
+const exactTrue = true;
+const exactFalse = false;
 
-const homeURL = '/';
-const homeTitle = 'Home';
+const exploreURL = '/explore';
+const exploreTitle = 'Explore';
+
 
 const navRoutes = [
-  makeRouteObject(prefix, homeURL, Home, true, homeTitle),
-  makeRouteObject(prefix, aboutURL, About, true, aboutTitle),
+  makeRouteObject(prefix, exploreURL, Explore, exactTrue, exploreTitle),
+
 ];
 
 export default navRoutes;
