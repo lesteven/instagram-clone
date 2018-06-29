@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+//import query from './db';
+//query();
+
+import query from './db';
+query();
 
 // serve static files
 app.use(express.static('dist'));
