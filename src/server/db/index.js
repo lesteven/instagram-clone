@@ -5,8 +5,7 @@ import { pg } from '../../../config';
 const pool = new Pool(pg);
 
 const query = async () => {
-  const data = await pool.query('SELECT NOW()');
-  console.log(data);
-}
+  await pool.query('SELECT NOW()');
+};
 
 export default query;

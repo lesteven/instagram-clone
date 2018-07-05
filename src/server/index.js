@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import { handleRender } from './ssr/ssrFunctions';
 import testRouter from './publicRoutes/testRouter';
+import { errorMount } from './routes/errorExample';
 
 
 const app = express();
@@ -15,11 +16,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-//import query from './db';
-//query();
-
-import query from './db';
-query();
 
 // serve static files
 app.use(express.static('dist'));
@@ -31,6 +27,7 @@ app.use('/test', testRouter);
 // react
 app.use(handleRender);
 
+errorMount(app);
 
 if (app.get('env') === 'development') {
   console.log('Development mode!');

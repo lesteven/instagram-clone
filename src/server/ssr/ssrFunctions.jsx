@@ -47,7 +47,7 @@ export function renderFullPage(html, preloadedState) {
 }
 
 
-export async function getData(req, res) {
+export async function hydrateClient(req, res) {
   const store = configureStore();
 
   const { component, foundPath } = findComponent(req);
@@ -74,7 +74,7 @@ export function sendError(res) {
 
 export function handleRender(req, res) {
   try {
-    getData(req, res);
+    hydrateClient(req, res);
   }
   catch (e) {
     sendError(res);
