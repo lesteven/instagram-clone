@@ -1,8 +1,8 @@
 import express from 'express';
 import { handleRender } from './ssr/ssrFunctions';
 import serverSetup from './setup/serverSetup';
-import mountPublicRoutes from './routes/mountPublicRoutes';
-import mountPrivateRoutes from './routes/mountPrivateRoutes';
+import publicRoutes from './routes/publicRoutes';
+import privateRoutes from './routes/privateRoutes';
 import handleError from './routes/errorExample';
 
 
@@ -10,8 +10,8 @@ const app = express();
 
 serverSetup(app);
 
-mountPublicRoutes(app);
-mountPrivateRoutes(app);
+app.use('/api', publicRoutes);
+app.use('/api', privateRoutes);
 
 handleError(app);
 
