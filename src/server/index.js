@@ -1,33 +1,23 @@
 import express from 'express';
-import morgan from 'morgan';
-import bodyParser from 'body-parser';
-import helmet from 'helmet';
 import { handleRender } from './ssr/ssrFunctions';
-import testRouter from './publicRoutes/testRouter';
-import { errorMount } from './routes/errorExample';
+import serverSetup from './setup/serverSetup';
+import mountPublicRoutes from './routes/mountPublicRoutes';
+import mountPrivateRoutes from './routes/mountPrivateRoutes';
+import handleError from './routes/errorExample';
 
 
 const app = express();
-app.use(helmet());
-app.use(morgan('dev'));
 
-app.use(bodyParser.urlencoded({
-  extended: true,
-}));
-app.use(bodyParser.json());
+serverSetup(app);
 
+mountPublicRoutes(app);
+mountPrivateRoutes(app);
 
-// serve static files
-app.use(express.static('dist'));
-app.use(express.static('imgs'));
-
-// api
-app.use('/test', testRouter);
+handleError(app);
 
 // react
 app.use(handleRender);
 
-errorMount(app);
 
 if (app.get('env') === 'development') {
   console.log('Development mode!');

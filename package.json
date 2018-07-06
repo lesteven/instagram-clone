@@ -9,7 +9,7 @@
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src",
-    "fix-lint": "eslint src --fix",
+    "lint-fix": "eslint src --fix",
     "test": "jest src --watch",
     "cov-js": "jest --collectCoverageFrom=src/**.js --coverage",
     "cov-jsx": "jest --collectCoverageFrom=src/**.jsx --coverage"

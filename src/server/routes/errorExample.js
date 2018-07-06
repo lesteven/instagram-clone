@@ -1,19 +1,16 @@
 import fs from 'fs';
 
 
-export const errorMount = app => {
-  app.get('/err', (req, res, next) => {
+const handleError = (app) => {
+  app.get('/err', (req, res) => {
     try {
       throw Error('there was an error!');
-    } 
-
-  catch (e) {
-      next(e);
-//      res.send('error alert!');
+    } catch (e) {
+      res.send('error alert!');
     }
   });
 
-  
+
   app.get('/async', (req, res, next) => {
     fs.readFile('lala', (err, data) => {
       if (err) {
@@ -23,8 +20,10 @@ export const errorMount = app => {
       }
     });
   });
-  
+
   app.use((err, req, res, next) => {
     res.send('error handled!');
   });
-}
+};
+
+export default handleError;
