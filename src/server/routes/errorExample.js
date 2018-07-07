@@ -22,6 +22,7 @@ const handleError = (app) => {
   });
 
   app.use((err, req, res, next) => {
+    console.log(err);
     res.send('error handled!');
   });
 };
