@@ -10,9 +10,10 @@ import request from 'supertest';
 import React from 'react';
 import * as testSetup from '../../../test-setup.js';
 import { render, shallow } from 'enzyme';
+import app from '../tests/app';
+
 
 const errorMsg = 'there was an error';
-const serverErr = 500;
 
 const handleFail = (req, res) => {
   try {
@@ -23,23 +24,23 @@ const handleFail = (req, res) => {
   }
 }
 
-const appFail = express();
-const appSuccess= express();
+const ssrSuccess = '/ssrSuccess';
+const ssrFail = '/ssrFail';
 
-appFail.use(handleFail);
-appSuccess.use(handleRender);
+app.get(ssrFail, handleFail);
+app.get(ssrSuccess, handleRender);
 
 describe('handleRender', () => {
-  it('should return error', () => {
-    return request(appFail)
-      .get('/')
-      .expect(serverErr)
-      .expect(errorMsg);
+  it('should return error', (done) => {
+    return request(app)
+      .get(ssrFail)
+      .expect(500)
+      .expect(errorMsg, done);
   })
-  it('should return success', () => {
-    return request(appSuccess)
-      .get('/')
-      .expect(200);
+  it('should return success', (done) => {
+    return request(app)
+      .get(ssrSuccess)
+      .expect(200, done);
   });
 });
 
