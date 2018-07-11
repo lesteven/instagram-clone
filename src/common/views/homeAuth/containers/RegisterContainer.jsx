@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PassportRegister from '../components/PassportRegister';
 import { registerAC } from 
-  '../../../reduxModules/registerModule/registerModule';
+  '../../../redux/registerModule/registerModule';
 
 
 const mapStateToProps = ({ register }) => ({

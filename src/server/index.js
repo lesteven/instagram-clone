@@ -4,7 +4,6 @@ import serverSetup from './setup/serverSetup';
 import publicRoutes from './routes/publicRoutes';
 import privateRoutes from './routes/privateRoutes';
 import handleError from './routes/errorRoutes';
-import { queryNow, test } from './db/dbQueries';
 
 const app = express();
 

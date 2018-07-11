@@ -1,6 +1,6 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
-import { queryNow, clientQuery } from '../../db/dbQueries';
+import { queryNow, multQuery } from '../../db/dbQueries';
 
 const userRegister = express.Router();
 
@@ -9,9 +9,8 @@ userRegister.route('/')
   .get(asyncWrap(async (req, res, next) => {
     // throw new Error('error alert!');
     const date = await queryNow();
-    res.json({ date: date }); 
+    res.json({ date });
   }));
-
 
 
 userRegister.route('/hey')
@@ -20,15 +19,9 @@ userRegister.route('/hey')
     const query = 'SELECT NOW()';
     const queryArr = [query, query];
 
-    const data = await clientQuery(queryArr)
-/*
-      .then(
-        (data) => res.json({ data }),
-        (err) => res.json({err: err.message})
-      )
-*/
-    res.json({data});
-  }))
+    const data = await multQuery(queryArr);
+    res.json({ data });
+  }));
 
 
 export default userRegister;

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { StaticRouter as Router } from 'react-router';
 import serialize from 'serialize-javascript';
 import App from '../../common/App';
-import configureStore from '../../common/configureStore';
+import configureStore from '../../common/redux/configureStore';
 import findComponent from './findComponent';
 
 
