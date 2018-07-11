@@ -10,8 +10,11 @@ userRegister.route('/')
     // throw new Error('error alert!');
     const date = await queryNow();
     res.json({ date });
-  }));
+  }))
+  
+  .post(asyncWrap(async (req, res, next) => {
 
+  }));
 
 userRegister.route('/hey')
 

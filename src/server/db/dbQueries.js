@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 import { pg } from '../../../config';
 
-const pool = new Pool(pg);
+export const pool = new Pool(pg);
 
 export const mappedQueries = (client, arr) => {
   const queries = arr.map(text => client.query(text));

@@ -8,7 +8,7 @@ import {
 import express from 'express';
 import request from 'supertest';
 import React from 'react';
-import * as testSetup from '../../../test-setup.js';
+import * as testSetup from '../../../tests/test-setup.js';
 import { render, shallow } from 'enzyme';
 import app from '../tests/app';
 
