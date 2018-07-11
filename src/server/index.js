@@ -1,27 +1,21 @@
 import express from 'express';
-import morgan from 'morgan';
-import bodyParser from 'body-parser';
-import helmet from 'helmet';
 import { handleRender } from './ssr/ssrFunctions';
-import testRouter from './publicRoutes/testRouter';
-
+import serverSetup from './setup/serverSetup';
+import passportSetup from './setup/passportSetup';
+import publicRoutes from './routes/publicRoutes';
+import privateRoutes from './routes/privateRoutes';
+import handleError from './routes/errorRoutes';
 
 const app = express();
-app.use(helmet());
-app.use(morgan('dev'));
 
-app.use(bodyParser.urlencoded({
-  extended: true,
-}));
-app.use(bodyParser.json());
+serverSetup(app);
+//passportSetup(app);
 
+const api = '/api';
+app.use(api, publicRoutes);
+app.use(api, privateRoutes);
 
-// serve static files
-app.use(express.static('dist'));
-app.use(express.static('imgs'));
-
-// api
-app.use('/test', testRouter);
+handleError(app);
 
 // react
 app.use(handleRender);

@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { view } from './reduxModules/viewModule/viewModule';
-import { register } from './reduxModules/registerModule/registerModule';
+import { view } from './viewModule/viewModule';
+import { register } from './registerModule/registerModule';
 
 
 export const reducers = combineReducers({

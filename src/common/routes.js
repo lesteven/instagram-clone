@@ -2,7 +2,7 @@ import makeRouteObject from './utils/makeRouteObject';
 import Home from './views/homeAuth/Home';
 import About from './views/about/About';
 import Accounts from './views/accounts/Accounts';
-import PageTemplate from './views/pageTemplate/PageTemplate';
+import MainTemplate from './views/mainTemplate/MainTemplate';
 
 const prefix = '';
 const exactTrue = true;
@@ -46,7 +46,7 @@ const routes = {
     makeRouteObject(
       prefix,
       templateURL,
-      PageTemplate,
+      MainTemplate,
       exactFalse,
       templateTitle,
     ),

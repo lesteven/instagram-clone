@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './app.css';
+import styles from './views/sharedCss/app.css';
 import { withRouter } from 'react-router-dom';
 import routes from './routes';
 import MappedRoutes from './views/generalComponents/MappedRoutes';

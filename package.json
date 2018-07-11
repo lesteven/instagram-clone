@@ -9,7 +9,7 @@
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src",
-    "fix-lint": "eslint src --fix",
+    "lint-fix": "eslint src --fix",
     "test": "jest src --watch",
     "cov-js": "jest --collectCoverageFrom=src/**.js --coverage",
     "cov-jsx": "jest --collectCoverageFrom=src/**.jsx --coverage"
@@ -53,7 +53,9 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "connect-pg-simple": "^5.0.0",
     "draft-js": "^0.10.5",
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
@@ -64,6 +66,7 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "pg": "^7.4.3",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
