@@ -1,6 +1,6 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
-import { queryNow } from '../../db/dbQueries';
+import { queryNow, clientQuery } from '../../db/dbQueries';
 
 const userRegister = express.Router();
 
@@ -13,22 +13,22 @@ userRegister.route('/')
   }));
 
 
-userRegister.route('/test')
 
-  .get((req, res, next) => {
-  //  const date  = queryNow()
-    function test(x) {
-      return new Promise(resolve => {
-        setTimeout(()=>resolve(x), 2000)
-      })
-    }
+userRegister.route('/hey')
 
-    test(100)
-    .then(data => { 
-      res.json({ date: data }); 
-    }) 
+  .get(asyncWrap(async (req, res, next) => {
+    const query = 'SELECT NOW()';
+    const queryArr = [query, query];
 
-  });
+    const data = await clientQuery(queryArr)
+/*
+      .then(
+        (data) => res.json({ data }),
+        (err) => res.json({err: err.message})
+      )
+*/
+    res.json({data});
+  }))
 
 
 export default userRegister;

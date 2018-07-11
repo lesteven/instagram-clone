@@ -1,9 +1,11 @@
 import fs from 'fs';
 
+const errMsg = `there was an error`;
 const handleError = (app) => {
 
   app.use((err, req, res, next) => {
-    res.json({ [req.url]: 'there was an error'});
+    console.log(err);
+    res.json({ [req.url]: errMsg });
   });
 };
 

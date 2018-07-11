@@ -13,3 +13,17 @@ export const query = (text, params) => {
   pool.query(text, params);
 };
 
+export const clientQuery = async (textArr, params) => {
+  const client = await pool.connect();
+  const queries = mappedQueries(client, textArr);
+
+  const data = await Promise.all(queries); 
+  
+  client.release();
+  return data;
+} 
+
+
+export const mappedQueries = (client, arr) => {
+  return arr.map(text => Promise.resolve(client.query(text)))
+}
