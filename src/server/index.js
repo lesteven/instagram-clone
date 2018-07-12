@@ -6,10 +6,12 @@ import publicRoutes from './routes/publicRoutes';
 import privateRoutes from './routes/privateRoutes';
 import handleError from './routes/errorRoutes';
 
+const debug = require('debug')('http');
+
 const app = express();
 
 serverSetup(app);
-//passportSetup(app);
+passportSetup(app);
 
 const api = '/api';
 app.use(api, publicRoutes);
@@ -22,9 +24,9 @@ app.use(handleRender);
 
 
 if (app.get('env') === 'development') {
-  console.log('Development mode!');
+  debug('Development mode!');
 } else {
-  console.log('Production mode!');
+  debug('Production mode!');
 }
 
 

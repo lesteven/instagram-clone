@@ -19,15 +19,17 @@ const inputData = [
 
 
 class PassportRegister extends Component {
-  mappedInputData = () => 
-    inputData.map(e => 
+  mappedInputData = () => { 
+    return inputData.map(e => 
       <input 
-        key = {e.name}
-        type = {e.type} 
-        placeholder = {e.placeHolder}
-        onChange = { () => console.log('hello')}
+        key = { e.name }
+        type = { e.type } 
+        placeholder = { e.placeHolder }
+        onChange = { () => console.log('hello') }
       />
     )
+  }
+
   render() {
   const { registerAC } = this.props;
     return(

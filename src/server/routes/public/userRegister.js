@@ -2,6 +2,9 @@ import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
 import { queryNow, multQuery } from '../../db/dbQueries';
 
+const debug = require('debug')('http');
+
+
 const userRegister = express.Router();
 
 userRegister.route('/')
@@ -11,9 +14,10 @@ userRegister.route('/')
     const date = await queryNow();
     res.json({ date });
   }))
-  
-  .post(asyncWrap(async (req, res, next) => {
 
+  .post(asyncWrap(async (req, res, next) => {
+    debug('reached post!');
+    res.send('hello!');
   }));
 
 userRegister.route('/hey')

@@ -4,7 +4,7 @@ import Explore from './explore/Explore';
 
 const prefix = '/template';
 const exactTrue = true;
-const exactFalse = false;
+// const exactFalse = false;
 
 const exploreURL = '/explore';
 const exploreTitle = 'Explore';

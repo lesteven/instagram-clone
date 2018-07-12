@@ -5,7 +5,7 @@
   "main": "./src/server/server.js",
   "scripts": {
     "client": "webpack-dev-server --hot --config ./webpacks/wp.clientDev.js",
-    "server": "nodemon src/server/server --exec babel-node",
+    "server": "DEBUG=http nodemon src/server/server --exec babel-node",
     "build-serv": " webpack --config ./webpacks/wp.serverProd.js",
     "build-client": " webpack --config ./webpacks/wp.clientProd.js",
     "lint": "eslint src",
@@ -30,6 +30,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.11",
+    "debug": "^3.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
