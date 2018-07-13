@@ -1,7 +1,7 @@
 const registerAct = 'redux/register/LOGIN';
 
 export const registerAC = inputData => ({
-  registerAct,
+  type: registerAct,
   inputData,
 });
 

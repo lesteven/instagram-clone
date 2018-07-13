@@ -1,20 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import styles from './css/passportRegister.css';
-
+import preventDefault from '../../../utils/preventDefault';
+import createInputObject from '../../../utils/createInputObject';
 
 const text = 'text';
 
-const inputObject = (type, name, placeHolder) => ({
-  type,
-  name,
-  placeHolder,
-})
-
 const inputData = [
-  inputObject(text, 'email', 'Email'),
-  inputObject(text, 'name', 'Full Name'),
-  inputObject(text, 'username', 'Username'),
-  inputObject('password', 'password', 'Password'),
+  createInputObject(text, 'email', 'Email'),
+  createInputObject(text, 'name', 'Full Name'),
+  createInputObject(text, 'username', 'Username'),
+  createInputObject('password', 'password', 'Password'),
 ]
 
 
@@ -29,11 +24,14 @@ class PassportRegister extends Component {
       />
     )
   }
-
+  submit = preventDefault(() => {
+      const { registerUser } = this.props;
+      registerUser({test:'hello'});
+  })
   render() {
-  const { registerAC } = this.props;
     return(
-      <form onSubmit = { registerAC } className='register-form'>
+      <form onSubmit = { this.submit } 
+        className='register-form'>
         { this.mappedInputData() }
         <input type = 'submit' value = 'Sign up' />
       </form>

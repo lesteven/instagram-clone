@@ -17,7 +17,7 @@ userRegister.route('/')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('reached post!');
-    res.send('hello!');
+    res.json({ data: 'hello!' });
   }));
 
 userRegister.route('/hey')

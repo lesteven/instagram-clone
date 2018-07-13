@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import PassportRegister from '../components/PassportRegister';
-import { registerAC } from 
-  '../../../redux/registerModule/registerModule';
-
+import registerUser from '../../../redux/registerModule/registerFunctions';
 
 const mapStateToProps = ({ register }) => ({
   register,
 })
 
 const mapDispatchToProps = {
-  registerAC
+  registerUser
 }
 
 const PpRegisterContainer = 
