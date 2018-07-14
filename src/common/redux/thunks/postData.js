@@ -1,18 +1,29 @@
+import { jsonError, serverError } from '../errorModule/errorModule';
 
-export const postData = (url, method, data) => fetch(url, {
+export const post = (url, method, data) => fetch(url, {
   method,
   credentials: 'same-origin',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(data),
 });
 
-export const asyncPostData =
-  async (dispatch, action, url, method, data) => {
-    const response = await postData(url, method, data)
-      .catch(() => console.log('post err'));
 
-    const json = await response.json()
-      .catch(() => console.log('json err'));
+const jsonErrMsg = 'failed to process data';
 
+
+const handleJson = (dispatch, action, url, json) => {
+  if (json.success) {
     dispatch(action(json));
-  };
+  } else {
+    dispatch(serverError(url, json));
+  }
+};
+
+export const postData = (dispatch, action, url, method, data) => {
+  post(url, method, data)
+    .then(res => res.json())
+    .then(
+      json => handleJson(dispatch, action, url, json),
+      () => dispatch(jsonError(url, jsonErrMsg)),
+    );
+};

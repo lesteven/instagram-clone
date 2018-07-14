@@ -12,6 +12,7 @@ const inputData = [
   createInputObject('password', 'password', 'Password'),
 ]
 
+const url = '/api/register';
 
 class PassportRegister extends Component {
   mappedInputData = () => { 
@@ -26,7 +27,7 @@ class PassportRegister extends Component {
   }
   submit = preventDefault(() => {
       const { registerUser } = this.props;
-      registerUser({test:'hello'});
+      registerUser(url, {test:'hello'});
   })
   render() {
     return(

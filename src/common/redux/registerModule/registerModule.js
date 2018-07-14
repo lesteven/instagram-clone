@@ -1,8 +1,8 @@
-const registerAct = 'redux/register/LOGIN';
+const REGISTERED = 'register/REGISTERED';
 
-export const registerAC = inputData => ({
-  type: registerAct,
-  inputData,
+export const registerAC = success => ({
+  type: REGISTERED,
+  success,
 });
 
 const initialState = {
@@ -11,6 +11,11 @@ const initialState = {
 
 export const register = (state = initialState, action) => {
   switch (action.type) {
+    case REGISTERED:
+      return {
+        ...state,
+        ...action.success,
+      };
     default:
       return state;
   }

@@ -2,11 +2,13 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { view } from './viewModule/viewModule';
 import { register } from './registerModule/registerModule';
+import { error } from './errorModule/errorModule';
 
 
 export const reducers = combineReducers({
   view,
   register,
+  error,
 });
 
 
