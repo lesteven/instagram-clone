@@ -9,7 +9,7 @@ const inputData = [
   createInputObject(text, 'name', 'Full Name'),
   createInputObject(text, 'username', 'Username'),
   createInputObject('password', 'password', 'Password'),
-]
+];
 
 // for react state data
 export const inputState = arrToState(inputData);
@@ -18,3 +18,4 @@ export function mappedInput() {
   const boundMap = mapInput.bind(this);
   return boundMap(inputData);
 }
+
