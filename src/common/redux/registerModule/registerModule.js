@@ -1,9 +1,13 @@
+import createInputObject from '../../utils/createInputObject';
+
+
 const REGISTERED = 'register/REGISTERED';
 
 export const registerAC = success => ({
   type: REGISTERED,
   success,
 });
+
 
 const initialState = {
   status: false,

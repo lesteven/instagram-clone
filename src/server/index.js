@@ -14,7 +14,7 @@ serverSetup(app);
 passportSetup(app);
 
 const api = '/api';
-const notFound = `${api}/*`;
+const notFound = '/api/*';
 
 app.use(api, publicRoutes);
 app.use(api, privateRoutes);

@@ -1,39 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import styles from './css/passportRegister.css';
-import preventDefault from '../../../utils/preventDefault';
-import createInputObject from '../../../utils/createInputObject';
 
-const text = 'text';
 
-const inputData = [
-  createInputObject(text, 'email', 'Email'),
-  createInputObject(text, 'name', 'Full Name'),
-  createInputObject(text, 'username', 'Username'),
-  createInputObject('password', 'password', 'Password'),
-]
 
-const url = '/api/register';
 
 class PassportRegister extends Component {
-  mappedInputData = () => { 
-    return inputData.map(e => 
-      <input 
-        key = { e.name }
-        type = { e.type } 
-        placeholder = { e.placeHolder }
-        onChange = { () => console.log('hello') }
-      />
-    )
-  }
-  submit = preventDefault(() => {
-      const { registerUser } = this.props;
-      registerUser(url, {test:'hello'});
-  })
   render() {
+  const { submit } = this.props;
     return(
-      <form onSubmit = { this.submit } 
+      <form onSubmit = { submit } 
         className='register-form'>
-        { this.mappedInputData() }
+        { this.props.children }
         <input type = 'submit' value = 'Sign up' />
       </form>
     )
