@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import { view } from './viewModule/viewModule';
 import { register } from './registerModule/registerModule';
 import { error } from './errorModule/errorModule';
+import { userActions } from './userModule/userModule';
 
 
 export const reducers = combineReducers({
   view,
+  userActions,
   register,
   error,
 });
