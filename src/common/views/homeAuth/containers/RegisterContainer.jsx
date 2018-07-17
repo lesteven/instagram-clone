@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PassportRegister from '../components/PassportRegister';
-import { registerUser } from '../../../redux/registerModule/registerFunctions';
+import registerUser from '../../../redux/registerModule/registerFunctions';
 import handleChange from '../inputData/handleInputChange';
 import { inputState, mappedInput } from '../inputData/registerInput';
 

@@ -1,6 +1,8 @@
 import express from 'express';
+import passport from 'passport';
 import asyncWrap from '../../utils/asyncWrap';
 import { queryNow, multQuery } from '../../db/dbQueries';
+import regStrategy from '../../utils/regStrategy';
 
 const debug = require('debug')('http');
 
@@ -17,9 +19,9 @@ userRegister.route('/')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('reached post!');
-    debug(req.body);
-    res.json({ success: 'user registered!' });
-    // res.json('user already exist');
+    debug('req.body:', req.body);
+    regStrategy(passport, res); 
+    passport.authenticate('register')(req, res, next);
   }));
 
 userRegister.route('/hey')

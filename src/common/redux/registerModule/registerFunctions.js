@@ -1,11 +1,19 @@
 import { registerAC } from './registerModule';
-import { postData } from '../thunks/postData';
-import preventDefault from '../../utils/preventDefault';
+import { post, postAction } from '../thunks/postData';
+import { checkJson } from '../../utils/sanitizeData';
+import { inputError } from '../errorModule/errorModule';
 
 
-const url = '/api/register';
-
-export const registerUser = (url, data) => (dispatch) => {
-  postData(dispatch, registerAC, url, 'POST', data);
+const registerUser = (url, data) => (dispatch) => {
+  const validJson = checkJson(data); 
+  if (validJson) {
+    const postData = post(url, 'POST', data);
+    postAction(dispatch, postData, registerAC, url);
+  }
+  else {
+    const errorMsg = 'all fields are required';
+    dispatch(inputError(url, errorMsg));
+  }
 };
 
+export default registerUser;
