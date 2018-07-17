@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PassportRegister from '../components/PassportRegister';
-import { registerUser, testRegister } from '../../../redux/registerModule/registerFunctions';
-import preventDefault from '../../../utils/preventDefault';
-import handleChange from '../../../utils/handleInputChange';
+import { registerUser } from '../../../redux/registerModule/registerFunctions';
+import handleChange from '../inputData/handleInputChange';
 import { inputData, inputState } from '../inputData/registerInput';
 
 
+const url = '/api/register';
 
 class RegisterContainer extends Component {
   constructor(props) {
@@ -28,14 +28,14 @@ class RegisterContainer extends Component {
       />
     )
   }
-  submit = preventDefault(() => {
+  submit = (e)  => {
+    e.preventDefault();
     const { registerUser } = this.props;
-    registerUser(url, {test:'hello'});
-  })
-  testSubmit = testRegister(this.props);
+    registerUser(url, this.state);
+  }
   render() {
     return (
-      <PassportRegister submit = { this.testSubmit }>
+      <PassportRegister submit = { this.submit }>
         { this.mappedInputData() }
       </PassportRegister>
     )

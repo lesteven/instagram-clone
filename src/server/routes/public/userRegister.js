@@ -17,6 +17,7 @@ userRegister.route('/')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('reached post!');
+    debug(req.body);
     res.json({ success: 'user registered!' });
     // res.json('user already exist');
   }));
