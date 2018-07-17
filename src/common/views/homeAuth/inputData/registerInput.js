@@ -1,21 +1,20 @@
 import createInputObject from '../../../utils/createInputObject';
-
+import { arrToState, mapInput } from './transformArray';
 
 const text = 'text';
 
-export const inputData = [
+// data to map to jsx
+const inputData = [
   createInputObject(text, 'email', 'Email'),
   createInputObject(text, 'name', 'Full Name'),
   createInputObject(text, 'username', 'Username'),
   createInputObject('password', 'password', 'Password'),
 ]
 
-const filterName = object => object.name;
-const inputArr = inputData.map(filterName);
+// for react state data
+export const inputState = arrToState(inputData);
 
-const turnToObject = (acc, value) => {
-  acc[value] = '';
-  return acc;
+export function mappedInput() {
+  const boundMap = mapInput.bind(this);
+  return boundMap(inputData);
 }
-
-export const inputState = inputArr.reduce(turnToObject, {});

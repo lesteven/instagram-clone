@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PassportRegister from '../components/PassportRegister';
 import { registerUser } from '../../../redux/registerModule/registerFunctions';
 import handleChange from '../inputData/handleInputChange';
-import { inputData, inputState } from '../inputData/registerInput';
+import { inputState, mappedInput } from '../inputData/registerInput';
 
 
 const url = '/api/register';
@@ -13,21 +13,12 @@ class RegisterContainer extends Component {
     super(props);
     this.state = inputState;
     this.handleChange = this.handleChange.bind(this);
+    this.mappedInputData = this.mappedInputData.bind(this);
   }
   handleChange = handleChange;
-  inputData = inputData;
-  mappedInputData = () => { 
-    return this.inputData.map(e => 
-      <input 
-        key = { e.name }
-        name = { e.name }
-        type = { e.type } 
-        value = { this.state[e.name] }
-        placeholder = { e.placeHolder }
-        onChange = { this.handleChange }
-      />
-    )
-  }
+
+  mappedInputData = mappedInput;
+
   submit = (e)  => {
     e.preventDefault();
     const { registerUser } = this.props;
