@@ -25,16 +25,22 @@ class RegisterContainer extends Component {
     registerUser(url, this.state);
   }
   render() {
+  const error = this.props.error[url];
+  const { register } = this.props;
     return (
-      <PassportRegister submit = { this.submit }>
+      <PassportRegister 
+        error = { error }
+        submit = { this.submit }
+        success = { register.success } >
         { this.mappedInputData() }
       </PassportRegister>
     )
   }
 }
 
-const mapState = ({ register }) => ({
+const mapState = ({ register, error }) => ({
   register,
+  error,
 })
 
 const mapDispatch = {

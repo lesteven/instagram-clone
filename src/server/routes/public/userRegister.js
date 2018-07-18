@@ -20,6 +20,7 @@ userRegister.route('/')
   .post(asyncWrap(async (req, res, next) => {
     debug('reached post!');
     debug('req.body:', req.body);
+
     regStrategy(passport, res); 
     passport.authenticate('register')(req, res, next);
   }));

@@ -42,8 +42,6 @@ export const error = (state = initialState, action) => {
         [action.url]: action.errMsg,
       };
     case CLEAR:
-      console.log(state);
-      console.log(action.url);
       const { [action.url]: removed,  ...rest } = state;
       return {
         ...rest,
