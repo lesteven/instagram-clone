@@ -37,4 +37,3 @@ export const postAction = (dispatch, postFn, action, url) => {
       () => dispatch(jsonError(url, jsonErrMsg)),
     );
 };
-

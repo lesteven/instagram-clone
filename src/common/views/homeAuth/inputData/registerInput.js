@@ -18,4 +18,3 @@ export function mappedInput() {
   const boundMap = mapInput.bind(this);
   return boundMap(inputData);
 }
-

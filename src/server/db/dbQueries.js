@@ -24,4 +24,3 @@ export const multQuery = async (textArr, params) => {
 
   return data;
 };
-

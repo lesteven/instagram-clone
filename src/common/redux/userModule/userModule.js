@@ -14,4 +14,3 @@ export const userActions = (state = {}, action) => {
       return state;
   }
 };
-
