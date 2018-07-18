@@ -6,14 +6,12 @@ import {
 import { postAC } from '../userModule/userModule';
 
 
-export const post = (url, method, data) => () => {
-  return fetch(url, {
-    method,
-    credentials: 'same-origin',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  });
-}
+export const post = (url, method, data) => () => fetch(url, {
+  method,
+  credentials: 'same-origin',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data),
+});
 
 
 const jsonErrMsg = 'failed to process data';
@@ -39,5 +37,4 @@ export const postAction = (dispatch, postFn, action, url) => {
       () => dispatch(jsonError(url, jsonErrMsg)),
     );
 };
-
 

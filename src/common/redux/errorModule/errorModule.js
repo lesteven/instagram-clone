@@ -16,7 +16,7 @@ const errorWrap = actionCreator => (url, errMsg) => ({
 export const clearError = url => ({
   type: CLEAR,
   url,
-})
+});
 
 
 export const jsonError = errorWrap(JSON_ERR);
@@ -41,11 +41,12 @@ export const error = (state = initialState, action) => {
         ...state,
         [action.url]: action.errMsg,
       };
-    case CLEAR:
-      const { [action.url]: removed,  ...rest } = state;
+    case CLEAR: {
+      const { [action.url]: removed, ...rest } = state;
       return {
         ...rest,
-      }
+      };
+    }
     default:
       return state;
   }

@@ -21,7 +21,7 @@ userRegister.route('/')
     debug('reached post!');
     debug('req.body:', req.body);
 
-    regStrategy(passport, res); 
+    regStrategy(passport, res);
     passport.authenticate('register')(req, res, next);
   }));
 

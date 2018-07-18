@@ -1,13 +1,17 @@
-
-export const sanitizeData = object =>{
-  for (const key in object) {
-    console.log(object[key]);
+/*
+export const sanitizeData = (object) => {
+  const keys = Object.keys(object);
+  for (let i = 0; i < keys.length; i += 1) {
+    object[keys[i]];
   }
-}
-
-export const checkJson = object => {
-  for (const key in object) {
-    if (object[key] === '') return false;
+};
+*/
+export const checkJson = (object) => {
+  const keys = Object.keys(object);
+  for (let i = 0; i < keys.length; i += 1) {
+    if (object[keys[i]] === '') return false;
   }
   return true;
-}
+};
+
+export const sanitizeData = 'hello';

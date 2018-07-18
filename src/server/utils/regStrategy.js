@@ -7,13 +7,13 @@ const registerUser = (passport, res) => {
     {
       passReqToCallback: true,
     },
-    (req, username, password, done) => {
+    ((req) => {
       debug('req.body:', req.body);
-//      res.json({ failed: 'testing'});
-      res.json({success: 'testing'});
-    }
+      //      res.json({ failed: 'testing'});
+      res.json({ success: 'testing' });
+    }),
 
-  ))
-}
+  ));
+};
 
 export default registerUser;
