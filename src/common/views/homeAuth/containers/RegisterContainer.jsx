@@ -4,7 +4,6 @@ import PassportRegister from '../components/PassportRegister';
 import registerUser from '../../../redux/registerModule/registerFunctions';
 import handleChange from '../inputData/handleInputChange';
 import { inputState, mappedInput } from '../inputData/registerInput';
-import FlashMsg from '../../generalComponents/FlashMsg';
 import AllFlashMsgs from '../../generalComponents/AllFlashMsgs';
 import { reset } from '../inputData/resetState';
 
@@ -15,12 +14,10 @@ class RegisterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = inputState;
-    this.handleChange = this.handleChange.bind(this);
-    this.mappedInputData = this.mappedInputData.bind(this);
   }
-  handleChange = handleChange;
+  handleChange = handleChange.bind(this);
 
-  mappedInputData = mappedInput;
+  mappedInputData = mappedInput.bind(this);
 
   resetState = reset.bind(this)(inputState);
 

@@ -14,6 +14,8 @@ const inputData = [
 // for react state data
 export const inputState = arrToState(inputData);
 
+
+// bind function to class in order to map data 
 export function mappedInput() {
   const boundMap = mapInput.bind(this);
   return boundMap(inputData);
