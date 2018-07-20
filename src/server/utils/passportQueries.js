@@ -1,10 +1,13 @@
 import { query } from '../db/dbQueries';
 
-export function findUser(req) {
-  const string = 'SELECT * FROM users.credentials WHERE email = $1';
-  return query(string, [req.email]);
+const debug = require('debug')('http');
+
+
+export const userQueries = (string, key) => data => {
+  debug('inside userQueries!', data[key]);
+  debug(data);
+  return query(string, [data[key]]);
 }
 
-export function updateUser() {
-
-}
+const selectUser = 'SELECT * FROM users.credentials WHERE email = $1';
+export const findUser = userQueries(selectUser, 'email');

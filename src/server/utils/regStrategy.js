@@ -4,7 +4,11 @@ import { sendError, sendSuccess } from './serverResponse';
 
 const debug = require('debug')('http');
 
-const handleSuccess = (res, user) => {
+const insertUserIntoDB = (res, data) => {
+
+}
+
+const handleSuccess = (res, data, user) => {
   if (!user[0]) {
     return sendSuccess(res, 'user registered!')();
   }
@@ -19,12 +23,12 @@ const registerUser = (passport, res) => {
       debug('req.body:', req.body);
       // res.json({ failed: 'testing'});
 
-      const success = await findUser(req)
+      const success = await findUser(req.body)
         .catch(sendError(res, 500, 'error with query'));
 
 
       if (success) {
-        handleSuccess(res, success.rows);
+        handleSuccess(res, req.body, success.rows);
       }
     }),
 
