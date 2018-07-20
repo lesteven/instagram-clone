@@ -15,7 +15,7 @@ const inputData = [
 export const inputState = arrToState(inputData);
 
 
-// bind function to class in order to map data 
+// bind function to class in order to map data
 export function mappedInput() {
   const boundMap = mapInput.bind(this);
   return boundMap(inputData);
