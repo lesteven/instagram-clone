@@ -1,4 +1,4 @@
-import { turnToParamsArr, dataToString } from '../queryHelpers';
+import { turnToParamsArr, valuesPlaceholder } from '../queryHelpers';
 
 
 const userData = {
@@ -22,15 +22,16 @@ describe('turnToParamsArr', () => {
   }) 
 })
 
-describe('dataToString', () => {
+describe('valuesPlaceholder', () => {
   it('should turn to single value string', () => {
     const key = 'email';
-    const valueStr = `(${email})`;
-    expect(dataToString(key, userData)).toBe(valueStr);
+    const valueStr = '($1)';
+    expect(valuesPlaceholder(key, userData)).toBe(valueStr);
   })
   it('should turn to multi value string', () => {
     const keys = 'email,name,username,password';
-    const valueStr = `(${email},${name},${username},${password})`;
-    expect(dataToString(keys, userData)).toBe(valueStr);
+    const valueStr = '($1,$2,$3,$4)';
+    expect(valuesPlaceholder(keys, userData)).toBe(valueStr);
   })
 })
+

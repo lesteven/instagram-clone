@@ -21,3 +21,18 @@ export const dataToString = (keys, data) => {
   values += ')';
   return values;
 };
+
+export const valuesPlaceholder = (keys) => {
+  const keysArr = keys.split(',');
+  
+  let valuesPH = '(';
+  
+  for (let i = 1; i <= keysArr.length; i += 1) {
+    valuesPH += '$' + i;
+    if (i !== keysArr.length) {
+      valuesPH += ',';
+    }
+  }
+  valuesPH += ')';
+  return valuesPH;
+}
