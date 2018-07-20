@@ -1,15 +1,23 @@
 import Strategy from 'passport-local';
-import { findUser } from './passportQueries';
+import { findUser, insertUser } from './passportQueries';
 import { sendError, sendSuccess } from './serverResponse';
 
 const debug = require('debug')('http');
 
 const insertUserIntoDB = (res, data) => {
+  const hashedPw = 'salt and hash pw';
+  const userData = {
+    ...data,
+    password: hashedPw,
+  };
+  return insertUser(userData);
+};
 
-}
-
-const handleSuccess = (res, data, user) => {
-  if (!user[0]) {
+const handleUser = async (res, data, user) => {
+  const noUser = !user[0];
+  debug('noUser!', noUser);
+  if (noUser) {
+    //    await insertUserIntoDB(res, data);
     return sendSuccess(res, 'user registered!')();
   }
 
@@ -21,17 +29,15 @@ const registerUser = (passport, res) => {
     { passReqToCallback: true },
     (async (req) => {
       debug('req.body:', req.body);
-      // res.json({ failed: 'testing'});
 
-      const success = await findUser(req.body)
+      const finishedQuery = await findUser(req.body)
         .catch(sendError(res, 500, 'error with query'));
 
-
-      if (success) {
-        handleSuccess(res, req.body, success.rows);
+      if (finishedQuery) {
+        const data = finishedQuery.rows;
+        handleUser(res, req.body, data);
       }
     }),
-
   ));
 };
 
