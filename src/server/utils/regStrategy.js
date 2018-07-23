@@ -1,5 +1,5 @@
 import Strategy from 'passport-local';
-import { findUser, insertUser } from './passportQueries';
+import { checkAvailability, findUser, insertUser } from './passportQueries';
 import { sendError, sendSuccess } from './serverResponse';
 
 const debug = require('debug')('http');
@@ -17,7 +17,7 @@ const handleUser = async (res, data, user) => {
   const noUser = !user[0];
   debug('noUser!', noUser);
   if (noUser) {
-    //    await insertUserIntoDB(res, data);
+    await insertUserIntoDB(res, data);
     return sendSuccess(res, 'user registered!')();
   }
 
@@ -30,6 +30,7 @@ const registerUser = (passport, res) => {
     (async (req) => {
       debug('req.body:', req.body);
 
+/*
       const finishedQuery = await findUser(req.body)
         .catch(sendError(res, 500, 'error with query'));
 
@@ -37,6 +38,9 @@ const registerUser = (passport, res) => {
         const data = finishedQuery.rows;
         handleUser(res, req.body, data);
       }
+*/
+      const finishedQuery = await checkAvailability(req.body)
+        .catch(sendError(res, 500, 'error with query'));
     }),
   ));
 };

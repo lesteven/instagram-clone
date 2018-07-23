@@ -1,12 +1,6 @@
 import { turnToParamsArr, valuesPlaceholder } from '../queryHelpers';
+import userData from './sampleUserData';
 
-
-const userData = {
-  email: 'tester@gmail.com',
-  name: 'Ric Flair',
-  username: 'the_greatest',
-  password: 'unhashed_pw',
-}
 
 const { email, name, username, password } = userData;
 

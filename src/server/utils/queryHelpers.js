@@ -1,6 +1,9 @@
+const debug = require('debug')('http');
 
 // keys used to access data value. transform to param array
 export const turnToParamsArr = (keys, data) => {
+  debug('keys!!!!', keys);
+  
   const keysArr = keys.split(',');
   const paramArr = [];
   for (let i = 0; i < keysArr.length; i += 1) {
