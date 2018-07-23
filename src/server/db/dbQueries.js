@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import { pg } from '../../../config';
 
+const debug = require('debug')('http');
 export const pool = new Pool(pg);
 
 export const mappedQueries = (client, arr, params) => {
@@ -9,10 +10,12 @@ export const mappedQueries = (client, arr, params) => {
   for (let i = 0; i < arr.length; i++) {
     queries[i] = client.query(arr[i], params[i]); 
   }
- 
   return queries;
 };
 
+export const filterData = data => {
+  return data.map(result => result.rows)
+}
 
 export const queryNow = () => pool.query('SELECT NOW()');
 
@@ -27,5 +30,6 @@ export const multQuery = async (textArr, params) => {
       client.release();
     });
 
-  return data;
+  const filteredData = filterData(data); 
+  return filteredData;
 };

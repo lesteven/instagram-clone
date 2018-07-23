@@ -1,7 +1,14 @@
+const debug = require('debug')('http');
+
+
 export function sendError(res, status, message) {
-  return (() => res.status(status).json({
-    failed: message,
-  }));
+    
+  return ((err) => {
+    debug(err);
+    return res.status(status).json({
+      failed: message,
+    });
+  })
 }
 
 export function sendSuccess(res, message) {

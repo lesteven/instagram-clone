@@ -25,12 +25,14 @@ describe('make2Dparam', () => {
 
 describe('makeQueryArr', () => {
   const emailQuery = `SELECT * FROM ${db} WHERE email = $1`;
-  const userQuery = `SELECT * FROM ${db} WHERE username = $2`;
+  const userQuery = `SELECT * FROM ${db} WHERE username = $1`;
+
   it('should return 2d arr w/ 1 data point', () => {
     const key = 'email';
     const queryArr = [emailQuery];
     expect(makeQueryArr(key, userData)).toEqual(queryArr);
   })
+
   it('should return 2d arr w/ 2 data points', () => {
     const keys = 'email,username';
     const queryArr = [emailQuery, userQuery];

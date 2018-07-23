@@ -1,5 +1,6 @@
 import Strategy from 'passport-local';
-import { checkAvailability, findUser, insertUser } from './passportQueries';
+import { findUser, insertUser } from './passportQueries';
+import { checkAvailability } from './passportMultiQueries';
 import { sendError, sendSuccess } from './serverResponse';
 
 const debug = require('debug')('http');
@@ -41,6 +42,8 @@ const registerUser = (passport, res) => {
 */
       const finishedQuery = await checkAvailability(req.body)
         .catch(sendError(res, 500, 'error with query'));
+
+      debug('registerQuery', finishedQuery);
     }),
   ));
 };
