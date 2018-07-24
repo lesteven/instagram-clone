@@ -19,4 +19,6 @@ const toggleFlex = (size, display) => {
 };
 
 
-export { maxSize, showFlex, showBlock, toggleFlex };
+export {
+  maxSize, showFlex, showBlock, toggleFlex,
+};

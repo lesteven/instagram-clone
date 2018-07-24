@@ -11,4 +11,3 @@ accountSettings.route('/')
 
 
 export default accountSettings;
-

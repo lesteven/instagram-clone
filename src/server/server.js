@@ -1,9 +1,9 @@
 import app from './index';
 
+const debug = require('debug')('http');
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  debug(`Listening on port ${port}`);
 });
-
