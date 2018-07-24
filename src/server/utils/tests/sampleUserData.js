@@ -3,6 +3,6 @@ const userData = {
   name: 'Ric Flair',
   username: 'the_greatest',
   password: 'unhashed_pw',
-}
+};
 
 export default userData;
