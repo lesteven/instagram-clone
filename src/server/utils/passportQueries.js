@@ -1,27 +1,19 @@
 import { query } from '../db/dbQueries';
-import { turnToParamsArr, valuesPlaceholder } from './queryHelpers';
+import { turnToParamsArr } from './queryHelpers';
+import generateSqlInsert from './generateSql';
 
 const debug = require('debug')('http');
 
-const table = 'users.credentials';
+const userTable = 'users.credentials';
 
 export const userQueries = (sqlStr, keys) => (data) => {
   const params = turnToParamsArr(keys, data);
   return query(sqlStr, params);
 };
 
-export const generateSql = (table, insertKeys) => {
-
-  debug('insert keys!!', insertKeys);
-  const placeholder = valuesPlaceholder(insertKeys);
-  const insert = `INSERT INTO ${table}(${insertKeys})`;
-  const values = `VALUES${placeholder} RETURNING *`;
-  const insertSql = `${insert} ${values}`;
-  return insertSql;
-};
 
 const insert = (table, insertKeys) => (data) => {
-  const insertSql = generateSql(table, insertKeys);
+  const insertSql = generateSqlInsert(table, insertKeys);
   const params = turnToParamsArr(insertKeys, data);
 
   debug(insertSql);
@@ -35,4 +27,4 @@ export const findUser = userQueries(selectSql, 'email');
 
 
 const insertKeys = 'email,name,username,password';
-export const insertUser = insert(table, insertKeys);
+export const insertUser = insert(userTable, insertKeys);
