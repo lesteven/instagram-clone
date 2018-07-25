@@ -1,4 +1,4 @@
-import { query, multQuery } from '../db/dbQueries';
+import { query } from '../db/dbQueries';
 import { turnToParamsArr, valuesPlaceholder } from './queryHelpers';
 
 const debug = require('debug')('http');
@@ -8,16 +8,20 @@ export const userQueries = (sqlStr, keys) => (data) => {
   return query(sqlStr, params);
 };
 
-const insert = insertParam => (data) => {
-  const values = turnToParamsArr(insertParam, data);
-
+export const generateInsertSql = (insertParam) => {
   const placeholder = valuesPlaceholder(insertParam);
   const insertSql = `INSERT INTO users.credentials(${insertParam})
     VALUES${placeholder} RETURNING *`;
+  return insertSql;
+};
 
+const insert = insertParam => (data) => {
+  const insertSql = generateInsertSql(insertParam);
   const params = turnToParamsArr(insertParam, data);
+
   debug(insertSql);
   debug(params);
+
   return query(insertSql, params);
 };
 
