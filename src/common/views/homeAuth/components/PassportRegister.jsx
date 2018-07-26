@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import styles from './css/passportRegister.css';
 
 
@@ -15,5 +16,8 @@ class PassportRegister extends Component {
   }
 }
 
+PassportRegister.propTypes = {
+  submit: PropTypes.func.isRequired,
+};
 
 export default PassportRegister;
