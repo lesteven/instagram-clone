@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./wp.serverCommon');
+const common = require('./serverCommon');
 
 module.exports = merge(common, {
   mode: 'production'
