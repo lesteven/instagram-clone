@@ -18,7 +18,7 @@ const insertUserIntoDB = async (res, data) => {
 };
 
 
-const handleRequest = async (res, data, queriedData) => {
+export const handleRequest = async (res, data, queriedData) => {
   debug('queriedData!', queriedData);
   const email = queriedData[0][0];
   const user = queriedData[1][0];

@@ -2,8 +2,9 @@ import React from 'react';
 
 
 // transformation functions
-const filterName = object => object.name;
-const turnToObject = (acc, value) => {
+export const filterName = object => object.name;
+
+export const turnToObject = (acc, value) => {
   acc[value] = '';
   return acc;
 };

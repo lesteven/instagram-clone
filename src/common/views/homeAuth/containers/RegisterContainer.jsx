@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import PassportRegister from '../components/PassportRegister';
 import registerUser from '../../../redux/registerModule/registerFunctions';
 import handleChange from '../inputData/handleInputChange';
@@ -57,6 +58,13 @@ const mapState = ({ register, error }) => ({
 const mapDispatch = {
   registerUser
 }
+
+RegisterContainer.propTypes = {
+  register : PropTypes.object.isRequired,
+  error : PropTypes.object.isRequired,
+  registerUser: PropTypes.func.isRequired,
+}
+
 
 export default connect(mapState, mapDispatch)(RegisterContainer);
 

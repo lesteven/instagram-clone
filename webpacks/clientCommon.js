@@ -1,6 +1,6 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const common = require('./wp.common.js');
+const common = require('./common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const assetsPath = path.resolve(__dirname, '../dist');

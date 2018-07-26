@@ -1,6 +1,6 @@
 const preventDefault = fn => (e) => {
   e.preventDefault();
-  fn();
+  return fn();
 };
 
 export default preventDefault;
