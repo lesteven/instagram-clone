@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import Login from './Login';
+import loginUser from '../../../redux/loginModule/loginFunctions';
 
 
-/*
-const mapState = (state) => ({
-
+const mapState = ({ login, error}) => ({
+  login,
+  error,
 })
 
 const mapDispatch = (state) => ({
-
+  loginUser,
 })
-*/
-export default connect(null, null)(Login);
+
+
+export default connect(mapState, mapDispatch)(Login);

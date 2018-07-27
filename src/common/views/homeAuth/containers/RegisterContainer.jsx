@@ -1,6 +1,4 @@
-import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
-import AuthWrapper from './AuthWrapper';
 import Register from './Register';
 import registerUser from '../../../redux/registerModule/registerFunctions';
 

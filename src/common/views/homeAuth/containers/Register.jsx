@@ -15,11 +15,6 @@ function Register(props) {
     />
   )
 }
-/*
-    <AuthWrapper 
-      inputState = { inputState }
-      mappedInput = { mappedInput }
-      submitData = { submit }
-    />
-*/
+
+
 export default Register;
