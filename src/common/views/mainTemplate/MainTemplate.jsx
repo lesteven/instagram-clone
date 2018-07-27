@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import NavBar from '../navBar/NavBar';
-import navRoutes from '../navRoutes';
+import NavBar from './navBar/NavBar';
+import navRoutes from './navRoutes';
 import MappedRoutes from '../generalComponents/MappedRoutes';
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RegisterContainer from '../containers/RegisterContainer';
+import Title from './Title';
 import styles from './css/signUp.css'
 
 function PolicyAgreement() {
@@ -38,7 +39,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className = 'signup-wrapper'>
-        <h1 className = 'signup-logo'>Instagram</h1>
+        <Title />
         <h4> Sign up to see photos and videos from your friends </h4>
         <FacebookLogin />
         <Divider />

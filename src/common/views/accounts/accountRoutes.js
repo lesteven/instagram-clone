@@ -1,15 +1,20 @@
 import makeRouteObject from '../../utils/makeRouteObject';
 import LoginContainer from '../homeAuth/containers/LoginContainer';
-
+import NotFound from '../generalComponents/NotFound';
+import Foo from '../homeAuth/containers/Foo';
 
 const exactTrue = true;
 
 const prefix= '/accounts';
+
+const main = '';
+
 const login = '/login';
 const loginTitle = 'Login';
 
 
 const accountRoutes = [
+  makeRouteObject(prefix, main, NotFound, exactTrue, main),
   makeRouteObject(prefix, login, LoginContainer, exactTrue, loginTitle),
 ]
 
