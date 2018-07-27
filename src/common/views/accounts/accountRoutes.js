@@ -1,7 +1,6 @@
 import makeRouteObject from '../../utils/makeRouteObject';
 import LoginContainer from '../homeAuth/containers/LoginContainer';
 import NotFound from '../generalComponents/NotFound';
-import Foo from '../homeAuth/containers/Foo';
 
 const exactTrue = true;
 
