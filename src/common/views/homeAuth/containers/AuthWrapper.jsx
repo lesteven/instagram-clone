@@ -22,6 +22,9 @@ class AuthWrapper extends Component {
   submit = (e)  => {
     e.preventDefault();
     const { submit, url } = this.props;
+    console.log(submit);
+    console.log(url);
+    console.log(this.state);
     submit(url, this.state);
   }
 
@@ -50,9 +53,13 @@ class AuthWrapper extends Component {
 
 
 AuthWrapper.propTypes = {
-  data: PropTypes.object.isRequired,
   error : PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  inputState: PropTypes.object.isRequired,
+  mappedInput: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 }
 
 

@@ -1,6 +1,6 @@
 import { loginAC } from './loginModule';
 import submit from '../utils/submit';
 
-const registerUser = submit(loginAC);
+const loginUser = submit(loginAC);
 
-export default registerUser;
+export default loginUser;

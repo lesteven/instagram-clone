@@ -8,9 +8,9 @@ const mapState = ({ login, error}) => ({
   error,
 })
 
-const mapDispatch = (state) => ({
+const mapDispatch = {
   loginUser,
-})
+}
 
 
 export default connect(mapState, mapDispatch)(Login);

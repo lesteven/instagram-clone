@@ -3,7 +3,7 @@ import { checkJson } from '../../utils/sanitizeData';
 import { inputError } from '../errorModule/errorModule';
 
 
-const submit  = (actionCreator) => (url, data) => (dispatch) => {
+const submit = actionCreator => (url, data) => (dispatch) => {
   const validJson = checkJson(data);
   if (validJson) {
     const postData = post(url, 'POST', data);

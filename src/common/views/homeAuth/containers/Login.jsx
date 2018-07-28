@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import AuthWrapper from './AuthWrapper';
 import { inputState, mappedInput } from '../inputData/loginInput';
 
@@ -11,15 +11,10 @@ function Login(props) {
       mappedInput = { mappedInput }
       submit = { props.loginUser }
       url = '/api/login'
-      label = 'Sign Up'
+      label = 'Log in'
     />
   )
 }
-/*
-    <AuthWrapper 
-      inputState = { inputState }
-      mappedInput = { mappedInput }
-      submitData = { submit }
-    />
-*/
+
+
 export default Login;
