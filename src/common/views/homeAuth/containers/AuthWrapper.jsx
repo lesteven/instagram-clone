@@ -22,9 +22,6 @@ class AuthWrapper extends Component {
   submit = (e)  => {
     e.preventDefault();
     const { submit, url } = this.props;
-    console.log(submit);
-    console.log(url);
-    console.log(this.state);
     submit(url, this.state);
   }
 
