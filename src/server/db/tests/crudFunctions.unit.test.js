@@ -1,15 +1,13 @@
 import { query } from '../dbQueries';
 import { find, update, deleteData, insert } from '../crudFunctions';
 import userData from '../../utils/tests/sampleUserData';
-
+import mockQuery from '../../mocks/mockQuery';
 
 const { email, name, username, password } = userData;
 const table = 'users.credentials';
 
 jest.mock('../dbQueries');
-query.mockImplementation((sql, params) => {
-  return [sql, params];
-})
+query.mockImplementation(mockQuery);
 
 const key = 'email';
 const param = [email];

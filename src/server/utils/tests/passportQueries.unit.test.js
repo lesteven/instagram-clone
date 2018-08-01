@@ -1,15 +1,12 @@
 import { findUser, insertUser } from '../passportQueries';
 import { query } from '../../db/dbQueries';
 import userData from './sampleUserData';
-// import { find, insert } from '../../db/crudFunctions';
+import mockQuery from '../../mocks/mockQuery';
 
-const mockQuery = (sql, params) => [sql, params];
+
 jest.mock('../../db/dbQueries');
-// jest.mock('../../db/crudFunctions');
 
 query.mockImplementation(mockQuery);
-// find.mockImplementation(mockQuery);
-// insert.mockImplementation(mockQuery);
 
 const table = 'users.credentials';
 const key = 'email';
