@@ -16,14 +16,14 @@ export const find = (table, keys, data) => {
   return query(sql, params);
 }
 
-export const update = (table, keys, data, newValue) => {
-  const params = turnToParamsArr(keys, data);
-  
-  const updateStr = `UPDATE ${table} SET ${keys} = ($1)`;
+export const update = (table, keys, newData, oldData) => {
+  // const params = turnToParamsArr(keys, oldData);
+  const key = Object.keys(newData); 
+  const updateStr = `UPDATE ${table} SET ${key[0]} = ($1)`;
   const values = `WHERE ${keys} = ($2)` 
  
   const sql = `${updateStr} ${values}`;
-  return query(sql, [newValue, ...params]);
+  return query(sql, [newData[key[0]], oldData]);
 }
 
 export const deleteData = (table, keys, data) => {

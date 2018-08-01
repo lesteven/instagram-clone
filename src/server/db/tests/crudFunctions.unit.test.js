@@ -23,13 +23,14 @@ describe('find', () => {
 
 describe('update', () => {
   it('should update w/ one value', () => {
-    const newEmail = 'ricflair@gmail.com';
+    const newData = { email : 'ricflair@gmail.com'} 
+    const oldEmail = email;
     const updateStr = `UPDATE ${table} SET ${key} = ($1)`;
     const values = `WHERE ${key} = ($2)`;
 
     const sql = `${updateStr} ${values}`;
-    const updateParams = [newEmail, ...param];
-    expect(update(table, key, userData, newEmail))
+    const updateParams = [newData.email, oldEmail];
+    expect(update(table, key, newData, oldEmail))
       .toEqual([sql, updateParams])
   })
 
