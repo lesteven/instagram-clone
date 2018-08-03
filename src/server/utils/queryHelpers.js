@@ -25,7 +25,9 @@ export const valuesPlaceholder = (keys) => {
   return valuesPH;
 };
 
+/*
 // update values for sql command
 export const updateValues = (keys) => {
   const keysArr = keys.split(',');
-}
+};
+*/

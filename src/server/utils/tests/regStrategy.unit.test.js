@@ -1,6 +1,9 @@
 import request from 'supertest';
 import app from '../../tests/app';
-import { handleRequest } from '../regStrategy';
+import {
+  handleRequest,
+  insertUserIntoDB,
+} from '../regStrategy';
 
 
 const url = '/reg/handleRequest';

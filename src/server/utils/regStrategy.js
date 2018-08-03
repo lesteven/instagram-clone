@@ -7,7 +7,7 @@ import hashPassword from './hashPassword';
 
 const debug = require('debug')('http');
 
-const insertUserIntoDB = async (res, data) => {
+export const insertUserIntoDB = async (res, data) => {
   debug('data!!', data);
   const hashedPw = await hashPassword(data.password);
   const userData = {
