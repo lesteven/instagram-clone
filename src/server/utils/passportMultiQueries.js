@@ -27,3 +27,5 @@ export const checkAvailability = (data) => {
   // multQuery(queryArr, paramArr);
   return multQuery(queryArr, paramArr);
 };
+
+

@@ -37,7 +37,7 @@ export const handleRequest = async (res, data, queriedData) => {
   return sendError(res, 400, 'error processing request')();
 };
 
-const registerUser = (passport, res) => {
+const regStrategy = (passport, res) => {
   passport.use('register', new Strategy(
     { passReqToCallback: true },
     (async (req) => {
@@ -53,4 +53,4 @@ const registerUser = (passport, res) => {
   ));
 };
 
-export default registerUser;
+export default regStrategy;
