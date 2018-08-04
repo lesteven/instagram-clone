@@ -1,25 +1,27 @@
 import Strategy from 'passport-local';
 import { findUser } from './passportQueries';
 import { sendError, sendSuccess } from './serverResponse';
+import { validatePassword } from './passwordEncryption';
 
 
 const debug = require('debug')('http');
 
-const handleRequest = async (res, data, queriedData) => {
-  const email = queriedData.rows[0];
-  
-  if (email) {
-    debug(email, 'user exist!');
-    return sendSuccess(res, 200, 'logged in!');     
+const handleRequest = async (req, res, data, queriedData) => {
+  const user = queriedData.rows[0];
+  const valid = await validatePassword(data.password, user.password);
+
+  if (user && valid) {
+    const loggedIn = req.login(user.email, (err) => {
+      if (err) sendError(res, 200, 'there was an error')
+      return sendSuccess(res, 'logged in!')(); 
+    })
   } else {
-    debug('email does not exist!');
-    return sendError(res, 400, 'invalid email or password');
-  }   
-  
-  return sendSuccess(res, 200, 'logged in!');
+    return sendError(res, 400, 'invalid email or password')();
+  }
+
 }
 export const logStrategy = (passport, res) => {
-  passport.use('hello', new Strategy(
+  passport.use('login', new Strategy(
     { 
       usernameField: 'email',
       passReqToCallback : true 
@@ -29,7 +31,7 @@ export const logStrategy = (passport, res) => {
         .catch(sendError(res, 500, 'error with query'));
 
       if (finishedQuery) {
-        handleRequest(res, req.body, finishedQuery);
+        handleRequest(req, res, req.body, finishedQuery);
       }
     }),
   ));

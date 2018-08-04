@@ -11,6 +11,7 @@ const userLogin = express.Router();
 userLogin.route('/')
 
   .get(asyncWrap(async (req, res, next) => {
+    debug('user', req.email, req.user);
     res.json({ hello: 'hello!' });
   }))
 
@@ -19,7 +20,7 @@ userLogin.route('/')
     debug('req.body:', req.body);
 
     logStrategy(passport, res);
-    passport.authenticate('hello')(req, res, next);
+    passport.authenticate('login')(req, res, next);
 //    res.json({success: 'logged in!'});
   }));
 
