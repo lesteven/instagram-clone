@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import SignUp from './components/SignUp';
+import Auth from './components/Auth';
+import MainTemplate from '../mainTemplate/MainTemplate';
 import styles from './home.css';
-import LoginLink from './components/LoginLink';
 
 
 class Home extends Component {
   render() {
-    return (
-      <div className='max-width'>  
-        <SignUp />
-        <LoginLink />
-      </div>  
-    )
+  const { redirect } = this.props;
+  if (redirect) return <MainTemplate />;
+  else return <Auth />; 
   }
 }
 

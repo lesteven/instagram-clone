@@ -7,7 +7,7 @@ export const loginAC = success => ({
 
 
 const initialState = {
-  status: false,
+  redirect: false,
 };
 
 export const login = (state = initialState, action) => {

@@ -5,9 +5,9 @@ import {
 } from './utils/helperFunctions';
 
 
-const updateView = 'redux/view/UPDATE_SCREEN_SIZE';
-const toggleNav = 'redux/view/TOGGLE_NAV';
-const toggleDashSide = 'redux/view/TOGGLE_DASH_NAV';
+const updateView = 'view/UPDATE_SCREEN_SIZE';
+const toggleNav = 'view/TOGGLE_NAV';
+const toggleDashSide = 'view/TOGGLE_DASH_NAV';
 
 
 // action creator

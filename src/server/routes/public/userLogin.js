@@ -22,8 +22,8 @@ userLogin.route('/')
 userLogin.route('/:email')
 
   .get(asyncWrap(async (req, res, next) => {
-    debug('user', req.user);
-    debug('req.params.id!!!!!', req.params.email);
+    // debug('user', req.user);
+    // debug('req.params.id!!!!!', req.params.email);
     if (req.params.email === req.user.email) {
       res.json({
         user: req.user.email,
