@@ -2,12 +2,12 @@ import Strategy from 'passport-local';
 import { insertUser } from './passportQueries';
 import { checkAvailability } from './passportMultiQueries';
 import { sendError, sendSuccess } from './serverResponse';
-import hashPassword from './hashPassword';
+import { hashPassword } from './passwordEncryption';
 
 
 const debug = require('debug')('http');
 
-const insertUserIntoDB = async (res, data) => {
+export const insertUserIntoDB = async (res, data) => {
   debug('data!!', data);
   const hashedPw = await hashPassword(data.password);
   const userData = {
@@ -19,7 +19,6 @@ const insertUserIntoDB = async (res, data) => {
 
 
 export const handleRequest = async (res, data, queriedData) => {
-  debug('queriedData!', queriedData);
   const email = queriedData[0][0];
   const user = queriedData[1][0];
 
@@ -37,7 +36,7 @@ export const handleRequest = async (res, data, queriedData) => {
   return sendError(res, 400, 'error processing request')();
 };
 
-const registerUser = (passport, res) => {
+const regStrategy = (passport, res) => {
   passport.use('register', new Strategy(
     { passReqToCallback: true },
     (async (req) => {
@@ -53,4 +52,4 @@ const registerUser = (passport, res) => {
   ));
 };
 
-export default registerUser;
+export default regStrategy;

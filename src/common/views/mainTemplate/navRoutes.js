@@ -1,6 +1,5 @@
-import makeRouteObject from '../utils/makeRouteObject';
+import makeRouteObject from '../../utils/makeRouteObject';
 import Explore from './explore/Explore';
-
 
 const prefix = '/template';
 const exactTrue = true;
@@ -12,7 +11,6 @@ const exploreTitle = 'Explore';
 
 const navRoutes = [
   makeRouteObject(prefix, exploreURL, Explore, exactTrue, exploreTitle),
-
 ];
 
 export default navRoutes;

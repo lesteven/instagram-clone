@@ -1,11 +1,21 @@
 import request from 'supertest';
 import app from '../../tests/app';
-import { handleRequest } from '../regStrategy';
+import {
+  handleRequest,
+  insertUserIntoDB,
+} from '../regStrategy';
+import { insertUser } from '../passportQueries';
+import userData from './sampleUserData';
+
+
+jest.mock('../passportQueries');
+insertUser.mockImplementation(data => data);
 
 
 const url = '/reg/handleRequest';
 const emailUrl = `${url}/email`;
 const userUrl = `${url}/user`;
+const noneUrl = `${url}/none`;
 
 app.get(emailUrl, (req, res) => {
   const queriedData = [['email'],[]];
@@ -15,6 +25,11 @@ app.get(emailUrl, (req, res) => {
 app.get(userUrl, (req, res) => {
   const queriedData = [[],['user']];
   handleRequest(res, null, queriedData);
+})
+
+app.get(noneUrl, (req, res) => {
+  const queriedData = [[],[]];
+  handleRequest(res, userData, queriedData);
 })
 
 describe('handleRequest', () => {
@@ -28,4 +43,11 @@ describe('handleRequest', () => {
       .get(userUrl)
       .expect({ failed : 'user already exist' }, done)
   })
+  it('should insert user into db', (done) => {
+    return request(app) 
+      .get(noneUrl)
+      .expect({ success : 'user registered!'}, done)
+  })
 })
+
+

@@ -32,8 +32,9 @@ export const postAction = (dispatch, postFn, action, url) => {
 
   postFn()
     .then(res => res.json())
-    .then(
-      json => handleJson(dispatch, action, url, json),
-      () => dispatch(jsonError(url, jsonErrMsg)),
-    );
+    .then(json => handleJson(dispatch, action, url, json))
+    .catch((err) => {
+      console.log('error message!!!', err);
+      return dispatch(jsonError(url, jsonErrMsg));
+    });
 };
