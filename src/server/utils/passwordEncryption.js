@@ -11,5 +11,4 @@ export const hashPassword = (plainPassword) => {
 export const validatePassword = (plainPW, hashedPW) => {
   const validated = bcrypt.compare(plainPW, hashedPW);
   return validated;
-}
-
+};

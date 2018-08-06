@@ -3,6 +3,7 @@ import session from 'express-session';
 import connectPg from 'connect-pg-simple';
 import { sessionSecret } from '../../../config';
 import { pool } from '../db/dbQueries';
+import findUserById from '../utils/passportFindId';
 
 
 const passportSetup = (app) => {
@@ -17,8 +18,17 @@ const passportSetup = (app) => {
   };
 
   app.use(session(sess));
+  // app.use(session({ secret : 'testing!'}));
   app.use(passport.initialize());
   app.use(passport.session());
+
+  passport.serializeUser((user, done) => {
+    done(null, user.id);
+  });
+
+  passport.deserializeUser((id, done) => {
+    findUserById(id, done);
+  });
 };
 
 export default passportSetup;

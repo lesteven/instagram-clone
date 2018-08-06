@@ -6,25 +6,27 @@ import { validatePassword } from './passwordEncryption';
 
 const debug = require('debug')('http');
 
-const handleRequest = async (req, res, data, queriedData) => {
+export const handleRequest = async (req, res, data, queriedData) => {
   const user = queriedData.rows[0];
-  const valid = await validatePassword(data.password, user.password);
+  const userPassword = user ? user.password : '';
+  const valid = await validatePassword(data.password, userPassword);
 
+  debug('user!!', user);
   if (user && valid) {
-    const loggedIn = req.login(user.email, (err) => {
-      if (err) sendError(res, 200, 'there was an error')
-      return sendSuccess(res, 'logged in!')(); 
-    })
+    req.login(user, (err) => {
+      if (err) sendError(res, 200, 'there was an error');
+      return sendSuccess(res, 'logged in!')();
+    });
   } else {
     return sendError(res, 400, 'invalid email or password')();
   }
-
-}
+  return false;
+};
 export const logStrategy = (passport, res) => {
   passport.use('login', new Strategy(
-    { 
+    {
       usernameField: 'email',
-      passReqToCallback : true 
+      passReqToCallback: true,
     },
     (async (req) => {
       const finishedQuery = await findUser(req.body)
@@ -36,5 +38,3 @@ export const logStrategy = (passport, res) => {
     }),
   ));
 };
-
-export default logStrategy;
