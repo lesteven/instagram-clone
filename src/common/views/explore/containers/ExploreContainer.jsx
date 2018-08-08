@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Explore from '../Explore';
+import Explore from '../components/Explore';
 
 
 const mapState = ({ login }) => ({

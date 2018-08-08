@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserNavigation from './components/UserNavigation';
 import styles from './navbar.css';
 
 function Logo() {
@@ -19,15 +20,6 @@ function SearchBar() {
   )
 }
 
-function UserNavigation() {
-  return (
-    <div className='user-nav'>
-      <img src='/compass.svg'/>
-      <img src='/heart.svg'/>
-      <img src='/user.svg'/>
-    </div>
-  )
-}
 
 class NavBar extends Component {
   render() {
