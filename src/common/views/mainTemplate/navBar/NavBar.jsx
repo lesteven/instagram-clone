@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserNavigation from './components/UserNavigation';
+import IconContainer from './containers/IconContainer';
 import styles from './navbar.css';
 
 function Logo() {
@@ -28,7 +28,7 @@ class NavBar extends Component {
         <nav className='nav-bar max-width'>
           <Logo />
           <SearchBar />
-          <UserNavigation />
+          <IconContainer />
         </nav>    
       </div>
     )
