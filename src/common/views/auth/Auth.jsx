@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SignUp from './SignUp';
-import LoginLink from './LoginLink';
+import SignUp from './components/SignUp';
+import LoginLink from './components/LoginLink';
 
 
 class Auth extends Component {

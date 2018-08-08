@@ -8,10 +8,10 @@ export const loginAC = success => ({
   success,
 });
 
-export const loggedIn = (data) => ({
+export const loggedIn = data => ({
   type: PERSIST_LOGIN,
-  data, 
-})
+  data,
+});
 
 const initialState = {
   redirect: false,
@@ -28,7 +28,7 @@ export const login = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-      }
+      };
     default:
       return state;
   }

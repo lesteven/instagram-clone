@@ -1,7 +1,7 @@
 import makeRouteObject from '../../utils/makeRouteObject';
 import Explore from './explore/Explore';
 
-const prefix = '/template';
+const prefix = '/';
 const exactTrue = true;
 // const exactFalse = false;
 

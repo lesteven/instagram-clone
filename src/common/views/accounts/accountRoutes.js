@@ -1,5 +1,5 @@
 import makeRouteObject from '../../utils/makeRouteObject';
-import LoginPage from '../homeAuth/components/LoginPage';
+import LoginPage from '../auth/components/LoginPage';
 import NotFound from '../generalComponents/NotFound';
 
 const exactTrue = true;

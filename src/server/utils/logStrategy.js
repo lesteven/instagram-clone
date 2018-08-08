@@ -1,6 +1,6 @@
 import Strategy from 'passport-local';
 import { findUser } from './passportQueries';
-import { sendError, sendSuccess } from './serverResponse';
+import { sendError } from './serverResponse';
 import { validatePassword } from './passwordEncryption';
 
 
@@ -20,7 +20,7 @@ export const handleRequest = async (req, res, data, queriedData) => {
         success: 'logged in!',
         redirect: true,
         userEmail: user.email,
-      })
+      });
     });
   } else {
     return sendError(res, 400, 'invalid email or password')();

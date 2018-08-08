@@ -10,14 +10,14 @@ const checkAuthenticated = (user, store) => {
   if (user) {
     data = {
       user: user.email,
-      redirect: true, 
-    }
+      redirect: true,
+    };
   } else {
     data = {
       redirect: false,
-    }
+    };
   }
   store.dispatch(loggedIn(data));
-}
+};
 
 export default checkAuthenticated;

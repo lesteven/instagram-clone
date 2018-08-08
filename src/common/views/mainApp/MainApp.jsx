@@ -5,7 +5,7 @@ import navRoutes from './navRoutes';
 import MappedRoutes from '../generalComponents/MappedRoutes';
 
 
-class MainTemplate extends Component {
+class MainApp extends Component {
   render() {
     return (
       <Fragment>
@@ -18,4 +18,4 @@ class MainTemplate extends Component {
   }
 }
 
-export default MainTemplate;
+export default MainApp;

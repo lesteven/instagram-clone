@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Auth from './components/Auth';
+import Auth from '../auth/Auth';
 import MainTemplate from '../mainTemplate/MainTemplate';
 import styles from './home.css';
 

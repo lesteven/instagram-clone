@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Home from '../Home';
+import Home from './Home';
 
 const mapState = ({ login }) => ({
   login,
