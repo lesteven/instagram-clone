@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Auth from '../auth/Auth';
-import Feed from '../feed/Feed';
-import styles from './home.css';
+import Auth from '../../auth/Auth';
+import Feed from '../../feed/Feed';
 
 
 class Home extends Component {

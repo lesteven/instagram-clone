@@ -1,6 +1,6 @@
 import makeRouteObject from '../../utils/makeRouteObject';
-import HomeContainer from './HomeContainer';
-import ExploreContainer from '../explore/containers/ExploreContainer';
+import HomeContainer from './containers/HomeContainer';
+import ExplorePage from '../explore/ExplorePage';
 
 
 const exactTrue = true;
@@ -11,12 +11,12 @@ const home = '/';
 const homeTitle = 'Home';
 
 const exploreUrl = '/explore';
-const exploreTitle = 'ExploreContainer';
+const exploreTitle = 'ExplorePagePage';
 
 
 const accountRoutes = [
   makeRouteObject(prefix, home, HomeContainer, exactTrue, homeTitle),
-  makeRouteObject(prefix, exploreUrl, ExploreContainer, exactTrue, exploreTitle),
+  makeRouteObject(prefix, exploreUrl, ExplorePage, exactTrue, exploreTitle),
 ];
 
 export default accountRoutes;

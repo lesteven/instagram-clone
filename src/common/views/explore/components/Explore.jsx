@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import MainTemplate from '../mainTemplate/MainTemplate';
-import LoginPage from '../auth/components/LoginPage';
+import MainTemplate from '../../mainTemplate/MainTemplate';
+import LoginPage from '../../auth/components/LoginPage';
 
 
 class Explore extends Component {

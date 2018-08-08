@@ -1,5 +1,5 @@
 import makeRouteObject from './utils/makeRouteObject';
-import HomeNav from './views/home/HomeNav';
+import HomePage from './views/home/HomePage';
 import About from './views/about/About';
 import Accounts from './views/accounts/Accounts';
 
@@ -36,7 +36,7 @@ const routes = {
     makeRouteObject(
       prefix,
       homeURL,
-      HomeNav,
+      HomePage,
       exactFalse,
       homeTitle,
     ),
