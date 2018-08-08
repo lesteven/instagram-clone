@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import UserNavigation from '../components/UserNavigation';
+import ProfileNav from '../components/ProfileNav';
 
 
 const mapState = ({ login }) => ({
@@ -10,4 +10,4 @@ const mapDispatch = {
 
 }
 
-export default connect(mapState, mapDispatch)(UserNavigation);
+export default connect(mapState, mapDispatch)(ProfileNav);

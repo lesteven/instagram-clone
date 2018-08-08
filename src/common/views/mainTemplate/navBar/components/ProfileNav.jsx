@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-function UserNavigation(props) {
+function ProfileNav(props) {
   const { user } = props.login;
   return (
     <div className='user-nav'>
@@ -13,4 +13,4 @@ function UserNavigation(props) {
   )
 }
 
-export default UserNavigation;
+export default ProfileNav;

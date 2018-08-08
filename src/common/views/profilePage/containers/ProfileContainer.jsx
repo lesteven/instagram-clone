@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import User from '../components/User';
+import Profile from '../components/Profile';
 import { withRouter } from 'react-router-dom';
 
 
@@ -11,4 +11,4 @@ const mapDispatch = {
 
 }
 
-export default withRouter(connect(mapState, mapDispatch)(User));
+export default withRouter(connect(mapState, mapDispatch)(Profile));

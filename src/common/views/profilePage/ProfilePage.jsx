@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import MainTemplate from '../mainTemplate/MainTemplate';
-import UserContainer from './containers/UserContainer';
+import ProfileContainer from './containers/ProfileContainer';
 
-class UserPage extends Component {
+class ProfilePage extends Component {
   render() {
     return (
       <MainTemplate>
-        <UserContainer />
+        <ProfileContainer />
       </MainTemplate>
     )
   }
 }
 
-export default UserPage;
+export default ProfilePage;
