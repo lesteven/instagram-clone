@@ -18,11 +18,13 @@
 }
 .first-row h1 {
   margin: 0;
+  min-width:10%;
 }
 .first-row * {
 }
 .first-row a {
   text-decoration:none;
+  min-width:100px;
 }
 .first-row > a button{
   padding:6%;
