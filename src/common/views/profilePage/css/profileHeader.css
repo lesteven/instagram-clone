@@ -1,0 +1,14 @@
+.profile-header {
+  display:flex;
+}
+.profile-header div {
+  flex: 3;
+}
+.profile-header section {
+  flex: 7;
+}
+.profile-image img {
+  height: 100px;
+  border-radius:50%;
+}
+

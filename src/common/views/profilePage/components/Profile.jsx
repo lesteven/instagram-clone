@@ -8,9 +8,9 @@ class Profile extends Component {
   const { user } = this.props.login;
   const { profile } = this.props.match.params;
     return (
-      <Fragment>
+      <div className = 'top-pad'>
         <ProfileHeader profile = { profile } />
-      </Fragment>
+      </div>
     )
   }
 }

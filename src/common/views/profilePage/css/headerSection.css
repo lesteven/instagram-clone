@@ -1,0 +1,45 @@
+.header-section {
+  text-align:left;
+  padding:0% 5%;
+}
+.header-section * {
+  padding-bottom:5%;
+}
+.first-row img {
+  max-height:25px;
+  max-width:25px;
+}
+.first-row {
+  display:flex;
+}
+.first-row * {
+  padding-right:5%;
+  padding-bottom:0;
+}
+.first-row h1 {
+  margin: 0;
+}
+.first-row * {
+}
+.first-row a {
+  text-decoration:none;
+}
+.first-row button {
+  padding:6%;
+  background-color:transparent;
+  border:1px solid #dbdbdb;
+  border-radius:4px;
+  color:#262626;
+  font-weight:bold;
+  min-width:100px;
+}
+.second-row p {
+  display:inline;
+}
+.second-row strong {
+  padding:0;
+}
+.second-row * {
+  padding-right:5%;
+  min-width:75px;
+}

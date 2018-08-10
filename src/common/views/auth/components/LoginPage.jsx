@@ -5,9 +5,11 @@ import Title from './Title';
 
 function LoginPage() {
   return(
-    <div className = 'signup-wrapper'>
-      <Title />
-      <LoginContainer />
+    <div className = 'top-pad'>
+      <div className = 'signup-wrapper'>
+        <Title />
+        <LoginContainer />
+      </div>
     </div>
   )
 }

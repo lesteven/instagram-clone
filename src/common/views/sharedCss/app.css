@@ -19,6 +19,9 @@ html, body, #root {
   margin:auto;
   max-width:960px;
 }
+.top-pad {
+  padding-top:8%;
+}
 
 .fail {
   color:red;
