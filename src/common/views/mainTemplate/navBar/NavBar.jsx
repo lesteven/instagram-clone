@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import IconContainer from './containers/IconContainer';
 import styles from './navbar.css';
+import { Link } from 'react-router-dom';
+
 
 function Logo() {
   return (
     <div className='nav-logo'>
-      <img src='/ig-logo.svg'/>
+      <Link to = '/'><img src='/ig-logo.svg'/></Link>
       <div></div>
-      <h1> Instagram</h1>
+      <Link to = '/'><h1> Instagram</h1></Link>
     </div>
   )
 } 

@@ -11,7 +11,7 @@ function FirstRow(props) {
       <Link to = '/accounts/edit'>
         <button> Edit Profile </button>
       </Link>  
-      <img src ='/settings.svg' />
+      <button className='settings'><img src ='/settings.svg' /></button>
     </div>
   )
 }
