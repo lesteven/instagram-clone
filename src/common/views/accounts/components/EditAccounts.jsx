@@ -6,7 +6,9 @@ class EditAccounts extends Component {
   render() {
     return (
       <MainTemplate>
-      <p>edit accounts!</p>
+        <div className='top-pad'>
+          <p>edit accounts!</p>
+        </div>
       </MainTemplate>
     )
   }

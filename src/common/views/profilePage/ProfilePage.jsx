@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import MainTemplate from '../mainTemplate/MainTemplate';
-import ProfileContainer from './containers/ProfileContainer';
+import Profile from './components/Profile';
+
 
 class ProfilePage extends Component {
   render() {
     return (
       <MainTemplate>
-        <ProfileContainer />
+        <Profile />
       </MainTemplate>
     )
   }

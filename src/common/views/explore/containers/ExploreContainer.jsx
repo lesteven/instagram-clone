@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Explore from '../components/Explore';
+import { withRouter } from 'react-router-dom';
 
 
 const mapState = ({ login }) => ({
@@ -10,4 +11,4 @@ const mapDispatch = {
 
 }
 
-export default connect(mapState, mapDispatch)(Explore);
+export default withRouter(connect(mapState, mapDispatch)(Explore));

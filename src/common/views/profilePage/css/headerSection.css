@@ -40,6 +40,9 @@
 .first-row > button {
   border:0px;
 }
+.first-row > button:focus {
+  outline:none;
+}
 .second-row p {
   display:inline;
 }

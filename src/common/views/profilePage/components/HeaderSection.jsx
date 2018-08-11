@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 function FirstRow(props) {
-  const { profile } = props;
+  const { profile, onClick } = props;
   return (
     <div className ='first-row'>
       <h1> { profile } </h1>
       <Link to = '/accounts/edit'>
         <button> Edit Profile </button>
       </Link>  
-      <button className='settings'><img src ='/settings.svg' /></button>
+      <button className='settings' onClick = { onClick }>
+        <img src ='/settings.svg' />
+      </button>
     </div>
   )
 }
@@ -35,10 +37,13 @@ function ThirdRow() {
 
 class HeaderSection extends Component {
   render() {
-    const { profile } = this.props;
+    const { profile, onClick } = this.props;
     return (
       <section className = 'header-section'>
-        <FirstRow profile = { profile } />
+        <FirstRow 
+          profile = { profile } 
+          onClick = { onClick }
+        />
         <SecondRow />
         <ThirdRow />
       </section>
