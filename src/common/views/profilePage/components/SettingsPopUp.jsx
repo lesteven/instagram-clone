@@ -3,12 +3,21 @@ import styles from '../css/settingsPopUp.css';
 
 
 class SettingsPopUp extends Component {
-
+  test = (e) => {
+    e.preventDefault();
+    const { history } = this.props;
+    history.push('/accounts/edit');
+  }
   render() {
+  const { display, onClick } = this.props;
     return (
-      <div className = 'popup-wrapper'>
+      <div 
+        className = 'popup-wrapper' 
+        style={ display }
+        onClick = { onClick }
+        >
         <div className ='settings-popup'>
-          <button>Privacy and Security</button>
+          <button onClick = {this.test}>Privacy and Security</button>
           <button>Log out</button>
           <button>Cancel</button>
         </div>

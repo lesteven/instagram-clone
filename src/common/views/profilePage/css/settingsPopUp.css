@@ -1,6 +1,6 @@
 .popup-wrapper {
   height:100vh;
-  background-color:rgba(0,0,0,.05);
+  background-color:rgba(0,0,0,.5);
   width:100vw;
   position:fixed;
   z-index:1;
@@ -15,5 +15,23 @@
   width:400px;
   display:flex;
   flex-direction:column;
-   
+  border-radius: 12px;
+}
+.settings-popup button {
+  background-color:white;
+}
+.settings-popup button {
+  border-top:1px solid #efefef;
+  border-bottom:0;
+  border-right:0;
+  border-left:0;
+  padding:3%;
+}
+.settings-popup button:first-child {
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+.settings-popup button:last-child{
+  border-bottom-left-radius:12px;
+  border-bottom-right-radius:12px;
 }

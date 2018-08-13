@@ -1,7 +1,7 @@
 .profile-header {
   display:flex;
 }
-.profile-header div {
+.profile-header > div {
   flex: 3;
 }
 .profile-header section {

@@ -9,7 +9,6 @@ const updateView = 'view/UPDATE_SCREEN_SIZE';
 const toggleNav = 'view/TOGGLE_NAV';
 const toggleDashSide = 'view/TOGGLE_DASH_NAV';
 
-
 // action creator
 export const updateScreenSize = size => ({
   type: updateView,
@@ -28,7 +27,6 @@ export const toggleDashSideNav = () => ({
 // initial state
 export const initialState = {
   screenSize: typeof window === 'object' ? window.innerWidth : null,
-
 };
 
 

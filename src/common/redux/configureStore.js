@@ -7,10 +7,12 @@ import { register } from './registerModule/registerModule';
 import { error } from './errorModule/errorModule';
 import { userActions } from './userModule/userModule';
 import { login } from './loginModule/loginModule';
+import { popUp } from './popUpModule/popUpModule';
 
 
 export const reducers = combineReducers({
   view,
+  popUp,
   userActions,
   register,
   login,
