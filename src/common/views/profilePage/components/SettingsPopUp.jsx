@@ -4,7 +4,7 @@ import styles from '../css/settingsPopUp.css';
 
 class SettingsPopUp extends Component {
   render() {
-  const { display, onClick, goToEdit } = this.props;
+  const { display, onClick, goToEdit, logOut } = this.props;
     return (
       <div 
         className = 'popup-wrapper' 
@@ -13,7 +13,7 @@ class SettingsPopUp extends Component {
         >
         <div className ='settings-popup'>
           <button onClick = { goToEdit }>Privacy and Security</button>
-          <button>Log out</button>
+          <button onClick = { logOut }>Log out</button>
           <button>Cancel</button>
         </div>
       </div>

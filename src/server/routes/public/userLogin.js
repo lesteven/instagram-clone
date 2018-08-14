@@ -2,6 +2,8 @@ import express from 'express';
 import passport from 'passport';
 import asyncWrap from '../../utils/asyncWrap';
 import { logStrategy } from '../../utils/logStrategy';
+import { sendSuccess } from '../../utils/serverResponse';
+
 
 const debug = require('debug')('http');
 
@@ -33,4 +35,16 @@ userLogin.route('/:email')
     }
   }));
 
+userLogin.route('/logout/:email')
+
+  .get(asyncWrap(async (req, res, next) => {
+    if (req.user && req.params.email === req.user.email) {
+      req.logOut();
+      res.clearCookie('connect.sid');
+      sendSuccess(res, 'You have logged out')();      
+    } else {
+      res.json({});
+    }
+  }))
+  
 export default userLogin;

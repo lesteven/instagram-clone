@@ -8,8 +8,7 @@ import { toggleFn } from '../../../redux/popUpModule/popUpFunctions';
 
 class PopUpContainer extends Component {
   onClick = toggleFn.bind(this);
-  goToEdit = (e) => {
-    e.preventDefault();
+  goToEdit = () => {
     const { history } = this.props;
     history.push('/accounts/edit');
   }
@@ -21,9 +20,13 @@ class PopUpContainer extends Component {
       } 
     }
   }
+  logOut = () => {
+    const { user } = this.props.login;
+    const logoutUrl = `/api/login/logout/${user}`; 
+    console.log(logoutUrl); 
+  }
   componentDidMount() {
     document.addEventListener("keydown", this.onKeyPress, false);
-    
   }
   render() {
     const { login, popUp } = this.props;
@@ -35,6 +38,7 @@ class PopUpContainer extends Component {
         display = { popUpDisplay }
         onClick = { this.onClick }
         goToEdit = { this.goToEdit }
+        logOut = { this.logOut }
       />
     )
   }
