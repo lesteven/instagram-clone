@@ -20,6 +20,7 @@ export const handleRequest = async (req, res, data, queriedData) => {
         success: 'logged in!',
         redirect: true,
         userEmail: user.email,
+        userName: user.username,
       });
     });
   } else {

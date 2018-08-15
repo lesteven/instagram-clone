@@ -21,30 +21,32 @@ userLogin.route('/')
     //    res.json({success: 'logged in!'});
   }));
 
-userLogin.route('/:email')
+userLogin.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
     // debug('user', req.user);
     // debug('req.params.id!!!!!', req.params.email);
-    if (req.params.email === req.user.email) {
+    if (req.params.username === req.user.username) {
+      debug('req.user!!', req.user);
       res.json({
-        user: req.user.email,
+        userEmail: req.user.email,
+        userName: req.user.username,
       });
     } else {
       res.json({});
     }
   }));
 
-userLogin.route('/logout/:email')
+userLogin.route('/logout/:username')
 
   .get(asyncWrap(async (req, res, next) => {
-    if (req.user && req.params.email === req.user.email) {
+    if (req.user && req.params.username === req.user.username) {
       req.logOut();
       res.clearCookie('connect.sid');
-      sendSuccess(res, 'You have logged out')();      
+      sendSuccess(res, 'You have logged out')();
     } else {
       res.json({});
     }
-  }))
-  
+  }));
+
 export default userLogin;

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 
 function ProfileNav(props) {
-  const { user } = props.login;
+  const { userName } = props.login;
   return (
     <div className='user-nav'>
       <img src='/compass.svg'/>
       <img src='/heart.svg'/>
-      <Link to = { `/${user}` }><img src='/user.svg'/></Link>
+      <Link to = { `/${userName}` }><img src='/user.svg'/></Link>
     </div>
   )
 }

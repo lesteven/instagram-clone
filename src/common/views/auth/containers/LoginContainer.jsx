@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import loginUser from '../../../redux/loginModule/loginFunctions';
+import { loginUser } from '../../../redux/loginModule/loginFunctions';
 
 
 const mapState = ({ login, error}) => ({

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import SettingsPopUp from '../components/SettingsPopUp';
 import { toggleClick } from '../../../redux/popUpModule/popUpModule';
 import { toggleFn } from '../../../redux/popUpModule/popUpFunctions';
+import { logOutUser } from '../../../redux/loginModule/loginFunctions';
 
 
 class PopUpContainer extends Component {
@@ -13,28 +14,27 @@ class PopUpContainer extends Component {
     history.push('/accounts/edit');
   }
   onKeyPress= (e) => {
-    if (e.key === 'Escape') {
-      const { display } = this.props.popUp.popUpDisplay;
-      if (display === 'flex') {
-        this.onClick(e);
-      } 
+    const { display } = this.props.popUp.popUpDisplay;
+    if (e.key === 'Escape' && display === 'flex') {
+      this.onClick(e);
     }
   }
   logOut = () => {
-    const { user } = this.props.login;
-    const logoutUrl = `/api/login/logout/${user}`; 
-    console.log(logoutUrl); 
+    const { logOutUser } = this.props;
+    const { userName } = this.props.login;
+    const logoutUrl = `/api/login/logout/${userName}`; 
+    logOutUser(logoutUrl); 
   }
   componentDidMount() {
     document.addEventListener("keydown", this.onKeyPress, false);
   }
   render() {
     const { login, popUp } = this.props;
-    const { user } = login;
+    const { userName } = login;
     const { popUpDisplay } = popUp;
     return (
       <SettingsPopUp 
-        user = { user }
+        user = { userName }
         display = { popUpDisplay }
         onClick = { this.onClick }
         goToEdit = { this.goToEdit }
@@ -50,6 +50,7 @@ const mapState = ({ popUp, login}) => ({
 
 const mapDispatch = {
   toggleClick,
+  logOutUser,
 }
 
 export default withRouter(connect(mapState, mapDispatch)(PopUpContainer));

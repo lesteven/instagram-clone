@@ -9,7 +9,8 @@ const checkAuthenticated = (user, store) => {
   let data = {};
   if (user) {
     data = {
-      user: user.email,
+      userEmail: user.email,
+      userName: user.username,
       redirect: true,
     };
   } else {

@@ -5,4 +5,4 @@ export function toggleFn(e) {
   const { toggleClick } = this.props;
   e.preventDefault();
   toggleClick();
-} 
+}
