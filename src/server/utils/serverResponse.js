@@ -15,3 +15,11 @@ export function sendSuccess(res, message) {
     success: message,
   }));
 }
+
+
+export function sendSuccessLong(res, message, obj) {
+  return (() => res.status(200).json({
+    success: message,
+    ...obj,
+  }));
+}

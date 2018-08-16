@@ -2,6 +2,8 @@ const prefix = 'login';
 const LOGIN = `${prefix}/LOGIN`;
 const PERSIST_LOGIN = `${prefix}/PERSIST`;
 const LOGOUT = `${prefix}/LOGOUT`;
+const RESET = `${prefix}/RESET`;
+
 
 export const loginAC = success => ({
   type: LOGIN,
@@ -18,6 +20,9 @@ export const logoutAC = success => ({
   success,
 });
 
+export const resetLogin = () => ({
+  type: RESET,
+})
 const initialState = {
   redirect: false,
 };
@@ -36,9 +41,10 @@ export const login = (state = initialState, action) => {
       };
     case LOGOUT:
       return {
-        ...state,
-        ...action.data,
+        ...action.success,
       };
+    case RESET:
+      return initialState;
     default:
       return state;
   }

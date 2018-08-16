@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import LoginContainer from '../containers/LoginContainer';
-import Title from './Title';
+import LoginContainer from './LoginContainer';
+import Title from '../components/Title';
 
-/*
-function LoginPage() {
-  return(
-    <div className = 'top-pad'>
-      <div className = 'signup-wrapper'>
-        <Title />
-        <LoginContainer />
-      </div>
-    </div>
-  )
-}
-*/
+
 
 class LoginPage extends Component {
   render() {
@@ -27,4 +16,5 @@ class LoginPage extends Component {
     )
   }
 }
+
 export default LoginPage;
