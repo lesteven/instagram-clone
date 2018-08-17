@@ -22,7 +22,7 @@ export const logoutAC = success => ({
 
 export const resetLogin = () => ({
   type: RESET,
-})
+});
 const initialState = {
   redirect: false,
 };

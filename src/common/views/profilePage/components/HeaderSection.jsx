@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import style from '../css/headerSection.css';
 import { Link } from 'react-router-dom';
 
-
+function DiffUser(props) {
+  const { user, profile, onClick } = props;
+  return (
+    <div className ='first-row'>
+      <h1> { profile } </h1>
+      { user == undefined?
+        <Link to = '/accounts/login'>
+          <button> Follow </button>
+        </Link> :
+        <button className= 'follow'> Follow </button>
+      } 
+    </div>
+  )
+}
 function FirstRow(props) {
   const { profile, onClick } = props;
   return (
@@ -37,13 +50,13 @@ function ThirdRow() {
 
 class HeaderSection extends Component {
   render() {
-    const { profile, onClick } = this.props;
+    const { user, profile, onClick } = this.props;
     return (
       <section className = 'header-section'>
-        <FirstRow 
-          profile = { profile } 
-          onClick = { onClick }
-        />
+        { user == profile?
+          <FirstRow { ...this.props }/>:
+          <DiffUser { ...this.props }/> 
+        }
         <SecondRow />
         <ThirdRow />
       </section>

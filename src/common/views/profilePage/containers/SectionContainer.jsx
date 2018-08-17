@@ -11,10 +11,12 @@ class SectionContainer extends Component {
   onClick = toggleFn.bind(this);
   render() {
     const { profile } = this.props.match.params;
+    const { userName } = this.props.login;
     return (
       <Fragment>
         <PopUpContainer />
         <HeaderSection
+          user = { userName }
           onClick = { this.onClick }
           profile = { profile }
         /> 

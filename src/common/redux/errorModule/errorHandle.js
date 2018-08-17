@@ -8,7 +8,7 @@ import {
 export const handleJson = (dispatch, action, url, json) => {
   if (json.success) {
     dispatch(action(json));
-    // dispatch(clearError(url));
+    dispatch(clearError(url));
   } else {
     dispatch(serverError(url, json.failed));
   }

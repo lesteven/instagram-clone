@@ -41,8 +41,8 @@ userLogin.route('/logout/:username')
       res.clearCookie('connect.sid');
       const data = {
         redirect: false,
-        loggedOut: true, 
-      }
+        loggedOut: true,
+      };
       sendSuccessLong(res, 'You have logged out', data)();
     } else {
       res.json({});
