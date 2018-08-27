@@ -1,0 +1,14 @@
+.upload-wrapper {
+  text-align:center;
+  padding:5%;
+}
+
+.dropzone {
+  border:2px dashed #8563c9;
+  height:300px;
+  flex:1;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
