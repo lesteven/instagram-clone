@@ -16,7 +16,7 @@ function DiffUser(props) {
     </div>
   )
 }
-function FirstRow(props) {
+function SameUser(props) {
   const { profile, onClick } = props;
   return (
     <div className ='first-row'>
@@ -54,7 +54,7 @@ class HeaderSection extends Component {
     return (
       <section className = 'header-section'>
         { user == profile?
-          <FirstRow { ...this.props }/>:
+          <SameUser { ...this.props }/>:
           <DiffUser { ...this.props }/> 
         }
         <SecondRow />
