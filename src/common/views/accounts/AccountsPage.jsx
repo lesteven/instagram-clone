@@ -3,7 +3,7 @@ import MappedRoutes from '../generalComponents/MappedRoutes';
 import accountRoutes from './accountRoutes';
 
 
-class Accounts extends Component {
+class AccountsPage extends Component {
   render() {
     return (
       <MappedRoutes routes = { accountRoutes }/>
@@ -11,4 +11,4 @@ class Accounts extends Component {
   }
 }
 
-export default Accounts;
+export default AccountsPage;

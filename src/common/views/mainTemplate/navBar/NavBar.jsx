@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import IconContainer from './containers/IconContainer';
 import styles from './navbar.css';
+import { Link } from 'react-router-dom';
+
 
 function Logo() {
   return (
     <div className='nav-logo'>
-      <img src='/ig-logo.svg'/>
+      <Link to = '/'><img src='/ig-logo.svg'/></Link>
       <div></div>
-      <h1> Instagram</h1>
+      <Link to = '/'><h1> Instagram</h1></Link>
     </div>
   )
 } 
@@ -19,15 +22,6 @@ function SearchBar() {
   )
 }
 
-function UserNavigation() {
-  return (
-    <div className='user-nav'>
-      <img src='/compass.svg'/>
-      <img src='/heart.svg'/>
-      <img src='/user.svg'/>
-    </div>
-  )
-}
 
 class NavBar extends Component {
   render() {
@@ -36,7 +30,7 @@ class NavBar extends Component {
         <nav className='nav-bar max-width'>
           <Logo />
           <SearchBar />
-          <UserNavigation />
+          <IconContainer />
         </nav>    
       </div>
     )

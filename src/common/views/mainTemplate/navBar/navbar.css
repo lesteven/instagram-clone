@@ -53,6 +53,10 @@
 .nav-logo img, h1 {
   margin:0 1.5vw;
 }
+.nav-logo a {
+  text-decoration:none;
+  color:black;
+}
 .nav-logo h1 {
   font-family: 'Norican';
   font-size:32px;

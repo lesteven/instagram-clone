@@ -1,7 +1,9 @@
-import { loginAC } from './loginModule';
+import { loginAC, logoutAC } from './loginModule';
 import submit from '../utils/submit';
+import { fetchAction } from '../thunks/fetchData';
 
-const loginUser = submit(loginAC);
+
+export const loginUser = submit(loginAC);
 
 
-export default loginUser;
+export const logOutUser = fetchAction(logoutAC);

@@ -29,7 +29,7 @@ class AuthWrapper extends Component {
     const previous = prevProps.data.success;
     const success = this.props.data.success;
     if (previous !== success) {
-      setTimeout(this.resetState, 300);
+      this.resetState();
     }
   }
 

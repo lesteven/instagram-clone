@@ -1,8 +1,7 @@
 import makeRouteObject from './utils/makeRouteObject';
-import Home from './views/homeAuth/Home';
-import About from './views/about/About';
-import Accounts from './views/accounts/Accounts';
-import MainTemplate from './views/mainTemplate/MainTemplate';
+import HomePage from './views/home/HomePage';
+import AboutPage from './views/about/AboutPage';
+import AccountsPage from './views/accounts/AccountsPage';
 
 const prefix = '';
 const exactTrue = true;
@@ -17,38 +16,29 @@ const aboutTitle = 'About';
 const accountsURL = '/accounts';
 const accountsTitle = 'Accounts';
 
-const templateURL = '/template';
-const templateTitle = 'Test';
 
 const routes = {
   routes: [
     makeRouteObject(
       prefix,
-      homeURL,
-      Home,
-      exactTrue,
-      homeTitle,
-    ),
-    makeRouteObject(
-      prefix,
       aboutURL,
-      About,
+      AboutPage,
       exactTrue,
       aboutTitle,
     ),
     makeRouteObject(
       prefix,
       accountsURL,
-      Accounts,
+      AccountsPage,
       exactFalse,
       accountsTitle,
     ),
     makeRouteObject(
       prefix,
-      templateURL,
-      MainTemplate,
+      homeURL,
+      HomePage,
       exactFalse,
-      templateTitle,
+      homeTitle,
     ),
   ],
 };

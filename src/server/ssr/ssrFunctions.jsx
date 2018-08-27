@@ -6,7 +6,10 @@ import serialize from 'serialize-javascript';
 import App from '../../common/App';
 import configureStore from '../../common/redux/configureStore';
 import findComponent from './findComponent';
+import checkAuthenticated from './checkLoggedIn';
 
+
+const debug = require('debug')('http');
 
 /*
 * Control flow
@@ -52,9 +55,11 @@ export async function hydrateClient(req, res) {
 
   const { component, foundPath } = findComponent(req);
 
+  checkAuthenticated(req.user, store);
+
   const preloadedState = store.getState();
   const context = {};
-
+  
   const html = renderToString(
     <Provider store={store}>
       <Router context={context} location={req.url}>

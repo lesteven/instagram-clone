@@ -1,7 +1,7 @@
-const JSON_ERR = '/error/JSON_ERROR';
-const SERVER_ERR = '/error/SERVER_ERROR';
-const INPUT_ERR = '/error/INPUT_ERROR';
-const CLEAR = '/error/CLEAR';
+const JSON_ERR = 'error/JSON_ERROR';
+const SERVER_ERR = 'error/SERVER_ERROR';
+const INPUT_ERR = 'error/INPUT_ERROR';
+const CLEAR = 'error/CLEAR';
 
 
 const initialState = {};

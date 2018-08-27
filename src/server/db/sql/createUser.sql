@@ -10,3 +10,6 @@ CREATE TABLE users.credentials (
 );
 
 CREATE UNIQUE INDEX email_idx ON users.credentials USING btree(email);
+CREATE UNIQUE INDEX username_idx ON users.credentials USING btree(username);
+
+CREATE UNIQUE INDEX id_idx ON users.credentials USING btree(id);

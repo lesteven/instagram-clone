@@ -1,9 +1,5 @@
-import {
-  jsonError,
-  serverError,
-  clearError,
-} from '../errorModule/errorModule';
 import { postAC } from '../userModule/userModule';
+import { handleJson, handleJsonErr } from '../errorModule/errorHandle';
 
 
 export const post = (url, method, data) => () => fetch(url, {
@@ -14,18 +10,6 @@ export const post = (url, method, data) => () => fetch(url, {
 });
 
 
-const jsonErrMsg = 'failed to process data';
-
-
-const handleJson = (dispatch, action, url, json) => {
-  if (json.success) {
-    dispatch(action(json));
-    dispatch(clearError(url));
-  } else {
-    dispatch(serverError(url, json.failed));
-  }
-};
-
 // handles data if success, else send error message
 export const postAction = (dispatch, postFn, action, url) => {
   dispatch(postAC());
@@ -35,6 +19,6 @@ export const postAction = (dispatch, postFn, action, url) => {
     .then(json => handleJson(dispatch, action, url, json))
     .catch((err) => {
       console.log('error message!!!', err);
-      return dispatch(jsonError(url, jsonErrMsg));
+      return handleJsonErr(dispatch, url);
     });
 };

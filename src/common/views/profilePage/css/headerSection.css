@@ -1,0 +1,63 @@
+.header-section {
+  text-align:left;
+  padding:0% 5%;
+}
+.header-section * {
+  padding-bottom:5%;
+}
+.first-row img {
+  height:25px;
+  width:25px;
+}
+.first-row {
+  display:flex;
+}
+.first-row * {
+  padding-right:20px;
+  padding-bottom:0;
+}
+.first-row h1 {
+  margin: 0;
+  min-width:10%;
+}
+.first-row * {
+}
+.first-row a {
+  text-decoration:none;
+  min-width:100px;
+}
+.first-row > a button {
+  padding:6%;
+  border:1px solid #dbdbdb;
+  border-radius:4px;
+  color:#262626;
+  font-weight:bold;
+  min-width:100px;
+}
+.first-row > a button, .settings {
+  background-color:transparent;
+}
+.first-row > .settings, .follow {
+  border:0px;
+}
+.first-row > button:focus {
+  outline:none;
+}
+.follow {
+  padding:2%;
+  border-radius:4px;
+  background-color:#3897f0;
+  color:white;
+  font-weight:bold;
+  min-width:100px;
+}
+.second-row p {
+  display:inline;
+}
+.second-row strong {
+  padding:0;
+}
+.second-row * {
+  padding-right:5%;
+  min-width:75px;
+}

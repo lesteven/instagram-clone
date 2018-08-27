@@ -1,21 +1,27 @@
 import Strategy from 'passport-local';
 import { findUser } from './passportQueries';
-import { sendError, sendSuccess } from './serverResponse';
+import { sendError } from './serverResponse';
 import { validatePassword } from './passwordEncryption';
 
 
-const debug = require('debug')('http');
+// const debug = require('debug')('http');
 
 export const handleRequest = async (req, res, data, queriedData) => {
   const user = queriedData.rows[0];
   const userPassword = user ? user.password : '';
   const valid = await validatePassword(data.password, userPassword);
 
-  debug('user!!', user);
+  // debug('user!!', user);
   if (user && valid) {
     req.login(user, (err) => {
       if (err) sendError(res, 200, 'there was an error');
-      return sendSuccess(res, 'logged in!')();
+      // return sendSuccess(res, 'logged in!')();
+      return res.status(200).json({
+        success: 'logged in!',
+        redirect: true,
+        userEmail: user.email,
+        userName: user.username,
+      });
     });
   } else {
     return sendError(res, 400, 'invalid email or password')();

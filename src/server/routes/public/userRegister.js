@@ -15,7 +15,6 @@ userRegister.route('/')
     debug('req.body:', req.body);
 
     regStrategy(passport, res);
-    debug('passport.authenticate', `${passport.authenticate('register')}`);
     passport.authenticate('register')(req, res, next);
   }));
 

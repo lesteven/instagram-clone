@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import SignUp from './components/SignUp';
-import styles from './home.css';
 import LoginLink from './components/LoginLink';
 
 
-class Home extends Component {
+class Auth extends Component {
   render() {
     return (
       <div className='max-width'>  
@@ -15,4 +14,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Auth;

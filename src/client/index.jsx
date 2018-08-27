@@ -13,7 +13,6 @@ const preloadedState = window.__PRELOADED_STATE__;
 // garbage collect data
 delete window.__PRELOADED_STATE__;
 
-
 const store = configureStore(preloadedState);
 
 
