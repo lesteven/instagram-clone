@@ -1,10 +1,17 @@
 const prefix = 'upload';
 const DROP = `${prefix}/DROP`;
+const UPLOAD = `${prefix}/UPLOAD`;
+
 
 export const dropImage = (accepted, rejected) => ({
   type: DROP,
   accepted,
   rejected,
+});
+
+export const uploadAC = (success) => ({
+  type: UPLOAD,
+  success,
 });
 
 const initialState = {

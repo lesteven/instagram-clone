@@ -4,8 +4,8 @@ import DropZone from 'react-dropzone';
 
 class Upload extends Component {
   render() {
-    const { dropImage } = this.props;
-    console.log(this.props);
+    const { dropImage, upload, uploadImage } = this.props;
+    const { accepted } = upload;
     return (
       <div className = 'top-pad upload-wrapper'>
         <DropZone className = 'dropzone'
@@ -13,8 +13,12 @@ class Upload extends Component {
           multiple = { false }
           onDrop = { dropImage }
           >
-          <p> Drag and drop or click! </p>
+          { accepted? 
+              <img src = { accepted[0].preview } />
+              : <p> Drag and drop or click! </p>
+          }
         </DropZone>
+        <button onClick = { uploadImage }> Upload! </button>
       </div>
     )
   }

@@ -2,7 +2,14 @@
   text-align:center;
   padding:5%;
 }
-
+.upload-wrapper button {
+  margin:5%;
+  padding:2%;
+  background-color:#8563c9;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
 .dropzone {
   border:2px dashed #8563c9;
   height:300px;
@@ -11,4 +18,8 @@
   display:flex;
   justify-content:center;
   align-items:center;
+}
+
+.dropzone img {
+  height:100%;
 }

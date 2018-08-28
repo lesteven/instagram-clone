@@ -9,6 +9,10 @@ export const post = (url, method, data) => () => fetch(url, {
   body: JSON.stringify(data),
 });
 
+export const postFile = (url, method, data) => () => fetch(url, {
+  method,
+  body: data,
+});
 
 // handles data if success, else send error message
 export const postAction = (dispatch, postFn, action, url) => {
