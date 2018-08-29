@@ -9,9 +9,9 @@ export const dropImage = (accepted, rejected) => ({
   rejected,
 });
 
-export const uploadAC = (success) => ({
+export const uploadAC = (data) => ({
   type: UPLOAD,
-  success,
+  success: data.success,
 });
 
 const initialState = {
@@ -25,6 +25,11 @@ export const upload = (state = initialState, action) => {
         ...state,
         accepted: action.accepted,
         rejected: action.rejected,
+      };
+    case UPLOAD:
+      return {
+        ...state,
+        success: action.success,
       };
     default:
       return state;

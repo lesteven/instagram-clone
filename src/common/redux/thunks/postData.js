@@ -29,3 +29,4 @@ export const post = genFetch('POST', JSON.stringify);
 export const deleteData = genFetch('DELETE', JSON.stringify);
 export const update = genFetch('PUT', JSON.stringify);
 
+
