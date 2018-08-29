@@ -6,13 +6,13 @@ import uploadImage from '../../../redux/uploadModule/uploadFunctions';
 
 class UploadContainer extends Component {
   uploadImage = () => {
-    const { upload, uploadImage } = this.props;
+    const { login, upload, uploadImage } = this.props;
     const { accepted } = upload;
     console.log(this.props); 
     if (accepted) {
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
-      uploadImage('/api/upload', formData);
+      uploadImage(`/api/upload/${login.userName}`, formData);
     }
   }
   render() {
@@ -25,7 +25,8 @@ class UploadContainer extends Component {
   }
 }
 
-const mapState = ({ upload }) => ({
+const mapState = ({ login, upload }) => ({
+  login,
   upload,
 });
 
