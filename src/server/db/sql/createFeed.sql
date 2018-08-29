@@ -2,7 +2,7 @@
 CREATE TABLE users.feed (
   id SERIAL PRIMARY KEY,
   username INTEGER REFERENCES users.credentials (id) ON DELETE CASCADE,
-  imgName VARCHAR(254),
+  imgname VARCHAR(254),
   created_at DATE
 );
 

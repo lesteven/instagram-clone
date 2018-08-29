@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { IncomingForm } from 'formidable';
+import { insert } from '../../../db/crudFunctions';
 
 const debug = require('debug')('http');
 
@@ -42,7 +43,7 @@ export function uploadFiles(req, res, dir) {
     .on('file', (field, file) => {
       const imgPath = split(file.path);
       debug(imgPath);
-      saveImage({path:imgPath});
+      saveImage(req, imgPath);
       files.push([field,file]);
     })
     .on('end', () => {
@@ -52,17 +53,15 @@ export function uploadFiles(req, res, dir) {
 }
 
 // save image path to db
-function saveImage(data) {
-  debug('saveimage data', data)
-  /*
-  let content = new Image(data);
-  content.save(err => {
-    if (err) {
-      return debug(err)
-    }
-    debug('success');
-  })
-  */
+function saveImage(req, imgPath) {
+  debug('saveimage data', imgPath)
+  const table = 'users.feed';
+  const keys = 'username,imgname';
+  const feedData = {
+    username: req.user.id,
+    imgname: imgPath,
+  }
+  insert(table, keys, feedData);
 }
 
 // split path
