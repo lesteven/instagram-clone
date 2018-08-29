@@ -1,22 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
+import MappedPosts from '../../generalComponents/MappedPosts';
+
 
 class FeedContainer extends Component {
 
   render() {
+  const data = [
+    {
+      userimage :'/user.svg',
+      username : 'user1',
+      imgname :'/slug.jpg'
+    }, 
+    {
+      userimage :'/user.svg',
+      username : 'user2',
+      imgname : '/milky-way.jpg'
+    },
+    {
+      userimage :'/user.svg',
+      username : 'user3',
+      imgname : '/milky-way.jpg'
+    }
+  ];
     return (
       <div className= 'feed-wrapper'>
-        <Post 
-          userimage = '/user.svg'
-          username = 'user1'
-          postimage = '/slug.jpg'
-          />
-        <Post 
-          userimage = '/user.svg'
-          username = 'user2'
-          postimage = '/milky-way.jpg'
-          />
+        <MappedPosts data = { data } />
       </div>
     )
   }

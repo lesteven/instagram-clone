@@ -5,14 +5,14 @@ import styles from '../css/post.css';
 class Post extends Component {
 
   render() {
-    const { userimage, username, postimage } = this.props;
+    const { userimage, username, imgname } = this.props;
     return (
       <div className = 'post-wrapper'>
         <div className = 'post-user'>
           <img src = { userimage } />
           <p> <strong>{ username }</strong></p>
         </div>
-        <img src = { postimage } /> 
+        <img src = { imgname } /> 
         <div className = 'post-data'>
         </div>
       </div>

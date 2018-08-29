@@ -2,25 +2,25 @@
 
 .post-wrapper {
   margin:3%;
-  max-width:500px;
+  max-width:600px;
   background-color:white;
   border:1px solid #efefef;
 }
 .post-wrapper > img {
-  max-width:500px;
+  width:100%;
 }
 .post-user {
   display:flex;
   align-items:center;
 }
 .post-user * {
-  padding:2%;
+  padding:1% 2%;
 }
 .post-user img {
   max-height:25px; 
 }
 
 .post-data {
-  height: 50px;
+  height: 70px;
   width:100%;
 }
