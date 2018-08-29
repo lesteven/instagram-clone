@@ -6,7 +6,7 @@ import { inputError } from '../errorModule/errorModule';
 const submit = actionCreator => (url, data) => (dispatch) => {
   const validJson = checkJson(data);
   if (validJson) {
-    const postData = post(url, 'POST', data);
+    const postData = post(url, data);
     postAction(dispatch, postData, actionCreator, url);
   } else {
     const errorMsg = 'all fields are required';

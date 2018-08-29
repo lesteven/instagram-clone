@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MainTemplate from '../mainTemplate/MainTemplate';
+import UploadContainer from './containers/UploadContainer';
+import syles from './upload.css';
 
 
 class UploadPage extends Component {
@@ -7,10 +9,11 @@ class UploadPage extends Component {
   render() {
     return (
       <MainTemplate>
-        <p>hello upload page!</p>
+        <UploadContainer />
       </MainTemplate>
     )
   }
 }
+
 
 export default UploadPage
