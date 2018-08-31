@@ -1,7 +1,6 @@
 import { matchPath } from 'react-router';
 import masterRoutes from '../../common/masterRoutes';
 
-const debug = require('debug')('http');
 
 const getPath = (req, path) => matchPath(
   req.url,

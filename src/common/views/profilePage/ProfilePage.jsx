@@ -3,6 +3,7 @@ import MainTemplate from '../mainTemplate/MainTemplate';
 import ProfileContainer from './containers/ProfileContainer';
 import getProfile from '../../redux/profileModule/profileFunctions';
 
+
 class ProfilePage extends Component {
   static fetchData({ store, params }, url) {
     if (params.profile !== 'favicon.ico') {

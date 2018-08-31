@@ -52,10 +52,9 @@ export function renderFullPage(html, preloadedState) {
 async function getData(store, component, foundPath, url) {
 //  debug('foundpath', foundPath); 
   if (component.fetchData) {
-    debug('component.fetchData', component.fetchData);
-    const data = await component.fetchData({ store, params: 
+    // debug('component.fetchData', component.fetchData);
+    await component.fetchData({ store, params: 
       (foundPath? foundPath.params: {}) }, url);
-    debug('data!!!!!!!!', data);
     return;
   }
   return new Promise(resolve => resolve());
@@ -76,7 +75,7 @@ async function getAllData(req, store) {
 export async function hydrateClient(req, res) {
   const store = configureStore();
   
-  const data = await getAllData(req, store);
+  await getAllData(req, store);
 
   const preloadedState = store.getState();
   const context = {};

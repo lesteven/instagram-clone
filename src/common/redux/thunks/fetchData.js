@@ -13,7 +13,7 @@ export const asyncFetchData = action => url => async (dispatch) => {
   const response = await fetchData(url)
     .catch((e) => {
       console.log(e);
-      console.log('fetch error')
+      console.log('fetch error');
     });
 
   const data = await response.json()
