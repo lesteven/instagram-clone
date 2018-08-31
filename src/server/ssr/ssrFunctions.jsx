@@ -49,20 +49,28 @@ export function renderFullPage(html, preloadedState) {
   `;
 }
 
-async function getData(store, component, foundPath, fullUrl) {
-  return component.fetchData({ store, params: 
-    (foundPath? foundPath.params: {}) }, fullUrl);
+async function getData(store, component, foundPath, url) {
+//  debug('foundpath', foundPath); 
+  if (component.fetchData) {
+    debug('component.fetchData', component.fetchData);
+    const data = await component.fetchData({ store, params: 
+      (foundPath? foundPath.params: {}) }, url);
+    debug('data!!!!!!!!', data);
+    return;
+  }
+  return new Promise(resolve => resolve());
 }
 
 async function getAllData(req, store) {
   const { component, foundPath } = findComponent(req);
   
-  debug('component!!!', component);
+//  debug('component!!!', component);
 
   checkAuthenticated(req.user, store);
 
-  const fullUrl = '/test'; 
-  //const data = await getData(store, component, foundPath, fullUrl); 
+  const url = req.protocol + '://' + req.get('host');
+
+  const data = await getData(store, component, foundPath, url); 
 }
 
 export async function hydrateClient(req, res) {

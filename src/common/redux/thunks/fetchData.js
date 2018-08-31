@@ -9,9 +9,12 @@ export const fetchData = url => fetch(url, {
   credentials: 'same-origin',
 });
 
-export const asyncFetchData = async (dispatch, url, action) => {
+export const asyncFetchData = action => url => async (dispatch) => {
   const response = await fetchData(url)
-    .catch(() => console.log('fetch error'));
+    .catch((e) => {
+      console.log(e);
+      console.log('fetch error')
+    });
 
   const data = await response.json()
     .catch(() => console.log('json error'));

@@ -8,6 +8,7 @@ import { userActions } from './userModule/userModule';
 import { login } from './loginModule/loginModule';
 import { popUp } from './popUpModule/popUpModule';
 import { upload } from './uploadModule/uploadModule';
+import { profile } from './profileModule/profileModule';
 
 
 export const reducers = combineReducers({
@@ -17,6 +18,7 @@ export const reducers = combineReducers({
   login,
   error,
   upload,
+  profile,
 });
 
 

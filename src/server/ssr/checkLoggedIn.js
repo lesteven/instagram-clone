@@ -1,11 +1,11 @@
 import { loggedIn } from '../../common/redux/loginModule/loginModule';
 
-const debug = require('debug')('http');
+// const debug = require('debug')('http');
 
 
 const checkAuthenticated = (user, store) => {
-  debug('user! checkAuthenticated', user);
-  debug(store);
+//  debug('user! checkAuthenticated', user);
+//  debug(store);
   let data = {};
   if (user) {
     data = {
