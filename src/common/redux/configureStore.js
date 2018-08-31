@@ -3,7 +3,6 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { view } from './viewModule/viewModule';
-import { register } from './registerModule/registerModule';
 import { error } from './errorModule/errorModule';
 import { userActions } from './userModule/userModule';
 import { login } from './loginModule/loginModule';
@@ -15,7 +14,6 @@ export const reducers = combineReducers({
   view,
   popUp,
   userActions,
-  register,
   login,
   error,
   upload,

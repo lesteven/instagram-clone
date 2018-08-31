@@ -6,7 +6,7 @@ function Register(props) {
   return (
     <AuthWrapper 
       error = { props.error }
-      data = { props.register }
+      data = { props.login }
       inputState = { inputState }
       mappedInput = { mappedInput }
       submit = { props.loginUser }

@@ -7,16 +7,14 @@ import FeedPage from '../../feed/FeedPage';
 
 class HomeContainer extends Component {
   render() {
-    const regRedirect = this.props.register.redirect;
-    const logRedirect = this.props.login.redirect;
-    if (logRedirect || regRedirect ) return <FeedPage />;
+    const { redirect }= this.props.login;
+    if (redirect) return <FeedPage />;
     else return <Auth />; 
   }
 }
 
-const mapState = ({ login, register }) => ({
+const mapState = ({ login }) => ({
   login,
-  register,
 })
 
 const mapDispatch = {

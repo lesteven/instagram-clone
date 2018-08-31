@@ -1,7 +1,7 @@
 import Strategy from 'passport-local';
 import { insertUser } from './passportQueries';
 import { checkAvailability } from './passportMultiQueries';
-import { sendError, sendSuccess } from './serverResponse';
+import { sendError } from './serverResponse';
 import { hashPassword } from './passwordEncryption';
 import { loginUser } from './logStrategy';
 
@@ -30,15 +30,13 @@ export const handleRequest = async (res, req, queriedData) => {
   }
   if (!email && !user) {
     const userInserted = await insertUserIntoDB(res, req.body);
-    // debug('user inserted!!', userInserted.rows[0]);
-    //return sendSuccess(res, 'user registered!')();
     return loginUser(req, res, userInserted.rows[0]);
   }
 
   return sendError(res, 400, 'error processing request')();
 };
 
-const regStrategy = (passport, res, req) => {
+const regStrategy = (passport, res) => {
   passport.use('register', new Strategy(
     { passReqToCallback: true },
     (async (req) => {

@@ -16,7 +16,7 @@ export const loginUser = (req, res, user) => {
       userName: user.username,
     });
   });
-}
+};
 
 
 export const handleRequest = async (req, res, data, queriedData) => {
@@ -27,10 +27,8 @@ export const handleRequest = async (req, res, data, queriedData) => {
   // debug('user!!', user);
   if (user && valid) {
     return loginUser(req, res, user);
-  } else {
-    return sendError(res, 400, 'invalid email or password')();
   }
-  return false;
+  return sendError(res, 400, 'invalid email or password')();
 };
 export const logStrategy = (passport, res) => {
   passport.use('login', new Strategy(

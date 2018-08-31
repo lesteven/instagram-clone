@@ -20,14 +20,14 @@ const iterateRoutes = (req, level) => {
   foundComponent.foundPath = foundPath;
   return foundComponent;
 };
-
+/*
 const checkFetchData = (component) => {
   if (!component) {
     component = {};
     component.fetchData = () => new Promise(resolve => resolve());
   }
 };
-
+*/
 const findComponent = (req) => {
   const wrapper = {};
 
