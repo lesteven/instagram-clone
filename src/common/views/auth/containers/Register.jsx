@@ -9,7 +9,7 @@ function Register(props) {
       data = { props.register }
       inputState = { inputState }
       mappedInput = { mappedInput }
-      submit = { props.registerUser }
+      submit = { props.loginUser }
       url = '/api/register'
       label = 'Sign Up'
     />

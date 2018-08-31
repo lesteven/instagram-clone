@@ -25,16 +25,16 @@ const checkFetchData = (component) => {
   if (!component) {
     component = {};
     component.fetchData = () => new Promise(resolve => resolve());
-  } 
-  return; 
-}
+  }
+};
+
 const findComponent = (req) => {
   const wrapper = {};
 
   const { component, foundPath } = iterateRoutes(req, routes);
 
-  debug('component in findComponent', component);  
-  checkFetchData(component);
+  debug('component in findComponent', component);
+  // checkFetchData(component);
 
   wrapper.foundPath = foundPath;
   wrapper.component = component;

@@ -16,17 +16,15 @@ export const postAction = (dispatch, postFn, action, url) => {
 };
 
 export const genFetch = (method, modify) => (url, data) => {
-  const modifiedData = modify(data); 
+  const modifiedData = modify(data);
   return fetch(url, {
     method,
     credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json' },
     body: modifiedData,
-  })
-}
+  });
+};
 
 export const post = genFetch('POST', JSON.stringify);
 export const deleteData = genFetch('DELETE', JSON.stringify);
 export const update = genFetch('PUT', JSON.stringify);
-
-

@@ -5,8 +5,9 @@ import FeedPage from '../../feed/FeedPage';
 
 class Home extends Component {
   render() {
+    const regRedirect = this.props.redirect;
     const { redirect } = this.props.login;
-    if (redirect) return <FeedPage />;
+    if (redirect || regRedirect ) return <FeedPage />;
     else return <Auth />; 
   }
 }

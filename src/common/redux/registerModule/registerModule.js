@@ -7,7 +7,7 @@ export const registerAC = success => ({
 
 
 const initialState = {
-  status: false,
+  redirect: false,
 };
 
 export const register = (state = initialState, action) => {

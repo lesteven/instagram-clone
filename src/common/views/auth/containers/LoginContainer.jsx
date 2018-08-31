@@ -6,15 +6,6 @@ import { loginUser } from '../../../redux/loginModule/loginFunctions';
 
 
 class LoginContainer extends Component {
-/*
-  componentDidMount() {
-    console.log('mounted');
-    const { redirect } = this.props.login;
-   // if (redirect) {
-      this.props.history.push('/');
-    //}
-  }
-*/
   componentDidUpdate(prevProps) {
     console.log('updated');
     const { login, history } = this.props;

@@ -5,6 +5,19 @@ import { validatePassword } from './passwordEncryption';
 
 
 // const debug = require('debug')('http');
+export const loginUser = (req, res, user) => {
+  req.login(user, (err) => {
+    if (err) sendError(res, 200, 'there was an error');
+    // return sendSuccess(res, 'logged in!')();
+    return res.status(200).json({
+      success: 'logged in!',
+      redirect: true,
+      userEmail: user.email,
+      userName: user.username,
+    });
+  });
+}
+
 
 export const handleRequest = async (req, res, data, queriedData) => {
   const user = queriedData.rows[0];
@@ -13,16 +26,7 @@ export const handleRequest = async (req, res, data, queriedData) => {
 
   // debug('user!!', user);
   if (user && valid) {
-    req.login(user, (err) => {
-      if (err) sendError(res, 200, 'there was an error');
-      // return sendSuccess(res, 'logged in!')();
-      return res.status(200).json({
-        success: 'logged in!',
-        redirect: true,
-        userEmail: user.email,
-        userName: user.username,
-      });
-    });
+    return loginUser(req, res, user);
   } else {
     return sendError(res, 400, 'invalid email or password')();
   }
