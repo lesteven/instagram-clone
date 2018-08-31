@@ -29,7 +29,8 @@ export const handleRequest = async (res, data, queriedData) => {
     return sendError(res, 400, 'user already exist')();
   }
   if (!email && !user) {
-    await insertUserIntoDB(res, data);
+    const userInserted = await insertUserIntoDB(res, data);
+    // debug('user inserted!!', userInserted.rows[0]);
     return sendSuccess(res, 'user registered!')();
   }
 

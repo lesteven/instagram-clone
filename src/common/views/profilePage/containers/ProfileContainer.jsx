@@ -4,6 +4,7 @@ import Profile from '../components/Profile';
 import { withRouter } from 'react-router-dom';
 import { resetLogin } from '../../../redux/loginModule/loginModule';
 
+
 class ProfileContainer extends Component {
   componentDidUpdate(prevProps) {
     const { login, resetLogin } = this.props;

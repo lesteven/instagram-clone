@@ -1,6 +1,7 @@
 import { matchPath } from 'react-router';
 import routes from '../../common/routes';
 
+const debug = require('debug')('http');
 
 const getPath = (req, path) => matchPath(
   req.url,
@@ -20,11 +21,20 @@ const iterateRoutes = (req, level) => {
   return foundComponent;
 };
 
-
+const checkFetchData = (component) => {
+  if (!component) {
+    component = {};
+    component.fetchData = () => new Promise(resolve => resolve());
+  } 
+  return; 
+}
 const findComponent = (req) => {
   const wrapper = {};
 
   const { component, foundPath } = iterateRoutes(req, routes);
+
+  debug('component in findComponent', component);  
+  checkFetchData(component);
 
   wrapper.foundPath = foundPath;
   wrapper.component = component;
