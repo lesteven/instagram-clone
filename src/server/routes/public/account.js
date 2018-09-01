@@ -8,6 +8,19 @@ const debug = require('debug')('http');
 
 const account = express.Router();
 
+const getFeed = async (user) => {
+
+  const select = `SELECT users.credentials.username,users.feed.imgname FROM users.credentials`;
+  const join = `INNER JOIN users.feed ON users.credentials.id = users.feed.username`;
+  const where = `WHERE users.credentials.id = ($1)`; 
+  const sql = `${select} ${join} ${where}`;
+  const params = [user.id]
+  const feed = await query(sql, params); 
+  debug(sql, params);
+  debug('feed!', feed.rows);
+  return feed;
+}
+
 account.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
@@ -18,14 +31,14 @@ account.route('/:username')
     const data = await find('users.credentials', 'username',userData);
     const user = data.rows[0];
     // debug('fetched data!', user);
+
+    const feed = await getFeed(user);
+
     if (user) {
-      const sql = `SELECT * FROM users.credentials INNER JOIN users.feed ON users.credentials.id = users.feed.username WHERE users.credentials.id = ($1)`; 
-      const params = [user.id]
-      const feed = await query(sql, params); 
-      debug(sql, params);
-      debug('user id!!!', user.id);
-      debug('feed!', feed.rows);
-      res.json({feed: 'feed!'});
+      res.json({
+        profile: user.username,
+        feed: feed.rows
+      });
     } else {
       res.json({ hello: req.params.username });
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainTemplate from '../mainTemplate/MainTemplate';
 import ProfileContainer from './containers/ProfileContainer';
 import getProfile from '../../redux/profileModule/profileFunctions';
+import FeedContainer from './containers/FeedContainer';
 
 
 class ProfilePage extends Component {
@@ -15,6 +16,7 @@ class ProfilePage extends Component {
     return (
       <MainTemplate>
         <ProfileContainer />
+        <FeedContainer />
       </MainTemplate>
     )
   }
