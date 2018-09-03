@@ -21,14 +21,12 @@ class ProfilePage extends Component {
     const { getProfile } = this.props;
     const { params } = this.props.match;
     if (!feed) {
-      console.log(this.props);
       getProfile(`${api}${params.profile}`);
     } 
   }  
   render() {
     const { params } = this.props.match;
     const { feed } = this.props.profile; 
-    console.log('params!', params);
     if (feed) {
       return (
         <MainTemplate>

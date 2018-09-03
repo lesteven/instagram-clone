@@ -10,10 +10,11 @@ const account = express.Router();
 
 const getFeed = async (user) => {
 
-  const select = `SELECT users.credentials.username,users.feed.imgname FROM users.credentials`;
+  const select = `SELECT users.credentials.username,users.feed.imgname, users.feed.created_at FROM users.credentials`;
   const join = `INNER JOIN users.feed ON users.credentials.id = users.feed.username`;
   const where = `WHERE users.credentials.id = ($1)`; 
-  const sql = `${select} ${join} ${where}`;
+  const order = `ORDER BY users.feed.created_at DESC NULLS LAST`;
+  const sql = `${select} ${join} ${where} ${order}`;
   const params = [user.id]
   const feed = await query(sql, params); 
   debug(sql, params);
