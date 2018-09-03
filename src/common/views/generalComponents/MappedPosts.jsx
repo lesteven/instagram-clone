@@ -13,6 +13,7 @@ class MappedPosts extends Component {
               userimage = { e.userimage } 
               username = { e.username }
               imgname = { e.imgname }
+              created_at = { e.created_at }
               />)
         }
       </div>

@@ -2,38 +2,32 @@ import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
 import { find } from '../../db/crudFunctions';
 import { query } from '../../db/dbQueries';
+import { getNewestFeed, getOlderFeed } from './utils/getFeed';
+import getUser from './utils/getUser';
 
 
 const debug = require('debug')('http');
 
 const account = express.Router();
 
-const getFeed = async (user) => {
 
-  const select = `SELECT users.credentials.username,users.feed.imgname, users.feed.created_at FROM users.credentials`;
-  const join = `INNER JOIN users.feed ON users.credentials.id = users.feed.username`;
-  const where = `WHERE users.credentials.id = ($1)`; 
-  const order = `ORDER BY users.feed.created_at DESC NULLS LAST`;
-  const sql = `${select} ${join} ${where} ${order}`;
-  const params = [user.id]
-  const feed = await query(sql, params); 
-  debug(sql, params);
-  debug('feed!', feed.rows);
-  return feed;
-}
+account.route('/older/:username/:pagekey')
+  .get(asyncWrap(async (req, res, next) => {
+      const user = await getUser(req);      
+      const { pagekey } = req.params;
+      const feed = await getOlderFeed(user, pagekey);
+      res.json({
+          profile: user.username,
+          feed: feed.rows,
+      });
+  }))
 
 account.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
-    debug('accounts visted!!!');
-    const userData = {
-      username : req.params.username,
-    };
-    const data = await find('users.credentials', 'username',userData);
-    const user = data.rows[0];
-    // debug('fetched data!', user);
+    const user = await getUser(req);
 
-    const feed = await getFeed(user);
+    const feed = await getNewestFeed(user);
 
     if (user) {
       res.json({
@@ -44,5 +38,6 @@ account.route('/:username')
       res.json({ hello: req.params.username });
     }
   }));
+
 
 export default account;

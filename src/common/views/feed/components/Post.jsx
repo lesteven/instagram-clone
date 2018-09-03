@@ -5,7 +5,7 @@ import styles from '../css/post.css';
 class Post extends Component {
 
   render() {
-    const { userimage, username, imgname } = this.props;
+    const { userimage, username, imgname, created_at} = this.props;
     return (
       <div className = 'post-wrapper'>
         <div className = 'post-user'>
@@ -14,6 +14,9 @@ class Post extends Component {
         </div>
         <img src = { imgname } /> 
         <div className = 'post-data'>
+          <p className = 'date'> 
+            { new Date(created_at).toDateString() } 
+          </p>
         </div>
       </div>
     )

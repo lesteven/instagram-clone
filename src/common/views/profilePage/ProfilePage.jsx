@@ -4,6 +4,7 @@ import MainTemplate from '../mainTemplate/MainTemplate';
 import ProfileContainer from './containers/ProfileContainer';
 import getProfile from '../../redux/profileModule/profileFunctions';
 import FeedContainer from './containers/FeedContainer';
+import InfiniteFeed from './containers/InfiniteFeed';
 import ErrorPage from '../generalComponents/ErrorPage';
 
 
@@ -24,6 +25,14 @@ class ProfilePage extends Component {
       getProfile(`${api}${params.profile}`);
     } 
   }  
+  componentDidUpdate(prevProps) {
+    const { getProfile } = this.props;
+    const { params } = this.props.match;
+    if (prevProps.match.params.profile !== params.profile) {
+      console.log('different!');
+      getProfile(`${api}${params.profile}`);
+    } 
+  }
   render() {
     const { params } = this.props.match;
     const { feed } = this.props.profile; 
@@ -31,7 +40,7 @@ class ProfilePage extends Component {
       return (
         <MainTemplate>
           <ProfileContainer />
-          <FeedContainer />
+          <InfiniteFeed />
         </MainTemplate>
       )
     } else if (this.props.profile[`${api}${params.profile}`]){
