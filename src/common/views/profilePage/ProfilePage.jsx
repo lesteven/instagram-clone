@@ -40,7 +40,7 @@ class ProfilePage extends Component {
       return (
         <MainTemplate>
           <ProfileContainer />
-          <InfiniteFeed />
+          <FeedContainer />
         </MainTemplate>
       )
     } else if (this.props.profile[`${api}${params.profile}`]){

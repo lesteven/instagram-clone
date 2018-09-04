@@ -25,9 +25,7 @@ class FeedContainer extends Component {
     }
   ];
     return (
-      <div className= 'feed-wrapper'>
-        <MappedPosts data = { data } />
-      </div>
+      <MappedPosts data = { data } />
     )
   }
 }

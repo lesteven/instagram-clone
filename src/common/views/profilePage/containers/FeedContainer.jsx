@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import MappedPosts from '../../generalComponents/MappedPosts';
 
@@ -6,12 +6,12 @@ class FeedContainer extends Component {
   render() {
     const { feed } = this.props.profile; 
     return (
-      <div className= 'feed-wrapper'>
+      <Fragment>
         { feed?
-        <MappedPosts data = { feed } />
-        : null
+          <MappedPosts data = { feed } />
+          : null
         }
-      </div>
+      </Fragment>
     )
   }
 }
