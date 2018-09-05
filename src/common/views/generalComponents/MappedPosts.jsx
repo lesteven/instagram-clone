@@ -10,10 +10,7 @@ class MappedPosts extends Component {
         { data.map(e => 
             <Post 
               key = { e.username + e.imgname }
-              userimage = { e.userimage } 
-              username = { e.username }
-              imgname = { e.imgname }
-              created_at = { e.created_at }
+              data = { e }
               />)
         }
       </div>

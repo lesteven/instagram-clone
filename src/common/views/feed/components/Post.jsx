@@ -5,7 +5,7 @@ import styles from '../css/post.css';
 class Post extends Component {
 
   render() {
-    const { userimage, username, imgname, created_at} = this.props;
+    const { userimage, username, imgname, created_at} = this.props.data;
     return (
       <div className = 'post-wrapper'>
         <div className = 'post-user'>

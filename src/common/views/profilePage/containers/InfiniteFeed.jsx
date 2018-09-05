@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InfiniteLoader, List } from 'react-virtualized';
+import InfiniteComp from '../components/InfiniteComp';
 
 
 class InfiniteFeed extends Component {
   render() {
     const { feed } = this.props.profile; 
+    const fn = () => {};
     return (
-      <InfiniteLoader
-        isRowLoaded = { isRowLoaded }
-        loadMoreRows = { loadMoreRows }
-        rowCount = { rowCount }    
-      >
-      {({ onRowsRendered, registerChild }) => (
-        <List
-          ref = { registerChild }
-          onRowsRendered = { onRowsRendered }
-          rowRenderer = { rowRenderer }
-          rowCount = { rowCount }
-          rowHeight = { 250 }
-          height = { 400 }
-          width = { 300 }
-          />
-      )}
-      </InfiniteLoader>
+      <InfiniteComp 
+        hasNextPage = { fn }
+        isNextPageLoading = { fn }
+        list = { feed }
+        loadNextPage = { fn }
+      />
     )
   }
 }
