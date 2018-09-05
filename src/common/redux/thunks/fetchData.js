@@ -9,7 +9,15 @@ export const fetchData = url => fetch(url, {
   credentials: 'same-origin',
 });
 
-export const asyncFetchData = action => url => async (dispatch) => {
+/*
+  async function needed to await data on server
+  before sending to client
+*/
+
+export const asyncGen = userAC => action => url => async (dispatch) => {
+  if (userAC) {
+    dispatch(userAC());
+  }
   const response = await fetchData(url)
     .catch((e) => {
       console.log(e);
@@ -17,16 +25,22 @@ export const asyncFetchData = action => url => async (dispatch) => {
     });
 
   const data = await response.json()
-    .catch(() => console.log('json error'));
+    .catch(() => handleJsonErr(dispatch, url));
 
-  dispatch(action(data));
+  handleJson(dispatch, action, url, data);
 };
 
-export const fetchAction = actionAC => url => (dispatch) => {
-  dispatch(fetchAC());
+
+export const fetchGen = userAction => actionAC => url => (dispatch) => {
+  if (userAction) {
+    dispatch(userAction());
+  }
 
   fetchData(url)
     .then(res => res.json())
     .then(json => handleJson(dispatch, actionAC, url, json))
     .catch(() => handleJsonErr(dispatch, url));
 };
+
+export const fetchAction = fetchGen(fetchAC);
+

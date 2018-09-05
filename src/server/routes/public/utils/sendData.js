@@ -2,11 +2,12 @@
 function sendData(res, user, feed) {
   if (user) {
     res.json({
+      success: 'data fetched',
       profile: user.username,
       feed: feed.rows,
     });
   } else {
-    res.json({ hello: 'nothing here' });
+    res.json({ failed: 'nothing here' });
   }
 }
 

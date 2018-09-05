@@ -13,6 +13,7 @@ const api = '/api/account/';
 class ProfilePage extends Component {
   static fetchData({ store, params }, url) {
     if (params.profile !== 'favicon.ico') {
+      console.log('static fetched feed!');
       const fullUrl = `${url}${api}${params.profile}`;
       return store.dispatch(getProfile(fullUrl));
     }
@@ -22,6 +23,7 @@ class ProfilePage extends Component {
     const { getProfile } = this.props;
     const { params } = this.props.match;
     if (!feed) {
+      console.log('there was no feed!');
       getProfile(`${api}${params.profile}`);
     } 
   }  
@@ -43,7 +45,7 @@ class ProfilePage extends Component {
           <InfiniteFeed />
         </MainTemplate>
       )
-    } else if (this.props.profile[`${api}${params.profile}`]){
+    } else if (!this.props.profile.profile){
       return (
         <ErrorPage />        
       )

@@ -1,7 +1,8 @@
-import { getProfilePage } from './profileModule';
-import { asyncFetchData } from '../thunks/fetchData';
+import { fetchingData, getProfilePage } from './profileModule';
+import { asyncGen } from '../thunks/fetchData';
 
 
-const getProfile = asyncFetchData(getProfilePage);
+//const getProfile = fetchGen(fetchingData)(getProfilePage);
+const getProfile = asyncGen(fetchingData)(getProfilePage);
 
 export default getProfile;

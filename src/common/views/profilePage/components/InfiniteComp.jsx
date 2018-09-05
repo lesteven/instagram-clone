@@ -31,8 +31,10 @@ function InfiniteComp ({
       }
     }
     else {
-      dataObj = list[index];
-      dataObj.userimage = '/user.svg'; 
+      dataObj = {
+        ...list[index],
+        userimage : '/user.svg', 
+      };
     }
     return (
       <div style = { style } key = { dataObj.imgname } >
@@ -52,8 +54,8 @@ function InfiniteComp ({
           onRowsRendered = { onRowsRendered }
           rowRenderer = { rowRenderer }
           rowCount = { rowCount }
-          rowHeight = { 250 }
-          height = { 400 }
+          rowHeight = { 350 }
+          height = { 600 }
           width = { 300 }
         />
       )}
