@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MainTemplate from '../mainTemplate/MainTemplate';
 import ProfileContainer from './containers/ProfileContainer';
 import getProfile from '../../redux/profileModule/profileFunctions';
-import FeedContainer from './containers/FeedContainer';
+// import FeedContainer from './containers/FeedContainer';
 import InfiniteFeed from './containers/InfiniteFeed';
 import ErrorPage from '../generalComponents/ErrorPage';
 
@@ -40,7 +40,7 @@ class ProfilePage extends Component {
       return (
         <MainTemplate>
           <ProfileContainer />
-          <FeedContainer />
+          <InfiniteFeed />
         </MainTemplate>
       )
     } else if (this.props.profile[`${api}${params.profile}`]){
