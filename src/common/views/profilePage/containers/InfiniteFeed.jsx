@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import InfiniteComp from '../components/InfiniteComp';
+import getProfile from '../../../redux/profileModule/profileFunctions';
 
 /*
   hasNextPage
@@ -15,19 +16,22 @@ import InfiniteComp from '../components/InfiniteComp';
 */
 class InfiniteFeed extends Component {
   loadNextPage = ({ startIndex, stopIndex }) => {
-    const { profile } = this.props;
+    const { profile, getProfile } = this.props;
     const { feed } = profile;
     const id = feed[startIndex-1].id;
-    const url = `/api/accounts/${profile.profile}/${id}`;
+    const url = `/api/account/older/${profile.profile}/${id}`;
 
+    return new Promise(resolve => {
+      getProfile(url);
+    });
   }
   render() {
-    const { feed, } = this.props.profile; 
+    const { feed, hasOldPage, fetchStatus } = this.props.profile; 
     const fn = () => {};
     return (
       <InfiniteComp 
-        hasNextPage = { fn }
-        isNextPageLoading = { false }
+        hasNextPage = { hasOldPage }
+        isNextPageLoading = { fetchStatus }
         list = { feed }
         loadNextPage = { this.loadNextPage }
       />
@@ -40,7 +44,7 @@ const mapState = ({ profile }) => ({
 });
 
 const mapDispatch = {
-
+  getProfile,
 }
 
 export default connect(mapState,mapDispatch)(InfiniteFeed);

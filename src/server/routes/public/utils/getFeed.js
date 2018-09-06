@@ -26,7 +26,7 @@ export const getFeed = limit => async (user, pageKey) => {
   return [];
 };
 
-const limit = 3;
+const limit = 4;
 
 export const getNewestFeed = getFeed(limit);
 

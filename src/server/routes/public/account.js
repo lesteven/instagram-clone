@@ -4,17 +4,19 @@ import { getNewestFeed, getOlderFeed } from './utils/getFeed';
 import getUser from './utils/getUser';
 import sendData from './utils/sendData';
 
-// const debug = require('debug')('http');
+const debug = require('debug')('http');
 
 const account = express.Router();
 
 
 account.route('/older/:username/:pagekey')
   .get(asyncWrap(async (req, res, next) => {
+    debug('reached older page!!!!!');
     const user = await getUser(req);
     const { pagekey } = req.params;
     const feed = await getOlderFeed(user, pagekey);
 
+    debug('feed!!!!!!1', feed);
     sendData(res, user, feed);
   }));
 

@@ -1,4 +1,7 @@
-import { handleJson, handleJsonErr } from '../errorModule/errorHandle';
+import {
+  handleJson,
+  handleJsonErr,
+} from '../errorModule/errorHandle';
 import { fetchAC } from '../userModule/userModule';
 
 require('es6-promise').polyfill();
@@ -30,7 +33,7 @@ export const asyncGen = userAC => action => url => async (dispatch) => {
   handleJson(dispatch, action, url, data);
 };
 
-
+// pure function for redux
 export const fetchGen = userAction => actionAC => url => (dispatch) => {
   if (userAction) {
     dispatch(userAction());
@@ -43,4 +46,3 @@ export const fetchGen = userAction => actionAC => url => (dispatch) => {
 };
 
 export const fetchAction = fetchGen(fetchAC);
-

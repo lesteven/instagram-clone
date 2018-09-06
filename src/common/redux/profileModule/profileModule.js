@@ -13,8 +13,9 @@ export const getProfilePage = profile => ({
 });
 
 
-
-const initialState = {};
+const initialState = {
+  feed: [],
+};
 
 export const profile = (state = initialState, action) => {
   switch (action.type) {
@@ -22,10 +23,16 @@ export const profile = (state = initialState, action) => {
       return {
         ...state,
         fetching: true,
-      }
+      };
     case GET_PROFILE:
       return {
-        ...action.profile,
+        success: action.profile.success,
+        profile: action.profile.profile,
+        feed: [
+          ...state.feed,
+          ...action.profile.feed
+        ],
+        hasOldPage: action.profile.hasOldPage,
         fetching: false,
       };
     default:
