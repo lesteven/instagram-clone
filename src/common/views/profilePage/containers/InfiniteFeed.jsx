@@ -27,7 +27,6 @@ class InfiniteFeed extends Component {
   }
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.profile; 
-    const fn = () => {};
     return (
       <InfiniteComp 
         hasNextPage = { hasOldPage }

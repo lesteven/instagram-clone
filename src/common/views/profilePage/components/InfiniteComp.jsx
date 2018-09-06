@@ -1,8 +1,13 @@
 import React from 'react';
-import { InfiniteLoader, List } from 'react-virtualized';
+import {
+  InfiniteLoader,
+  List,
+  AutoSizer,
+  WindowScroller,
+} from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import Post from '../../feed/components/Post';
-
+// import styles from '../css/infiniteComp.css';
 
 function InfiniteComp ({
   hasNextPage,
@@ -24,9 +29,9 @@ function InfiniteComp ({
 
     if (!isRowLoaded({ index })) {
       dataObj = {
-        userimage: 'user.svg',
+        userimage: '/user.svg',
         username: '',
-        imgname: '',
+        imgname: '/placeholder.svg',
         created_at: '', 
       }
     }
@@ -37,7 +42,7 @@ function InfiniteComp ({
       };
     }
     return (
-      <div style = { style } key = { dataObj.imgname } >
+      <div style = { style } key = { dataObj.imgname + '/' + index } >
         <Post data = { dataObj } />
       </div>
     )
@@ -49,16 +54,26 @@ function InfiniteComp ({
       rowCount = { rowCount }
     >
       {({ onRowsRendered, registerChild }) => (
+        <WindowScroller>
+          {({ height, isScrolling, scrollTop }) => (
+        <AutoSizer disableHeight>
+          {({ width }) => (
         <List
           ref = { registerChild }
+          autoHeight
           onRowsRendered = { onRowsRendered }
           rowRenderer = { rowRenderer }
           rowCount = { rowCount }
-          rowHeight = { 350 }
-          height = { 600 }
-          width = { 300 }
+          rowHeight = { 600 }
+          height = { height }
+          width = { width }
+          scrollTop = { scrollTop }
         />
-      )}
+        )}
+        </AutoSizer>
+        )}
+        </WindowScroller>
+        )}
     </InfiniteLoader>
   )
 }
