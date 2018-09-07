@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import InfiniteComp from '../components/InfiniteComp';
 import getProfile from '../../../redux/profileModule/profileFunctions';
+import styles from '../css/infiniteContainer.css';
 
 /*
   hasNextPage
@@ -28,12 +29,15 @@ class InfiniteFeed extends Component {
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.profile; 
     return (
+      <div className = 'infinite-wrapper'>
+      <p> hello </p>
       <InfiniteComp 
         hasNextPage = { hasOldPage }
         isNextPageLoading = { fetchStatus }
         list = { feed }
         loadNextPage = { this.loadNextPage }
       />
+      </div>
     )
   }
 }

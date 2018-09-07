@@ -56,22 +56,22 @@ function InfiniteComp ({
       {({ onRowsRendered, registerChild }) => (
         <WindowScroller>
           {({ height, isScrolling, scrollTop }) => (
-        <AutoSizer disableHeight>
-          {({ width }) => (
-        <List
-          ref = { registerChild }
-          autoHeight
-          onRowsRendered = { onRowsRendered }
-          rowRenderer = { rowRenderer }
-          rowCount = { rowCount }
-          rowHeight = { 600 }
-          height = { height }
-          width = { width }
-          scrollTop = { scrollTop }
-        />
-        )}
-        </AutoSizer>
-        )}
+          <AutoSizer disableHeight>
+            {({ width }) => (
+              <List
+                ref = { registerChild }
+                autoHeight
+                onRowsRendered = { onRowsRendered }
+                rowRenderer = { rowRenderer }
+                rowCount = { rowCount }
+                rowHeight = { 600 }
+                height = { height }
+                width = { width }
+                scrollTop = { scrollTop }
+              />
+            )}
+          </AutoSizer>
+          )}
         </WindowScroller>
         )}
     </InfiniteLoader>

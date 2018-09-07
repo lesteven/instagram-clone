@@ -1,3 +1,5 @@
+import { updateFeed } from './profileFunctions';
+
 const prefix = 'profile';
 
 const FETCHING = `${prefix}/FETCHING`;
@@ -13,9 +15,7 @@ export const getProfilePage = profile => ({
 });
 
 
-const initialState = {
-  feed: [],
-};
+const initialState = {};
 
 export const profile = (state = initialState, action) => {
   switch (action.type) {
@@ -28,10 +28,7 @@ export const profile = (state = initialState, action) => {
       return {
         success: action.profile.success,
         profile: action.profile.profile,
-        feed: [
-          ...state.feed,
-          ...action.profile.feed
-        ],
+        feed: updateFeed(state,action),
         hasOldPage: action.profile.hasOldPage,
         fetching: false,
       };
