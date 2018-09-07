@@ -87,7 +87,6 @@ export async function hydrateClient(req, res) {
       </Router>
     </Provider>
   );
-
   res.send(renderFullPage(html, preloadedState));
 }
 

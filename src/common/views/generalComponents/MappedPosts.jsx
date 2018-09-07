@@ -6,14 +6,14 @@ class MappedPosts extends Component {
   render() {
   const { data } = this.props;
     return (
-      <div className = 'all-posts'>
+      <Fragment>
         { data.map(e => 
             <Post 
               key = { e.username + e.imgname }
               data = { e }
               />)
         }
-      </div>
+      </Fragment>
     )
   }
 }

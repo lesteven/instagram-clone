@@ -7,7 +7,7 @@ import {
 } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import Post from '../../feed/components/Post';
-// import styles from '../css/infiniteComp.css';
+
 
 function InfiniteComp ({
   hasNextPage,
@@ -47,6 +47,8 @@ function InfiniteComp ({
       </div>
     )
   }
+  const gheight = 600;
+  const gwidth = 600;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }
@@ -54,23 +56,19 @@ function InfiniteComp ({
       rowCount = { rowCount }
     >
       {({ onRowsRendered, registerChild }) => (
-        <WindowScroller>
+        <WindowScroller serverHeight = { 1000 } serverWidth = { gwidth }>
           {({ height, isScrolling, scrollTop }) => (
-          <AutoSizer disableHeight>
-            {({ width }) => (
               <List
                 ref = { registerChild }
                 autoHeight
                 onRowsRendered = { onRowsRendered }
                 rowRenderer = { rowRenderer }
                 rowCount = { rowCount }
-                rowHeight = { 600 }
+                rowHeight = { gheight }
                 height = { height }
-                width = { width }
+                width = { gwidth }
                 scrollTop = { scrollTop }
               />
-            )}
-          </AutoSizer>
           )}
         </WindowScroller>
         )}
