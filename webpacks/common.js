@@ -18,7 +18,10 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             babelrc: false,
-            presets: ['react','env','stage-3'],
+            presets: [
+              '@babel/preset-react',
+              '@babel/preset-env',
+            ],
             plugins: ['transform-class-properties']
           }
         }
