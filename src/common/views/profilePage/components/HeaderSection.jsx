@@ -3,7 +3,7 @@ import style from '../css/headerSection.css';
 import { Link } from 'react-router-dom';
 
 function DiffUser(props) {
-  const { user, profile, onClick } = props;
+  const { user, profile, onClick, follow } = props;
   return (
     <div className ='first-row'>
       <h1> { profile } </h1>
@@ -11,7 +11,9 @@ function DiffUser(props) {
         <Link to = '/accounts/login'>
           <button> Follow </button>
         </Link> :
-        <button className= 'follow'> Follow </button>
+        <button className= 'follow' onClick = { follow }> 
+          Follow 
+        </button>
       } 
     </div>
   )

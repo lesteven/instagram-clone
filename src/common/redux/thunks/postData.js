@@ -15,6 +15,20 @@ export const postAction = (dispatch, postFn, action, url) => {
     });
 };
 
+
+export const postCurry= action => (url, data) => (dispatch) => {
+  dispatch(postAC());
+
+  post(url, data)
+    .then(res => res.json())
+    .then(json => handleJson(dispatch, action, url, json))
+    .catch((err) => {
+      console.log('error message!!!', err);
+      return handleJsonErr(dispatch, url);
+    });
+};
+
+
 export const genFetch = (method, modify) => (url, data) => {
   const modifiedData = modify(data);
   return fetch(url, {

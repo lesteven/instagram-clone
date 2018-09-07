@@ -37,7 +37,8 @@ class ProfilePage extends Component {
   }
   render() {
     const { params } = this.props.match;
-    const { feed } = this.props.profile; 
+    const { feed, profile } = this.props.profile; 
+    const { userName } = this.props.login;
     if (feed) {
       return (
         <MainTemplate>
@@ -45,7 +46,9 @@ class ProfilePage extends Component {
           <InfiniteFeed />
         </MainTemplate>
       )
-    } else if (!this.props.profile.profile){
+    } else if (!userName && !profile){
+      console.log('username', userName);
+      console.log('profile', profile);
       return (
         <ErrorPage />        
       )
@@ -58,8 +61,9 @@ class ProfilePage extends Component {
 }
 
 
-const mapState = ({ profile }) => ({
+const mapState = ({ login, profile }) => ({
   profile,
+  login,
 });
 
 const mapDispatch = {

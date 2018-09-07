@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Profile from '../components/Profile';
+import ProfileHeader from '../components/ProfileHeader';
 import { withRouter } from 'react-router-dom';
 import { resetLogin } from '../../../redux/loginModule/loginModule';
 
@@ -16,7 +16,7 @@ class ProfileContainer extends Component {
   }
   render() {
     return (
-      <Profile />
+      <ProfileHeader />
     )
   }
 }

@@ -1,4 +1,5 @@
-import { updateFeed } from './profileFunctions';
+import { RESET } from '../loginModule/loginModule';
+import updateFeed from './helperFunctions';
 
 const prefix = 'profile';
 
@@ -28,10 +29,13 @@ export const profile = (state = initialState, action) => {
       return {
         success: action.profile.success,
         profile: action.profile.profile,
-        feed: updateFeed(state,action),
+        id: action.profile.id,
+        feed: updateFeed(state, action),
         hasOldPage: action.profile.hasOldPage,
         fetching: false,
       };
+    case RESET:
+      return initialState;
     default:
       return state;
   }

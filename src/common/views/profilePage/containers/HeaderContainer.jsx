@@ -7,7 +7,7 @@ import { toggleClick } from '../../../redux/popUpModule/popUpModule';
 import { toggleFn } from '../../../redux/popUpModule/popUpFunctions';
 
 
-class SectionContainer extends Component {
+class HeaderContainer extends Component {
   onClick = toggleFn.bind(this);
   render() {
     const { profile } = this.props.match.params;
@@ -34,4 +34,4 @@ const mapDispatch = {
   toggleClick,
 }
 
-export default withRouter(connect(mapState, mapDispatch)(SectionContainer));
+export default withRouter(connect(mapState, mapDispatch)(HeaderContainer));

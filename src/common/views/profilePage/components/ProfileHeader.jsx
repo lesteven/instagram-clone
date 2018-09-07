@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from '../css/profileHeader.css';
 import HeaderSection from './HeaderSection';
-import SectionContainer from '../containers/SectionContainer';
+import HeaderContainer from '../containers/HeaderContainer';
 
 
 class ProfileHeader extends Component {
@@ -12,7 +12,7 @@ class ProfileHeader extends Component {
         <div className = 'profile-image'>
           <img src = '/profile.svg' />
         </div>
-        <SectionContainer />
+        <HeaderContainer />
       </header>
     )
   }

@@ -11,6 +11,7 @@ const checkAuthenticated = (user, store) => {
     data = {
       userEmail: user.email,
       userName: user.username,
+      userId: user.id,
       redirect: true,
     };
   } else {
