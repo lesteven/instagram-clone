@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from '../css/headerSection.css';
 import { Link } from 'react-router-dom';
 
+
 function DiffUser(props) {
   const { user, profile, onClick, follow } = props;
   return (

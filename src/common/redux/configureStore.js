@@ -9,6 +9,7 @@ import { login } from './loginModule/loginModule';
 import { popUp } from './popUpModule/popUpModule';
 import { upload } from './uploadModule/uploadModule';
 import { profile } from './profileModule/profileModule';
+import { friends } from './friendsModule/friendsModule';
 
 
 export const reducers = combineReducers({
@@ -19,6 +20,7 @@ export const reducers = combineReducers({
   error,
   upload,
   profile,
+  friends,
 });
 
 

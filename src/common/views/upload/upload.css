@@ -14,7 +14,8 @@
   border:2px dashed #8563c9;
   height:300px;
   flex:1;
-  width:100%;
+  width:80%;
+  margin:5%;
   display:flex;
   justify-content:center;
   align-items:center;

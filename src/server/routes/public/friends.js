@@ -10,19 +10,22 @@ friends.route('/follow/:username')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('visited follow!');
-    const id = req.user.id;
-    const followingId = req.params.username;
-    req.json({
-      id,
-      followingId,
-    })    
+    debug('data!!!!', req.body);
+    const user = req.user.id;
+    const followId = req.body.followId;
+    const followUsername = req.params.username;
+    res.json({
+      success: "you've followed",
+      user,
+      followId,
+      followUsername,
+    });
   }));
 
 friends.route('/unfollow/:username')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('visited unfollow!');
-
   }));
 
 export default friends;
