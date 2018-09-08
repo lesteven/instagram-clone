@@ -49,13 +49,33 @@ export function renderFullPage(html, preloadedState) {
   `;
 }
 
+async function getData(store, component, foundPath, url) {
+//  debug('foundpath', foundPath); 
+  if (component.fetchData) {
+    // debug('component.fetchData', component.fetchData);
+    await component.fetchData({ store, params: 
+      (foundPath? foundPath.params: {}) }, url);
+    return;
+  }
+  return new Promise(resolve => resolve());
+}
+
+async function getAllData(req, store) {
+  const { component, foundPath } = findComponent(req);
+  
+//  debug('component!!!', component);
+
+  checkAuthenticated(req.user, store);
+
+  const url = req.protocol + '://' + req.get('host');
+
+  const data = await getData(store, component, foundPath, url); 
+}
 
 export async function hydrateClient(req, res) {
   const store = configureStore();
-
-  const { component, foundPath } = findComponent(req);
-
-  checkAuthenticated(req.user, store);
+  
+  await getAllData(req, store);
 
   const preloadedState = store.getState();
   const context = {};
@@ -67,7 +87,6 @@ export async function hydrateClient(req, res) {
       </Router>
     </Provider>
   );
-
   res.send(renderFullPage(html, preloadedState));
 }
 

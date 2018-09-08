@@ -1,0 +1,36 @@
+
+.post-wrapper {
+  max-height:600px;
+  background-color:white;
+  border:1px solid #efefef;
+  text-align:center;
+  margin:3%;
+  overflow:hidden;
+}
+.post-wrapper > img {
+  max-height:400px;
+  max-width:100%;
+}
+
+.post-user {
+  display:flex;
+  align-items:center;
+}
+.post-user * {
+  padding:1% 2%;
+}
+.post-user img {
+  max-height:25px; 
+}
+
+.post-data {
+  height: 70px;
+  width:100%;
+}
+
+.date{
+  font-size:14px;
+  color:#7e7e7e;
+  text-align:left;
+  padding:2%;
+}

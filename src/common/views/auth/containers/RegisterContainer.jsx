@@ -1,16 +1,26 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Register from './Register';
-import registerUser from '../../../redux/registerModule/registerFunctions';
+import { loginUser } from '../../../redux/loginModule/loginFunctions';
 
-const mapState = ({ register, error }) => ({
-  register,
+class RegisterContainer extends Component {
+  render() {
+    return (
+      <Register { ...this.props} />
+    )
+  }
+}
+
+const mapState = ({ login, error }) => ({
+  login,
   error,
 })
 
 const mapDispatch = {
-  registerUser,
+  loginUser,
 }
 
 
 
-export default connect(mapState, mapDispatch)(Register);
+export default withRouter(connect(mapState, mapDispatch)(RegisterContainer));

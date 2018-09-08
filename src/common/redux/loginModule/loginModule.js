@@ -2,7 +2,7 @@ const prefix = 'login';
 const LOGIN = `${prefix}/LOGIN`;
 const PERSIST_LOGIN = `${prefix}/PERSIST`;
 const LOGOUT = `${prefix}/LOGOUT`;
-const RESET = `${prefix}/RESET`;
+export const RESET = `${prefix}/RESET`;
 
 
 export const loginAC = success => ({

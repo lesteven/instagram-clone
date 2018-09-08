@@ -3,22 +3,24 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { view } from './viewModule/viewModule';
-import { register } from './registerModule/registerModule';
 import { error } from './errorModule/errorModule';
 import { userActions } from './userModule/userModule';
 import { login } from './loginModule/loginModule';
 import { popUp } from './popUpModule/popUpModule';
 import { upload } from './uploadModule/uploadModule';
+import { profile } from './profileModule/profileModule';
+import { friends } from './friendsModule/friendsModule';
 
 
 export const reducers = combineReducers({
   view,
   popUp,
   userActions,
-  register,
   login,
   error,
   upload,
+  profile,
+  friends,
 });
 
 

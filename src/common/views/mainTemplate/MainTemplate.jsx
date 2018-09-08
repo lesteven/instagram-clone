@@ -8,7 +8,9 @@ class MainTemplate extends Component {
       <Fragment>
         <NavBar />
         <div className='max-width view'>
+          <div className= 'feed-wrapper'>
           { this.props.children }
+          </div>
         </div>
       </Fragment>
     )

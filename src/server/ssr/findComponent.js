@@ -1,5 +1,5 @@
 import { matchPath } from 'react-router';
-import routes from '../../common/routes';
+import masterRoutes from '../../common/masterRoutes';
 
 
 const getPath = (req, path) => matchPath(
@@ -10,7 +10,7 @@ const getPath = (req, path) => matchPath(
 const iterateRoutes = (req, level) => {
   let foundPath = null;
 
-  const foundComponent = level.routes.find(({ prefix, path }) => {
+  const foundComponent = level.find(({ prefix, path }) => {
     const compURL = prefix + path;
     foundPath = getPath(req, compURL);
     return foundPath;
@@ -24,7 +24,7 @@ const iterateRoutes = (req, level) => {
 const findComponent = (req) => {
   const wrapper = {};
 
-  const { component, foundPath } = iterateRoutes(req, routes);
+  const { component, foundPath } = iterateRoutes(req, masterRoutes);
 
   wrapper.foundPath = foundPath;
   wrapper.component = component;

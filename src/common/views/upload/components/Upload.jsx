@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import DropZone from 'react-dropzone';
 
 
@@ -7,7 +7,7 @@ class Upload extends Component {
     const { dropImage, upload, uploadImage } = this.props;
     const { accepted } = upload;
     return (
-      <div className = 'top-pad upload-wrapper'>
+      <Fragment>
         <DropZone className = 'dropzone'
           accept = 'image/*'
           multiple = { false }
@@ -19,7 +19,7 @@ class Upload extends Component {
           }
         </DropZone>
         <button onClick = { uploadImage }> Upload! </button>
-      </div>
+      </Fragment>
     )
   }
 }

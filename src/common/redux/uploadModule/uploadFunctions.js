@@ -1,10 +1,7 @@
 import { postFile } from '../thunks/postFile';
 import { uploadAC } from './uploadModule';
-import { postAction } from '../thunks/postData';
+import { postCurry } from '../thunks/postData';
 
-const uploadImage = (url, file) => (dispatch) => {
-  const postData = postFile(url, file);
-  return postAction(dispatch, postData, uploadAC, url);
-}
 
+const uploadImage = postCurry(postFile)(uploadAC);
 export default uploadImage;

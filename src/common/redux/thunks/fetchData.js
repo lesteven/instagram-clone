@@ -1,4 +1,7 @@
-import { handleJson, handleJsonErr } from '../errorModule/errorHandle';
+import {
+  handleJson,
+  handleJsonErr,
+} from '../errorModule/errorHandle';
 import { fetchAC } from '../userModule/userModule';
 
 require('es6-promise').polyfill();
@@ -9,21 +12,37 @@ export const fetchData = url => fetch(url, {
   credentials: 'same-origin',
 });
 
-export const asyncFetchData = async (dispatch, url, action) => {
+/*
+  async function needed to await data on server
+  before sending to client
+*/
+
+export const asyncGen = userAC => action => url => async (dispatch) => {
+  if (userAC) {
+    dispatch(userAC());
+  }
   const response = await fetchData(url)
-    .catch(() => console.log('fetch error'));
+    .catch((e) => {
+      console.log(e);
+      console.log('fetch error');
+    });
 
   const data = await response.json()
-    .catch(() => console.log('json error'));
+    .catch(() => handleJsonErr(dispatch, url));
 
-  dispatch(action(data));
+  handleJson(dispatch, action, url, data);
 };
 
-export const fetchAction = actionAC => url => (dispatch) => {
-  dispatch(fetchAC());
+// pure function for redux
+export const fetchGen = userAction => actionAC => url => (dispatch) => {
+  if (userAction) {
+    dispatch(userAction());
+  }
 
   fetchData(url)
     .then(res => res.json())
     .then(json => handleJson(dispatch, actionAC, url, json))
     .catch(() => handleJsonErr(dispatch, url));
 };
+
+export const fetchAction = fetchGen(fetchAC);

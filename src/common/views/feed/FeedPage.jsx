@@ -1,16 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import MainTemplate from '../mainTemplate/MainTemplate';
+import FeedContainer from './containers/FeedContainer';
+import styles from './css/feed.css';
 
-
-class Feed extends Component {
+class FeedPage extends Component {
 
   render() {
     return (
       <MainTemplate>
-        <p> ig feed! </p>
+        <FeedContainer />
       </MainTemplate>
     )
   }
 }
 
-export default Feed;
+export default FeedPage;

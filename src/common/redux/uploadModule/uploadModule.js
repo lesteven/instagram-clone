@@ -9,7 +9,7 @@ export const dropImage = (accepted, rejected) => ({
   rejected,
 });
 
-export const uploadAC = (data) => ({
+export const uploadAC = data => ({
   type: UPLOAD,
   success: data.success,
 });

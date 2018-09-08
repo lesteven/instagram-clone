@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Auth from '../../auth/Auth';
-import Feed from '../../feed/Feed';
+import FeedPage from '../../feed/FeedPage';
 
 
 class Home extends Component {
   render() {
+    const regRedirect = this.props.redirect;
     const { redirect } = this.props.login;
-    if (redirect) return <Feed />;
+    if (redirect || regRedirect ) return <FeedPage />;
     else return <Auth />; 
   }
 }

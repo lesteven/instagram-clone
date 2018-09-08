@@ -1,9 +1,9 @@
 
 
-create TABLE users.followers (
+CREATE TABLE users.followers (
   id SERIAL PRIMARY KEY,
-  username SERIAL REFERENCES users.credentials (id),
-  follower SERIAL REFERENCES users.credentials (id),
+  username INTEGER REFERENCES users.credentials (id) ON DELETE CASCADE,
+  follower INTEGER REFERENCES users.credentials (id) ON DELETE CASCADE
 );
 
 
