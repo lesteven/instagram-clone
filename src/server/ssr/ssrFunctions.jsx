@@ -51,6 +51,7 @@ export function renderFullPage(html, preloadedState) {
 
 async function getData(store, component, foundPath, url) {
 //  debug('foundpath', foundPath); 
+  debug(component, foundPath, url);
   if (component.fetchData) {
     // debug('component.fetchData', component.fetchData);
     await component.fetchData({ store, params: 

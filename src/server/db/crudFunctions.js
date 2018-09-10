@@ -8,11 +8,21 @@ import {
 export const find = (table, keys, data) => {
   const params = turnToParamsArr(keys, data);
   const valuesPH = valuesPlaceholder(keys);
-
+  
+  console.log(data);
   const findStr = `SELECT * FROM ${table}`;
-  const values = `WHERE ${keys} = ${valuesPH}`;
-
+//  const values = `WHERE ${keys} = ${valuesPH}`;
+  
+  const dataKeys = Object.keys(data);
+  let values = 'WHERE ';
+  for (let i = 0; i < params.length; i++) {
+    values += `${dataKeys[i]} = ($${i+1})`; 
+    if (i < params.length -1) {
+      values += ' and ';
+    } 
+  }
   const sql = `${findStr} ${values}`;
+  console.log('find', sql, params);
   return query(sql, params);
 };
 

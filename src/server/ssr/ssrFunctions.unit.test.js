@@ -28,7 +28,7 @@ const ssrSuccess = '/ssrSuccess';
 const ssrFail = '/ssrFail';
 
 app.get(ssrFail, handleFail);
-app.get(ssrSuccess, handleRender);
+app.use(handleRender);
 
 describe('handleRender', () => {
   it('should return error', (done) => {
@@ -39,7 +39,7 @@ describe('handleRender', () => {
   })
   it('should return success', (done) => {
     return request(app)
-      .get(ssrSuccess)
+      .get('/about')
       .expect(200, done);
   });
 });
