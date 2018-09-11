@@ -59,7 +59,3 @@ export async function followUser(req, res) {
   });
 }
 
-export function unfollowUser(req, res) {
-
-
-}

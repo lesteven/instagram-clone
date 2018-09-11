@@ -19,7 +19,6 @@ account.route('/older/:username/:pagekey')
     const feed = await getOlderFeed(user, pagekey);
 
     const ids = getUserIds(req, user);
-     
     const following = await followStatus(ids);
 
     sendData(res, user, feed, following);
@@ -30,8 +29,8 @@ account.route('/:username')
   .get(asyncWrap(async (req, res, next) => {
     const user = await getUser(req);
     const feed = await getNewestFeed(user);
+
     const ids = getUserIds(req, user);
-     
     const following = await followStatus(ids);
     
     debug('following!!!', ids, following); 

@@ -1,5 +1,5 @@
 import { postAction } from '../thunks/postData';
-
+import { GET_PROFILE } from '../profileModule/profileModule';
 
 const prefix = 'FRIENDS';
 const FOLLOW = `${prefix}/FOLLOW`;
@@ -27,6 +27,10 @@ export const friends = (state = initialState, action) => {
     case UNFOLLOW:
       return {
         ...action.data,
+      };
+    case GET_PROFILE:
+      return {
+        follow: action.profile.follow,
       };
     default:
       return state;

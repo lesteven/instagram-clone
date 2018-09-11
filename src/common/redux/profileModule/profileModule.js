@@ -4,7 +4,7 @@ import updateFeed from './helperFunctions';
 const prefix = 'profile';
 
 const FETCHING = `${prefix}/FETCHING`;
-const GET_PROFILE = `${prefix}/GET_PROFILE`;
+export const GET_PROFILE = `${prefix}/GET_PROFILE`;
 
 export const fetchingData = () => ({
   type: FETCHING,
@@ -27,14 +27,11 @@ export const profile = (state = initialState, action) => {
       };
     case GET_PROFILE:
       return {
-        success: action.profile.success,
-        profile: action.profile.profile,
-        id: action.profile.id,
+        ...action.profile,
         feed: updateFeed(state, action),
-        hasOldPage: action.profile.hasOldPage,
-        fetching: false,
-        follow: action.profile.follow,
-      };
+        fetching:false,
+        follow: 'check friends redux',
+      }
     case RESET:
       return initialState;
     default:
