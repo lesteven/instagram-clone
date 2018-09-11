@@ -33,6 +33,7 @@ export const profile = (state = initialState, action) => {
         feed: updateFeed(state, action),
         hasOldPage: action.profile.hasOldPage,
         fetching: false,
+        follow: action.profile.follow,
       };
     case RESET:
       return initialState;

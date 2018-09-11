@@ -5,14 +5,7 @@ import {
 } from '../utils/queryHelpers';
 
 
-export const find = (table, keys, data) => {
-  const params = turnToParamsArr(keys, data);
-  const valuesPH = valuesPlaceholder(keys);
-  
-  console.log(data);
-  const findStr = `SELECT * FROM ${table}`;
-//  const values = `WHERE ${keys} = ${valuesPH}`;
-  
+const where = (params, data) => {
   const dataKeys = Object.keys(data);
   let values = 'WHERE ';
   for (let i = 0; i < params.length; i++) {
@@ -21,8 +14,17 @@ export const find = (table, keys, data) => {
       values += ' and ';
     } 
   }
+  return values;
+}
+
+export const find = (table, keys, data) => {
+  const params = turnToParamsArr(keys, data);
+  const valuesPH = valuesPlaceholder(keys);
+  
+  const findStr = `SELECT * FROM ${table}`;
+  const values = where(params, data); 
+
   const sql = `${findStr} ${values}`;
-  console.log('find', sql, params);
   return query(sql, params);
 };
 
@@ -41,7 +43,8 @@ export const deleteData = (table, keys, data) => {
   const valuesPH = valuesPlaceholder(keys);
 
   const updateStr = `DELETE FROM ${table}`;
-  const values = `WHERE ${keys} = ${valuesPH}`;
+  // const values = `WHERE ${keys} = ${valuesPH}`;
+  const values = where(params, data);
 
   const sql = `${updateStr} ${values}`;
   return query(sql, params);
