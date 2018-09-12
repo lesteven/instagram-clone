@@ -1,27 +1,50 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MappedPosts from '../../generalComponents/MappedPosts';
+import InfiniteComp from '../components/InfiniteComp';
+import getFeed from '../../../redux/feedModule/feedFunctions';
 
-class FeedContainer extends Component {
+/*
+  hasNextPage
+  - checks if has more data
+  isNextPageLoading
+  - check if data is being fetched
+  list
+  - feed data
+  loadNextPage
+  - gets more data from server
+   
+*/
+class InfiniteFeed extends Component {
+  loadNextPage = ({ startIndex, stopIndex }) => {
+    const { getFeed, login } = this.props;
+    const { feed } = this.props.feed;
+    const id = feed[startIndex-1].id;
+    const url = `/api/feed/older/${login.userName}/${id}`;
+
+    return new Promise(resolve => {
+      getFeed(url);
+    });
+  }
   render() {
-    const { feed } = this.props.profile; 
+    const { feed, hasOldPage, fetchStatus } = this.props.feed; 
     return (
-      <Fragment>
-        { feed?
-          <MappedPosts data = { feed } />
-          : null
-        }
-      </Fragment>
+      <InfiniteComp 
+        hasNextPage = { hasOldPage }
+        isNextPageLoading = { fetchStatus }
+        list = { feed }
+        loadNextPage = { this.loadNextPage }
+      />
     )
   }
 }
 
-const mapState = ({ profile }) => ({
-  profile,
+const mapState = ({ feed, login }) => ({
+  feed,
+  login,
 });
 
 const mapDispatch = {
-
+  getFeed,
 }
 
-export default connect(mapState,mapDispatch)(FeedContainer);
+export default connect(mapState,mapDispatch)(InfiniteFeed);

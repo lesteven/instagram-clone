@@ -51,7 +51,7 @@ export function renderFullPage(html, preloadedState) {
 
 async function getData(store, component, foundPath, url) {
 //  debug('foundpath', foundPath); 
-  debug(component, foundPath, url);
+//  debug(component, foundPath, url);
   if (component.fetchData) {
     // debug('component.fetchData', component.fetchData);
     await component.fetchData({ store, params: 
@@ -64,7 +64,7 @@ async function getData(store, component, foundPath, url) {
 async function getAllData(req, store) {
   const { component, foundPath } = findComponent(req);
   
-//  debug('component!!!', component);
+  // debug('component!!!', component);
 
   checkAuthenticated(req.user, store);
 

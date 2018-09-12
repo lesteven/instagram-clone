@@ -9,35 +9,26 @@ import { followStatus } from './utils/followUser';
 
 const debug = require('debug')('http');
 
-const account = express.Router();
+const feed = express.Router();
 
 
-account.route('/older/:username/:pagekey')
+feed.route('/older/:username/:pagekey')
   .get(asyncWrap(async (req, res, next) => {
     const user = await getUser(req);
     const { pagekey } = req.params;
     const feed = await getOlderFeed(user, pagekey);
 
-    const ids = getUserIds(req, user);
-
-    debug('older ids!!!!!!1', ids);
-    const following = await followStatus(ids);
-
-    sendData(res, user, feed, following);
+    sendData(res, user, feed);
   }));
 
-account.route('/:username')
+feed.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
     const user = await getUser(req);
     const feed = await getNewestFeed(user);
 
-    const ids = getUserIds(req, user);
-    const following = await followStatus(ids);
-    debug('!!!getUserIds!1', ids);
-    debug('following!!!', ids, following);
-    sendData(res, user, feed, following);
+    sendData(res, user, feed);
   }));
 
 
-export default account;
+export default feed;

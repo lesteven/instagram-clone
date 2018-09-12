@@ -10,7 +10,7 @@ import { popUp } from './popUpModule/popUpModule';
 import { upload } from './uploadModule/uploadModule';
 import { profile } from './profileModule/profileModule';
 import { friends } from './friendsModule/friendsModule';
-
+import { feed } from './feedModule/feedModule';
 
 export const reducers = combineReducers({
   view,
@@ -21,6 +21,7 @@ export const reducers = combineReducers({
   upload,
   profile,
   friends,
+  feed,
 });
 
 

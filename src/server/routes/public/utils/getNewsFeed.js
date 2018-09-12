@@ -3,7 +3,7 @@ import { query } from '../../../db/dbQueries';
 const debug = require('debug')('http');
 
 
-export const getFeed = limit => async (user, pageKey) => {
+export const getNewsFeed = limit => async (user, pageKey) => {
   const keyIndex = pageKey ? `AND users.feed.id < ${pageKey}` : '';
 
   if (user) {
@@ -19,7 +19,7 @@ export const getFeed = limit => async (user, pageKey) => {
     const params = [user.id];
     const feed = await query(sql, params);
 
-//    debug(sql, params);
+    debug(sql, params);
 
     return feed;
   }
@@ -28,6 +28,6 @@ export const getFeed = limit => async (user, pageKey) => {
 
 const limit = 4;
 
-export const getNewestFeed = getFeed(limit);
+export const getNewestFeed = getNewsFeed(limit);
 
-export const getOlderFeed = getFeed(limit);
+export const getOlderFeed = getNewsFeed(limit);
