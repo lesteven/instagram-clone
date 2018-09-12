@@ -29,11 +29,17 @@ account.route('/older/:username/:pagekey')
 account.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
+    debug('visit account/:username');
     const user = await getUser(req);
     const feed = await getNewestFeed(user);
+    debug('req.user', req.user);
 
     const ids = getUserIds(req, user);
-    const following = await followStatus(ids);
+    let following = null;
+    if (ids.username) {
+      following = await followStatus(ids);
+    }
+
     debug('!!!getUserIds!1', ids);
     debug('following!!!', ids, following);
     sendData(res, user, feed, following);

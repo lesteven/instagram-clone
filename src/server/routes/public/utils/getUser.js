@@ -3,7 +3,7 @@ import { find } from '../../../db/crudFunctions';
 const debug = require('debug')('http');
 
 async function getUser(req) {
-  debug('accounts visted!!!');
+  // debug('accounts visted!!!');
   const userData = {
     username: req.params.username,
   };
