@@ -10,9 +10,9 @@ export const fetchingData = () => ({
   type: FETCHING,
 });
 
-export const getFeedPage = feed => ({
+export const getFeedPage = data => ({
   type: GET_FEED,
-  feed,
+  data,
 });
 
 
@@ -27,8 +27,8 @@ export const feed = (state = initialState, action) => {
       };
     case GET_FEED:
       return {
-        ...action.feed,
-        feed: updateFeed(state, action),
+        ...action.data,
+        feed: updateFeed(state, action.data),
         fetching: false,
       };
     case RESET:

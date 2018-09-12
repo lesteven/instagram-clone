@@ -24,6 +24,7 @@ feed.route('/older/:username/:pagekey')
 feed.route('/:username')
 
   .get(asyncWrap(async (req, res, next) => {
+    debug('!!!reached feed server!');
     const user = await getUser(req);
     const feed = await getNewestFeed(user);
 

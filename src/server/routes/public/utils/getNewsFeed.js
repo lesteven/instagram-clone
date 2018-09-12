@@ -5,7 +5,6 @@ const debug = require('debug')('http');
 
 export const getNewsFeed = limit => async (user, pageKey) => {
   const keyIndex = pageKey ? `AND users.feed.id < ${pageKey}` : '';
-
   if (user) {
     const select = 'SELECT users.credentials.username, '
       + 'users.feed.imgname, users.feed.created_at, '

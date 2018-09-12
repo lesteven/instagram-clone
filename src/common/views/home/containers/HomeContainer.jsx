@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Auth from '../../auth/Auth';
 import FeedPage from '../../feed/FeedPage';
 
+
 class HomeContainer extends Component {
   render() {
     const { redirect }= this.props.login;
