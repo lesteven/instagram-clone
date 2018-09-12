@@ -29,9 +29,9 @@ export const profile = (state = initialState, action) => {
       return {
         ...action.profile,
         feed: updateFeed(state, action),
-        fetching:false,
+        fetching: false,
         follow: 'check friends redux',
-      }
+      };
     case RESET:
       return initialState;
     default:

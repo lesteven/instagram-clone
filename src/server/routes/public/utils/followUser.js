@@ -6,7 +6,7 @@ const db = 'users.followers';
 const key = 'username,follower';
 
 export async function findIfFollow(data) {
-  const isFollowing  = await find(db, key, data);
+  const isFollowing = await find(db, key, data);
   return isFollowing;
 }
 export async function followStatus(data) {
@@ -21,10 +21,10 @@ export async function followStatus(data) {
 }
 
 export async function insertResult(data, found) {
-  const sendData = {}; 
+  const sendData = {};
   if (!found.rows[0]) {
     debug('dont exist');
-    const finished = await insert(db, key, data); 
+    const finished = await insert(db, key, data);
     sendData.follow = true;
   } else {
     debug('already exist!');
@@ -36,7 +36,7 @@ export async function insertResult(data, found) {
 
 export async function checkFollowing(data) {
   const found = await find(db, key, data);
-  const sendData = await insertResult(data, found); 
+  const sendData = await insertResult(data, found);
 
   return sendData;
 }
@@ -54,8 +54,7 @@ export async function followUser(req, res) {
   const sendData = await checkFollowing(data);
 
   return res.json({
-    success: "action completed",
+    success: 'action completed',
     ...sendData,
   });
 }
-

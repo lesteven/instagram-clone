@@ -46,8 +46,18 @@
 .follow {
   padding:2%;
   border-radius:4px;
+  border:1px solid #3897f0;
   background-color:#3897f0;
   color:white;
+  font-weight:bold;
+  min-width:100px;
+}
+.following {
+  padding:2%;
+  border-radius:4px;
+  border:1px solid #dbdbdb;
+  background-color:transparent;
+  color:#262626;
   font-weight:bold;
   min-width:100px;
 }

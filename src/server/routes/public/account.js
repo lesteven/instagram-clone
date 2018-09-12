@@ -32,8 +32,8 @@ account.route('/:username')
 
     const ids = getUserIds(req, user);
     const following = await followStatus(ids);
-    
-    debug('following!!!', ids, following); 
+
+    debug('following!!!', ids, following);
     sendData(res, user, feed, following);
   }));
 

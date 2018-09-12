@@ -9,20 +9,20 @@ const where = (params, data) => {
   const dataKeys = Object.keys(data);
   let values = 'WHERE ';
   for (let i = 0; i < params.length; i++) {
-    values += `${dataKeys[i]} = ($${i+1})`; 
-    if (i < params.length -1) {
+    values += `${dataKeys[i]} = ($${i + 1})`;
+    if (i < params.length - 1) {
       values += ' and ';
-    } 
+    }
   }
   return values;
-}
+};
 
 export const find = (table, keys, data) => {
   const params = turnToParamsArr(keys, data);
   const valuesPH = valuesPlaceholder(keys);
-  
+
   const findStr = `SELECT * FROM ${table}`;
-  const values = where(params, data); 
+  const values = where(params, data);
 
   const sql = `${findStr} ${values}`;
   return query(sql, params);
