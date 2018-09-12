@@ -63,13 +63,11 @@ async function getData(store, component, foundPath, url) {
 
 async function getAllData(req, store) {
   const { component, foundPath } = findComponent(req);
-  
-  debug('component!!!', component.fetchData);
 
   checkAuthenticated(req.user, store);
 
   const url = req.protocol + '://' + req.get('host');
-  debug('ssr req.user', req.user);
+
   const data = await getData(store, component, foundPath, url); 
 }
 

@@ -10,13 +10,16 @@ export async function findIfFollow(data) {
   return isFollowing;
 }
 export async function followStatus(data) {
-  const found = await find(db, key, data);
   const sendData = {};
-  if (!found.rows[0]) {
-    sendData.follow = false;
-  } else {
-    sendData.follow = true;
-  }
+  if (Object.keys(data).length == 2) {
+    const found = await find(db, key, data);
+    if (!found.rows[0]) {
+      sendData.follow = false;
+    } else {
+      sendData.follow = true;
+    }
+  } 
+
   return sendData;
 }
 

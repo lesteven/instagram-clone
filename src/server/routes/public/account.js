@@ -35,10 +35,7 @@ account.route('/:username')
     debug('req.user', req.user);
 
     const ids = getUserIds(req, user);
-    let following = null;
-    if (ids.username) {
-      following = await followStatus(ids);
-    }
+    const following = await followStatus(ids);
 
     debug('!!!getUserIds!1', ids);
     debug('following!!!', ids, following);
