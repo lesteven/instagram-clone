@@ -1,6 +1,6 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
-import { getNewestFeed, getOlderFeed } from './utils/getFeed';
+import { getNewestFeed, getOlderFeed } from './utils/getNewsFeed';
 import getUser from './utils/getUser';
 import sendData from './utils/sendData';
 import getUserIds from './utils/getUserIds';

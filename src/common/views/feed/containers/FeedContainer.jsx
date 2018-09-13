@@ -15,7 +15,7 @@ import getFeed from '../../../redux/feedModule/feedFunctions';
    
 */
 
-class InfiniteFeed extends Component {
+class FeedContainer extends Component {
   loadNextPage = ({ startIndex, stopIndex }) => {
     const { getFeed, login } = this.props;
     const { feed } = this.props.feed;
@@ -48,4 +48,4 @@ const mapDispatch = {
   getFeed,
 }
 
-export default connect(mapState,mapDispatch)(InfiniteFeed);
+export default connect(mapState,mapDispatch)(FeedContainer);

@@ -11,7 +11,7 @@ class FeedPage extends Component {
   render() {
     return (
       <MainTemplate>
-        <FContainer />
+        <FeedContainer />
       </MainTemplate>
     )
   }
