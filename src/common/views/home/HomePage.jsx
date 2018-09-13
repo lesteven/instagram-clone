@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MappedRoutes from '../generalComponents/MappedRoutes';
 import homeRoutes from './homeRoutes';
 import styles from './css/home.css';
@@ -17,6 +18,16 @@ class HomePage extends Component {
       return store.dispatch(getFeed(fullUrl));
     }
   }
+
+  componentDidMount() {
+    const { feed } = this.props.feed; 
+    const { getFeed } = this.props;
+    const { userName } = this.props.login;
+    if (!feed) {
+      console.log('there was no feed!');
+      getFeed(`${api}${userName}`);
+    } 
+  }  
   render() {
     return (
       <MappedRoutes routes = { homeRoutes }/>
@@ -24,4 +35,15 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+
+
+const mapState = ({ login, feed }) => ({
+  feed,
+  login,
+});
+
+const mapDispatch = {
+  getFeed,
+}
+
+export default connect(mapState, mapDispatch)(HomePage);

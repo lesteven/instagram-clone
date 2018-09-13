@@ -28,14 +28,18 @@ class FeedContainer extends Component {
   }
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.feed; 
-    return (
-      <InfiniteComp 
-        hasNextPage = { hasOldPage }
-        isNextPageLoading = { fetchStatus }
-        list = { feed }
-        loadNextPage = { this.loadNextPage }
-      />
-    )
+    if (feed) {
+      return (
+        <InfiniteComp 
+          hasNextPage = { hasOldPage }
+          isNextPageLoading = { fetchStatus }
+          list = { feed }
+          loadNextPage = { this.loadNextPage }
+        />
+      )
+    } else {
+      return <div></div>
+    }
   }
 }
 
