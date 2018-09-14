@@ -1,6 +1,7 @@
 import { postAC } from '../userModule/userModule';
 import { handleJson, handleJsonErr } from '../errorModule/errorHandle';
 
+const debug = require('debug')('http');
 
 export const postCurry = post => action => (url, data) => (dispatch) => {
   dispatch(postAC());
@@ -9,7 +10,7 @@ export const postCurry = post => action => (url, data) => (dispatch) => {
     .then(res => res.json())
     .then(json => handleJson(dispatch, action, url, json))
     .catch((err) => {
-      console.log('error message!!!', err);
+      debug('error message!!!', err);
       return handleJsonErr(dispatch, url);
     });
 };

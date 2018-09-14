@@ -6,6 +6,7 @@ import { fetchAC } from '../userModule/userModule';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+const debug = require('debug')('http');
 
 
 export const fetchData = url => fetch(url, {
@@ -27,8 +28,8 @@ export const asyncGen = userAC => action => url => async (dispatch) => {
   }
   const response = await fetchData(url)
     .catch((e) => {
-      console.log(e);
-      console.log('fetch error');
+      debug(e);
+      debug('fetch error');
     });
 
   const data = await response.json()

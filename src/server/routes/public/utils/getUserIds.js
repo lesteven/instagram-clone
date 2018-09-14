@@ -1,7 +1,7 @@
 
 
 function getUserIds(req, user) {
-  console.log('inside getUserIds');
+//  console.log('inside getUserIds');
   if (user && req.user) {
     return {
       username: user.id,
