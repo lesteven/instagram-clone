@@ -43,7 +43,9 @@ function SecondRow(props) {
       <p> <strong>{ account.posts }</strong> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong> { account.followers }</strong> followers </p>
+      <p> <strong> { account.followers }</strong> 
+        { account.followers === 1? ' follower': ' followers' } 
+      </p>
       <p> <strong>{ account.following }</strong> following </p>
     </div>
   )

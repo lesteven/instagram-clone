@@ -1,21 +1,11 @@
-import { postAction } from '../thunks/postData';
 import { GET_PROFILE } from '../profileModule/profileModule';
-import { followStatus } from './friendsFunctions';
+import followStatus from './helperFunctions';
 
 const prefix = 'FRIENDS';
-const FOLLOW = `${prefix}/FOLLOW`;
-const UNFOLLOW = `${prefix}/UNFOLLOW`;
 
+export const FOLLOW = `${prefix}/FOLLOW`;
+export const UNFOLLOW = `${prefix}/UNFOLLOW`;
 
-export const followUser = data => ({
-  type: FOLLOW,
-  data,
-});
-
-export const unfollowUser = data => ({
-  type: UNFOLLOW,
-  data,
-});
 
 const initialState = {};
 

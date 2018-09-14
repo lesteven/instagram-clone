@@ -16,15 +16,15 @@ export async function findIfFollow(data) {
 
 export async function followStatus(data) {
   const sendData = {};
-  if (Object.keys(data).length == 2) {
+  if (Object.keys(data).length === 2) {
     const found = await find(db, key, data);
     if (!found.rows[0]) {
       sendData.follow = false;
     } else {
       sendData.follow = true;
     }
-  } 
-  
+  }
+
   return sendData;
 }
 
@@ -34,13 +34,13 @@ export async function insertResult(req, data, found) {
   if (!found.rows[0]) {
     debug('dont exist');
     addToFollowLists(req, data);
-    const finished = await insert(db, key, data);
-    
+    await insert(db, key, data);
+
     sendData.follow = true;
   } else {
     debug('already exist!');
     removeFromFollowLists(req, data);
-    const finished = await deleteData(db, key, data);
+    await deleteData(db, key, data);
     sendData.follow = false;
   }
   return sendData;
@@ -55,8 +55,7 @@ export async function checkFollowing(req, data) {
 
 export async function followUser(req, res) {
   const userId = req.user.id;
-  const followId = req.body.followId;
-  const followUsername = req.params.username;
+  const { followId } = req.body;
 
   const data = {
     username: followId,

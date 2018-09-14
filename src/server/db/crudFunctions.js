@@ -8,7 +8,7 @@ import {
 const where = (params, data) => {
   const dataKeys = Object.keys(data);
   let values = 'WHERE ';
-  for (let i = 0; i < params.length; i++) {
+  for (let i = 0; i < params.length; i += 1) {
     values += `${dataKeys[i]} = ($${i + 1})`;
     if (i < params.length - 1) {
       values += ' and ';
@@ -19,7 +19,6 @@ const where = (params, data) => {
 
 export const find = (table, keys, data) => {
   const params = turnToParamsArr(keys, data);
-  const valuesPH = valuesPlaceholder(keys);
 
   const findStr = `SELECT * FROM ${table}`;
   const values = where(params, data);
@@ -41,10 +40,8 @@ export const update = (table, keys, newData, oldData) => {
 
 export const deleteData = (table, keys, data) => {
   const params = turnToParamsArr(keys, data);
-  const valuesPH = valuesPlaceholder(keys);
 
   const updateStr = `DELETE FROM ${table}`;
-  // const values = `WHERE ${keys} = ${valuesPH}`;
   const values = where(params, data);
 
   const sql = `${updateStr} ${values}`;

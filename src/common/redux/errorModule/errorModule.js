@@ -45,7 +45,7 @@ export const error = (state = initialState, action) => {
       const { [action.url]: removed, ...rest } = state;
       return {
         ...rest,
-      }
+      };
     }
     default:
       return state;

@@ -8,11 +8,11 @@ function getUserIds(req, user) {
       follower: req.user.id,
     };
   }
-  else if (user && req.params.user) {
+  if (user && req.params.user) {
     return {
       username: user.id,
       follower: req.params.user,
-    }
+    };
   }
   return {};
 }

@@ -32,13 +32,13 @@ account.route('/:username')
     debug('visit account/:username');
     const user = await getUser(req);
     const feed = await getNewestFeed(user);
-    //debug('req.user', req.user);
+    // debug('req.user', req.user);
 
     const ids = getUserIds(req, user);
     const following = await followStatus(ids);
 
-    //debug('!!!getUserIds!1', ids);
-    //debug('following!!!', ids, following);
+    // debug('!!!getUserIds!1', ids);
+    // debug('following!!!', ids, following);
     sendData(res, user, feed, following);
   }));
 
@@ -52,7 +52,7 @@ account.route('/:username/:user')
 
     const ids = getUserIds(req, user);
     const following = await followStatus(ids);
-    
+
     sendData(res, user, feed, following);
   }));
 

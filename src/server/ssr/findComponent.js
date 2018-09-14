@@ -30,10 +30,10 @@ const findComponent = (req) => {
   wrapper.component = component || {};
 
   if (!wrapper.component.fetchData) {
-    console.log('fetch data does not exist1!!');
+    // console.log('fetch data does not exist1!!');
     wrapper.component.fetchData = () => new Promise(resolve => resolve());
   }
-  console.log('fetch data exist!!!');
+  //  console.log('fetch data exist!!!');
   return wrapper;
 };
 
