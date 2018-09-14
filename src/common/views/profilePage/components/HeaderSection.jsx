@@ -37,14 +37,14 @@ function SameUser(props) {
 
 function SecondRow(props) {
   const { account } = props;
-  console.log('!!!!!!1props!!!', props);
+//  console.log('!!!!!!1props!!!', props);
   return (
     <div className ='second-row'>
       <p> <strong>{ account.posts }</strong> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong>0</strong> followers </p>
-      <p> <strong>0</strong> following </p>
+      <p> <strong> { account.followers }</strong> followers </p>
+      <p> <strong>{ account.following }</strong> following </p>
     </div>
   )
 }

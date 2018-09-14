@@ -24,6 +24,8 @@ function sendData(res, user, feed, follow) {
       profile: user.username,
       id: user.id,
       posts: user.posts,
+      following: user.following,
+      followers: user.followers,
       ...feedData,
       ...follow,
     };
