@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import style from '../css/headerSection.css';
 import { Link } from 'react-router-dom';
 
 
 function DiffUser(props) {
-  const { user, profile, onClick, follow } = props;
+  const { user, profile, onClick, follow, followStatus } = props;
   return (
     <div className ='first-row'>
       <h1> { profile } </h1>
@@ -12,8 +12,9 @@ function DiffUser(props) {
         <Link to = '/accounts/login'>
           <button> Follow </button>
         </Link> :
-        <button className= 'follow' onClick = { follow }> 
-          Follow 
+        <button className= { followStatus.className }
+          onClick = { follow }> 
+          { followStatus.text } 
         </button>
       } 
     </div>
@@ -34,10 +35,14 @@ function SameUser(props) {
   )
 }
 
-function SecondRow() {
+function SecondRow(props) {
+  const { account } = props;
+  // console.log(props);
   return (
     <div className ='second-row'>
-      <p> <strong>0</strong> posts </p>
+      <p> <strong>{ account.posts }</strong> 
+        { account.posts < 2? ' post' : ' posts' } 
+      </p>
       <p> <strong>0</strong> followers </p>
       <p> <strong>0</strong> following </p>
     </div>
@@ -57,11 +62,13 @@ class HeaderSection extends Component {
     return (
       <section className = 'header-section'>
         { user == profile?
-          <SameUser { ...this.props }/>:
-          <DiffUser { ...this.props }/> 
+          <Fragment>
+            <SameUser { ...this.props }/>
+            <SecondRow {...this.props }/>
+            <ThirdRow {...this.props}/>
+          </Fragment>
+        :<DiffUser { ...this.props }/> 
         }
-        <SecondRow />
-        <ThirdRow />
       </section>
     )
   }

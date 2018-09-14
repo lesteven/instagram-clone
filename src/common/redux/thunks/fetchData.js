@@ -12,6 +12,10 @@ export const fetchData = url => fetch(url, {
   credentials: 'same-origin',
 });
 
+export const isoFetch = url => fetch(url, {
+  credentials: 'include',
+});
+
 /*
   async function needed to await data on server
   before sending to client

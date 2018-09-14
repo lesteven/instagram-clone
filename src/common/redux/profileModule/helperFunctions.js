@@ -1,13 +1,13 @@
 
-const updateFeed = (state, action) => {
-  if (!state.feed || state.profile !== action.profile.profile) {
+const updateFeed = (state, data) => {
+  if (!state.feed || state.profile !== data.profile) {
     return [
-      ...action.profile.feed,
+      ...data.feed,
     ];
   }
   return [
     ...state.feed,
-    ...action.profile.feed,
+    ...data.feed,
   ];
 };
 

@@ -7,7 +7,6 @@ import { toggleClick } from '../../../redux/popUpModule/popUpModule';
 import { toggleFn } from '../../../redux/popUpModule/popUpFunctions';
 import {
   follow,
-  unfollow
 } from '../../../redux/friendsModule/friendsFunctions';
 
 class HeaderContainer extends Component {
@@ -21,9 +20,11 @@ class HeaderContainer extends Component {
     follow(url, data);
   }
   render() {
-    const { follow, unfollow } = this.props;
+    const { follow } = this.props;
     const { profile } = this.props.match.params;
     const { userName } = this.props.login;
+    const followStatus = this.props.friends;
+    const account = this.props.profile;
     return (
       <Fragment>
         <PopUpContainer />
@@ -32,7 +33,8 @@ class HeaderContainer extends Component {
           onClick = { this.onClick }
           profile = { profile }
           follow = { this.follow }
-          unfollow = { unfollow }
+          followStatus = { followStatus }
+          account = { account }
         /> 
       </Fragment>
     )
@@ -40,15 +42,15 @@ class HeaderContainer extends Component {
 }
 
 
-const mapState = ({ profile, login }) => ({
+const mapState = ({ profile, login, friends }) => ({
   login,
   profile,
+  friends
 })
 
 const mapDispatch = {
   toggleClick,
   follow,
-  unfollow,
 }
 
 export default withRouter(connect(mapState, mapDispatch)(HeaderContainer));

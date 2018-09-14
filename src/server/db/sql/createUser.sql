@@ -5,6 +5,7 @@ CREATE TABLE users.credentials (
   name VARCHAR(70),
   username VARCHAR(70) UNIQUE,
   password TEXT,
+  posts INTEGER default 0,
   created_at timestamp default current_timestamp
 );
 

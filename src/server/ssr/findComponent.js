@@ -27,8 +27,13 @@ const findComponent = (req) => {
   const { component, foundPath } = iterateRoutes(req, masterRoutes);
 
   wrapper.foundPath = foundPath;
-  wrapper.component = component;
+  wrapper.component = component || {};
 
+  if (!wrapper.component.fetchData) {
+    console.log('fetch data does not exist1!!');
+    wrapper.component.fetchData = () => new Promise(resolve => resolve());
+  }
+  console.log('fetch data exist!!!');
   return wrapper;
 };
 

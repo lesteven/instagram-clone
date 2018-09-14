@@ -15,15 +15,18 @@ function checkFeed(feed) {
 }
 
 
-function sendData(res, user, feed) {
+function sendData(res, user, feed, follow) {
   if (user) {
     const feedData = checkFeed(feed);
-    res.json({
+    const data = {
       success: 'data fetched',
       profile: user.username,
       id: user.id,
+      posts: user.posts,
       ...feedData,
-    });
+      ...follow,
+    };
+    res.json(data);
   } else {
     res.json({ failed: 'nothing here' });
   }

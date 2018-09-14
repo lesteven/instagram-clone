@@ -22,7 +22,7 @@ class ProfilePage extends Component {
     const { feed } = this.props.profile; 
     const { getProfile } = this.props;
     const { params } = this.props.match;
-    if (!feed) {
+    if (!feed || params.profile !== this.props.profile.profile) {
       console.log('there was no feed!');
       getProfile(`${api}${params.profile}`);
     } 
@@ -39,6 +39,8 @@ class ProfilePage extends Component {
     const { params } = this.props.match;
     const { feed, profile } = this.props.profile; 
     const { userName } = this.props.login;
+    const { error } = this.props;
+    const url = `${api}${params.profile}`;
     if (feed) {
       return (
         <MainTemplate>
@@ -46,14 +48,14 @@ class ProfilePage extends Component {
           <InfiniteFeed />
         </MainTemplate>
       )
-    } else if (!userName && !profile){
-      console.log('username', userName);
-      console.log('profile', profile);
+    } else if (error[url]){
+      console.log('no username and no profile');
       return (
         <ErrorPage />        
       )
     } else {
-      return (
+      console.log('empty div');
+      return ( 
         <div></div>
       )
     }
@@ -61,9 +63,10 @@ class ProfilePage extends Component {
 }
 
 
-const mapState = ({ login, profile }) => ({
+const mapState = ({ login, profile, error }) => ({
   profile,
   login,
+  error,
 });
 
 const mapDispatch = {
