@@ -14,7 +14,9 @@ class ProfilePage extends Component {
   static fetchData({ store, params }, url) {
     if (params.profile !== 'favicon.ico') {
       console.log('static fetched feed!');
-      const fullUrl = `${url}${api}${params.profile}`;
+      const userId = store.getState().login.userId;
+      const fullUrl = `${url}${api}${params.profile}/${userId}`;
+      console.log('url!!!!!!!!1', fullUrl);
       return store.dispatch(getProfile(fullUrl));
     }
   }

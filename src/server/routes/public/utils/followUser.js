@@ -19,7 +19,7 @@ export async function followStatus(data) {
       sendData.follow = true;
     }
   } 
-
+  
   return sendData;
 }
 

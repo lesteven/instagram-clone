@@ -16,6 +16,7 @@ function checkFeed(feed) {
 
 
 function sendData(res, user, feed, follow) {
+//  console.log('user in sendData', user);
   if (user) {
     const feedData = checkFeed(feed);
     const data = {
