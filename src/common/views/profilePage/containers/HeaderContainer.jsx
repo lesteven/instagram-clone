@@ -24,6 +24,7 @@ class HeaderContainer extends Component {
     const { profile } = this.props.match.params;
     const { userName } = this.props.login;
     const followStatus = this.props.friends;
+    const account = this.props.profile;
     return (
       <Fragment>
         <PopUpContainer />
@@ -33,6 +34,7 @@ class HeaderContainer extends Component {
           profile = { profile }
           follow = { this.follow }
           followStatus = { followStatus }
+          account = { account }
         /> 
       </Fragment>
     )

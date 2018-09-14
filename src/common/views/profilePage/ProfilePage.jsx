@@ -22,7 +22,7 @@ class ProfilePage extends Component {
     const { feed } = this.props.profile; 
     const { getProfile } = this.props;
     const { params } = this.props.match;
-    if (!feed) {
+    if (!feed || params.profile !== this.props.profile.profile) {
       console.log('there was no feed!');
       getProfile(`${api}${params.profile}`);
     } 

@@ -1,7 +1,7 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
 import { saveToDir } from './utils/saveToDir';
-
+import updatePostCount from './utils/updatePostCount';
 
 const debug = require('debug')('http');
 
@@ -20,6 +20,7 @@ upload.route('/:username')
     debug('logged in user!!!', req.user);
 
     if (req.params.username === req.user.username) {
+      updatePostCount(req);
       return saveToDir(req, res);
     }
 

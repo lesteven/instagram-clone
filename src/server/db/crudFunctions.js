@@ -31,11 +31,12 @@ export const find = (table, keys, data) => {
 export const update = (table, keys, newData, oldData) => {
   // const params = turnToParamsArr(keys, oldData);
   const key = Object.keys(newData);
+  const keyUpdate = Object.keys(oldData);
   const updateStr = `UPDATE ${table} SET ${key[0]} = ($1)`;
-  const values = `WHERE ${keys} = ($2)`;
+  const values = `WHERE ${keyUpdate[0]} = ($2)`;
 
   const sql = `${updateStr} ${values}`;
-  return query(sql, [newData[key[0]], oldData]);
+  return query(sql, [newData[key[0]], oldData[keyUpdate[0]]]);
 };
 
 export const deleteData = (table, keys, data) => {

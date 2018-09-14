@@ -22,6 +22,7 @@ function sendData(res, user, feed, follow) {
       success: 'data fetched',
       profile: user.username,
       id: user.id,
+      posts: user.posts,
       ...feedData,
       ...follow,
     };
