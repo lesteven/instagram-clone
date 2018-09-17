@@ -37,14 +37,16 @@ function SameUser(props) {
 
 function SecondRow(props) {
   const { account } = props;
-  // console.log(props);
+//  console.log('!!!!!!1props!!!', props);
   return (
     <div className ='second-row'>
       <p> <strong>{ account.posts }</strong> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong>0</strong> followers </p>
-      <p> <strong>0</strong> following </p>
+      <p> <strong> { account.followers }</strong> 
+        { account.followers === 1? ' follower': ' followers' } 
+      </p>
+      <p> <strong>{ account.following }</strong> following </p>
     </div>
   )
 }
@@ -62,13 +64,11 @@ class HeaderSection extends Component {
     return (
       <section className = 'header-section'>
         { user == profile?
-          <Fragment>
-            <SameUser { ...this.props }/>
-            <SecondRow {...this.props }/>
-            <ThirdRow {...this.props}/>
-          </Fragment>
-        :<DiffUser { ...this.props }/> 
+          <SameUser { ...this.props }/>
+          :<DiffUser { ...this.props }/> 
         }
+        <SecondRow {...this.props }/>
+        <ThirdRow {...this.props}/>
       </section>
     )
   }

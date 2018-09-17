@@ -15,6 +15,7 @@ class HeaderContainer extends Component {
     const { follow, profile } = this.props;  
     const data = {
       followId: profile.id, 
+      numFollowers: profile.followers,
     }
     const url = `/api/friends/follow/${profile.profile}`
     follow(url, data);

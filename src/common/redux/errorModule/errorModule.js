@@ -43,7 +43,9 @@ export const error = (state = initialState, action) => {
       };
     case CLEAR: {
       const { [action.url]: removed, ...rest } = state;
-      return initialState;
+      return {
+        ...rest,
+      };
     }
     default:
       return state;

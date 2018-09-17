@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css/post.css';
+import { Link } from 'react-router-dom';
 
 
 class Post extends Component {
@@ -10,7 +11,9 @@ class Post extends Component {
       <div className = 'post-wrapper'>
         <div className = 'post-user'>
           <img src = { userimage } />
-          <p> <strong>{ username }</strong></p>
+          <Link to = { `/${username}` }>
+            <p><strong>{ username }</strong></p>
+          </Link>
         </div>
         <img src = { imgname } /> 
         <div className = 'post-data'>

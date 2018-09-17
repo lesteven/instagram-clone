@@ -1,6 +1,6 @@
 import { query } from '../../../db/dbQueries';
 
-const debug = require('debug')('http');
+// const debug = require('debug')('http');
 
 
 export const getFeed = limit => async (user, pageKey) => {
@@ -19,7 +19,7 @@ export const getFeed = limit => async (user, pageKey) => {
     const params = [user.id];
     const feed = await query(sql, params);
 
-//    debug(sql, params);
+    //    debug(sql, params);
 
     return feed;
   }

@@ -15,10 +15,5 @@ friends.route('/follow/:username')
     followUser(req, res);
   }));
 
-friends.route('/unfollow/:username')
-
-  .post(asyncWrap(async (req, res, next) => {
-    debug('visited unfollow!');
-  }));
 
 export default friends;

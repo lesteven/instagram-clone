@@ -1,4 +1,3 @@
-import { postCurry } from './postData';
 
 export const genFetch = method => (url, data) => fetch(url, {
   method,

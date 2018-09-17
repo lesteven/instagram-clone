@@ -1,6 +1,6 @@
 import { find } from '../../../db/crudFunctions';
 
-const debug = require('debug')('http');
+// const debug = require('debug')('http');
 
 async function getUser(req) {
   // debug('accounts visted!!!');

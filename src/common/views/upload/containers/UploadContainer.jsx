@@ -3,6 +3,9 @@ import Upload from '../components/Upload';
 import { dropImage } from '../../../redux/uploadModule/uploadModule';
 import { connect } from 'react-redux';
 import uploadImage from '../../../redux/uploadModule/uploadFunctions';
+import { withRouter } from 'react-router-dom';
+import { clearProfilePage } from '../../../redux/profileModule/profileModule';
+import { clearUpload } from '../../../redux/uploadModule/uploadModule';
 
 class UploadContainer extends Component {
   uploadImage = () => {
@@ -13,6 +16,17 @@ class UploadContainer extends Component {
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
       uploadImage(`/api/upload/${login.userName}`, formData);
+    }
+  }
+  componentDidUpdate(prevProps) {
+    const { success, accepted } = this.props.upload;
+    const { userName } = this.props.login;
+    if (prevProps.upload.success !== success) {
+      const { clearProfilePage, clearUpload } = this.props;
+      clearProfilePage();
+      clearUpload();
+      this.props.history.push(`/${userName}`); 
+      
     }
   }
   render() {
@@ -33,6 +47,8 @@ const mapState = ({ login, upload }) => ({
 const mapDispatch = {
   dropImage,
   uploadImage,
+  clearProfilePage,
+  clearUpload,
 };
 
-export default connect(mapState, mapDispatch)(UploadContainer);
+export default withRouter(connect(mapState, mapDispatch)(UploadContainer));
