@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import IconContainer from './containers/IconContainer';
+import SearchContainer from './containers/SearchContainer';
 import styles from './navbar.css';
 import { Link } from 'react-router-dom';
 
@@ -14,14 +15,6 @@ function Logo() {
   )
 } 
 
-function SearchBar() {
-  return (
-    <div className='nav-searchbar'>
-      <input type='text' placeholder='Search'/>
-    </div>
-  )
-}
-
 
 class NavBar extends Component {
   render() {
@@ -29,7 +22,7 @@ class NavBar extends Component {
       <div className='nav-wrapper'>
         <nav className='nav-bar max-width'>
           <Logo />
-          <SearchBar />
+          <SearchContainer />
           <IconContainer />
         </nav>    
       </div>
