@@ -5,6 +5,7 @@ const prefix = 'profile';
 
 const FETCHING = `${prefix}/FETCHING`;
 export const GET_PROFILE = `${prefix}/GET_PROFILE`;
+const CLEAR = `${prefix}/CLEAR`;
 
 export const fetchingData = () => ({
   type: FETCHING,
@@ -15,6 +16,9 @@ export const getProfilePage = profile => ({
   profile,
 });
 
+export const clearProfilePage = () => ({
+  type: CLEAR,
+});
 
 const initialState = {};
 
@@ -32,6 +36,8 @@ export const profile = (state = initialState, action) => {
         fetching: false,
         follow: 'check friends redux',
       };
+    case CLEAR:
+      return initialState;
     case RESET:
       return initialState;
     default:
