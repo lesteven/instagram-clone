@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IconContainer from './containers/IconContainer';
 import SearchContainer from './containers/SearchContainer';
-import styles from './navbar.css';
+import styles from './css/navbar.css';
 import { Link } from 'react-router-dom';
 
 

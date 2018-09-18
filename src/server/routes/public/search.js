@@ -11,7 +11,6 @@ search.route('/:username')
   .get(asyncWrap(async (req, res, next) => {
     debug('reached search router!');
     const data = await searchUser(req);
-    debug(data);
     res.json({
       'success': 'success!',
       data: data.rows,

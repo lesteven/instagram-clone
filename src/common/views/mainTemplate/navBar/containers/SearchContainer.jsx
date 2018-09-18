@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import SearchBar from '../components/SearchBar';
 import { keyPress } from '../../../../redux/searchModule/searchModule';
 import searchUser from '../../../../redux/searchModule/searchFunctions';
+import SearchResult from '../components/SearchResults';
+
 
 class SearchContainer extends Component {
   findUser = (e) => {
@@ -13,11 +15,18 @@ class SearchContainer extends Component {
     } 
   }
   render() {
+    const { data } = this.props.search;
     return (
+      <Fragment>
       <SearchBar 
         {...this.props}
         findUser = { this.findUser }
-      />
+        >
+       { data? 
+          <SearchResult data = { data } />
+          : null } 
+        </SearchBar>
+      </Fragment>
     )
   }
 }

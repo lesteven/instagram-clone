@@ -1,0 +1,33 @@
+.search-results {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  top: 70px;
+  border: 1px solid #efefef;
+  margin-left:-50px;
+}
+
+.search-results a {
+  text-decoration: none;
+}
+.search-data {
+  padding: 10px;
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid #efefef;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+}
+
+.search-data img {
+  flex: 1;
+}
+
+.search-data div {
+  flex: 9;
+  text-align: left;
+  padding-left: 3vw;
+}
+

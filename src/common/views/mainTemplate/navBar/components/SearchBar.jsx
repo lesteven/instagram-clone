@@ -11,6 +11,7 @@ function SearchBar(props) {
         onChange = { keyPress }
         onKeyPress = { findUser }
       />
+      { props.children }
     </div>
   )
 }
