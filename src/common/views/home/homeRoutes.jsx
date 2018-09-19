@@ -13,7 +13,7 @@ const home = '/';
 const homeTitle = 'Home';
 
 const exploreUrl = '/explore';
-const exploreTitle = 'ExplorePagePage';
+const exploreTitle = 'Explore';
 
 const uploadUrl = '/upload';
 const uploadTitle = 'Upload';

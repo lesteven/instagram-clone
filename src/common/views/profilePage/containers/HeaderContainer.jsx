@@ -8,17 +8,20 @@ import { toggleFn } from '../../../redux/popUpModule/popUpFunctions';
 import {
   follow,
 } from '../../../redux/friendsModule/friendsFunctions';
+import { clearFeed } from '../../../redux/feedModule/feedModule';
+
 
 class HeaderContainer extends Component {
   onClick = toggleFn.bind(this);
   follow = () => {
-    const { follow, profile } = this.props;  
+    const { follow, profile, clearFeed } = this.props;  
     const data = {
       followId: profile.id, 
       numFollowers: profile.followers,
     }
     const url = `/api/friends/follow/${profile.profile}`
     follow(url, data);
+    clearFeed();
   }
   render() {
     const { follow } = this.props;
@@ -52,6 +55,7 @@ const mapState = ({ profile, login, friends }) => ({
 const mapDispatch = {
   toggleClick,
   follow,
+  clearFeed,
 }
 
 export default withRouter(connect(mapState, mapDispatch)(HeaderContainer));

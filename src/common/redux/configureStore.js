@@ -11,6 +11,8 @@ import { upload } from './uploadModule/uploadModule';
 import { profile } from './profileModule/profileModule';
 import { friends } from './friendsModule/friendsModule';
 import { feed } from './feedModule/feedModule';
+import { search } from './searchModule/searchModule';
+import { explore } from './exploreModule/exploreModule';
 
 export const reducers = combineReducers({
   view,
@@ -22,6 +24,8 @@ export const reducers = combineReducers({
   profile,
   friends,
   feed,
+  search,
+  explore,
 });
 
 

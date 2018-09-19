@@ -18,16 +18,6 @@ class HomePage extends Component {
       return store.dispatch(getFeed(fullUrl));
     }
   }
-
-  componentDidMount() {
-    const { feed } = this.props.feed; 
-    const { getFeed } = this.props;
-    const { userName } = this.props.login;
-    if (!feed) {
-      console.log('there was no feed!');
-      getFeed(`${api}${userName}`);
-    } 
-  }  
   render() {
     return (
       <MappedRoutes routes = { homeRoutes }/>

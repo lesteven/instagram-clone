@@ -2,7 +2,7 @@
 /*
   get feed and check if there is more data
 */
-function checkFeed(feed) {
+export function checkFeed(feed) {
   const feedObj = {};
   if (feed.rows.length === 4) {
     feedObj.feed = feed.rows.slice(0, 3);
