@@ -18,7 +18,6 @@ class HomePage extends Component {
       return store.dispatch(getFeed(fullUrl));
     }
   }
-
   render() {
     return (
       <MappedRoutes routes = { homeRoutes }/>
