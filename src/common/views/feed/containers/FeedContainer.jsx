@@ -15,6 +15,8 @@ import getFeed from '../../../redux/feedModule/feedFunctions';
    
 */
 
+const api = '/api/feed/';
+
 class FeedContainer extends Component {
   loadNextPage = ({ startIndex, stopIndex }) => {
     const { getFeed, login } = this.props;
@@ -26,6 +28,15 @@ class FeedContainer extends Component {
       getFeed(url);
     });
   }
+  componentDidMount() {
+    const { feed } = this.props.feed; 
+    const { getFeed } = this.props;
+    const { userName } = this.props.login;
+    if (!feed && userName) {
+      console.log('homefeed, there was no feed!');
+      getFeed(`${api}${userName}`);
+    } 
+  }  
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.feed; 
     if (feed) {

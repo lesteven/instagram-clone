@@ -38,11 +38,11 @@
   background-color: white;
   border-left: 1px solid #efefef;
   border-top: 1px solid #efefef;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   transform: rotate(45deg);
   margin: auto;
   z-index:0;
   position:relative;
-  top: 10px;
+  top: 8px;
 }

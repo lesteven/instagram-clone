@@ -15,6 +15,12 @@ class LoginContainer extends Component {
       // console.log(this.props.history);
     }
   }
+  componentDidMount() {
+    const { login, history } = this.props;
+    if (login.userName) {
+      history.push('/');
+    } 
+  }
   render() {
     return (
       <Login {...this.props}/>
