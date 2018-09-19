@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import ExploreContainer from './containers/ExploreContainer';
 import getExplore from '../../redux/exploreModule/exploreFunctions';
-
+import MainTemplate from '../mainTemplate/MainTemplate';
 
 const api = '/api/explore';
 
@@ -14,7 +14,9 @@ class ExplorePage extends Component {
   }
   render() {
     return (
-      <ExploreContainer />
+      <MainTemplate>
+        <ExploreContainer />
+      </MainTemplate>
     )
   }
 }

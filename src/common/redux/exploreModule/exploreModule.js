@@ -1,3 +1,5 @@
+import updateFeed from './helperFunctions'; 
+
 
 const prefix = 'explore';
 
@@ -26,6 +28,7 @@ export const explore = (state = initialState, action) => {
       return {
         ...action.data,
         fetching: false,
+        feed: updateFeed(state, action.data),
       }
     default:
       return state;
