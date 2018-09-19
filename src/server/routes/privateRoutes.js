@@ -12,5 +12,4 @@ privateRoutes.all('*', authCheck, (req,res,next) => {
 privateRoutes.use('/settings', accountSettings);
 privateRoutes.use('/upload', upload);
 
-
 export default privateRoutes;

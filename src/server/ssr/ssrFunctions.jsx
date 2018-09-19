@@ -64,7 +64,7 @@ async function getData(store, component, foundPath, url) {
 async function getAllData(req, store) {
   const { component, foundPath } = findComponent(req);
 
-  debug('found component', component);
+//  debug('found component', component);
 
   checkAuthenticated(req.user, store);
 
