@@ -1,29 +1,18 @@
 import React, { Component, Fragment } from 'react';
-import MainTemplate from '../../mainTemplate/MainTemplate';
-import LoginPage from '../../auth/components/LoginPage';
+import ExploreContainer from '../containers/ExploreContainer';
+import styles from '../css/exploreComp.css';
 
 
 class Explore extends Component {
-  componentDidMount() {
-    const { redirect } = this.props.login;
-    const { history } = this.props;
-    if (!redirect) {
-      history.push('/accounts/login');
-    }
-  }
   render() {
-    const { redirect } = this.props.login;
-    if (redirect) {
-      return (
-        <MainTemplate>
-          <p> explore! </p>
-        </MainTemplate>
-      )
-    } else {
-      return (
-        <div></div>
-      )   
-    }
+    return (
+      <Fragment>
+        <div className = 'explore-title'>
+          <p> Explore </p>
+        </div>
+        <ExploreContainer /> 
+      </Fragment> 
+    )
   }
 }
 

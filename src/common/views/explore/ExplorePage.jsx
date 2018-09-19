@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import ExploreContainer from './containers/ExploreContainer';
 import getExplore from '../../redux/exploreModule/exploreFunctions';
 import MainTemplate from '../mainTemplate/MainTemplate';
+import Explore from './components/Explore';
 
 const api = '/api/explore';
 
@@ -12,16 +12,29 @@ class ExplorePage extends Component {
     const fullUrl = `${url}${api}`;
     return store.dispatch(getExplore(fullUrl));
   }
+  componentDidMount() {
+    const { login, explore, getExplore, history } = this.props;
+    if (!login.redirect) {
+      history.push('/'); 
+    }
+    else if (!explore.feed) {
+      getExplore(api);
+    }
+  }
   render() {
+    const { explore } = this.props;
     return (
       <MainTemplate>
-        <ExploreContainer />
+        { explore.feed? 
+          <Explore />
+          :null }
       </MainTemplate>
     )
   }
 }
 
-const mapState = ({ explore }) => ({
+const mapState = ({ login, explore }) => ({
+  login,
   explore,
 });
 

@@ -8,7 +8,6 @@ function ProfileNav(props) {
     <div className='user-nav'>
       <Link to = { '/upload' }> <img src='/upload.svg'/></Link>
       <Link to = '/explore'><img src='/compass.svg'/></Link>
-      <img src='/heart.svg'/>
       <Link to = { `/${userName}` }><img src='/user.svg'/></Link>
     </div>
   )
