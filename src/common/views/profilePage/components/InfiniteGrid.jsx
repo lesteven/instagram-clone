@@ -38,8 +38,8 @@ function InfiniteGrid ({
       </div>
     )
   }
-  const gheight = 200;
-  const gwidth = 600;
+  const gheight = 250;
+  const gwidth = 800;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }
