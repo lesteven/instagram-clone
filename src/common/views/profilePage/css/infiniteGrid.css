@@ -1,0 +1,17 @@
+.post-grid {
+  display: flex;
+  padding: 10px;
+}
+.post-grid img {
+  height: 90%;
+}
+
+.grid-img-wrapper {
+  margin: 5px;
+  width: 180px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

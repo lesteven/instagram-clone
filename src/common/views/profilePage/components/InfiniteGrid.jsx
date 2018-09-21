@@ -7,9 +7,9 @@ import {
 } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import Post from '../../feed/components/Post';
+import styles from '../css/infiniteGrid.css';
 
-
-function InfiniteComp ({
+function InfiniteGrid ({
   hasNextPage,
   isNextPageLoading,
   list,
@@ -25,26 +25,20 @@ function InfiniteComp ({
   };
 
   const rowRenderer = ({ index, key, style }) => {
-    let dataObj;
-
-    if (!isRowLoaded({ index })) {
-      dataObj = {
-        userimage: '/user.svg',
-        username: '',
-        imgname: '/placeholder.svg',
-        created_at: '', 
-      }
-    }
-    else {
-      dataObj = list[index];
-    }
+    const dataArr = list[index]? list[index] : [{id:1}];
     return (
-      <div style = { style } key = { dataObj.imgname + '/' + index } >
-        <Post data = { dataObj } />
+      <div style = { style } key = { index }>
+        <div className = 'post-grid'>
+        { dataArr.map(e => 
+          <div className = 'grid-img-wrapper' key = { e.id }>
+            <img src = { e.imgname } />
+          </div>
+        )}
+        </div>
       </div>
     )
   }
-  const gheight = 600;
+  const gheight = 200;
   const gwidth = 600;
   return (
     <InfiniteLoader
@@ -73,4 +67,4 @@ function InfiniteComp ({
   )
 }
 
-export default InfiniteComp;
+export default InfiniteGrid;

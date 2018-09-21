@@ -11,4 +11,17 @@ const updateFeed = (state, data) => {
   ];
 };
 
+export const updateGridFeed = (state, data) => {
+  // console.log(data.feed);
+  if (!state.feed) {
+    return [
+      data.feed,
+    ];
+  }
+  return [
+    ...state.feed,
+    data.feed,
+  ];
+}
+
 export default updateFeed;
