@@ -1,14 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Post from '../../feed/components/Post';
 import GridPost from '../components/GridPost';
 import { clickGridPost } from '../../../redux/popUpModule/popUpModule';
 
 class GridPostContainer extends Component {
+  clickGrid = () => {
+    const { data, clickGridPost } = this.props;
+    clickGridPost(data);
+  }
+  keyPress = (e) => { 
+    const { display } = this.props.popUp.gridPost;
+    if (e.key === 'Escape' && display === 'flex') {
+      this.clickGrid();
+    }
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.keyPress, false);
+  }
   render() {
-  const { popUp, data, clickGridPost } = this.props;
+  const { popUp, data } = this.props;
     return (
-      <div onClick = { clickGridPost }>
+      <div onClick = { this.clickGrid }>
         <GridPost data = { data } />
       </div>
     )

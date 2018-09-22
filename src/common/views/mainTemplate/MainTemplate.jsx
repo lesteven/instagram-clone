@@ -6,14 +6,18 @@ import { clickGridPost } from '../../redux/popUpModule/popUpModule';
 
 
 class MainTemplate extends Component {
+  closeGrid = () => {
+    const { clickGridPost } = this.props;
+    clickGridPost();
+  }
   render() {
-    const { clickGridPost, popUp} = this.props;
+    const { popUp} = this.props;
     const { gridPost, data } = popUp;
     return (
       <Fragment>
         <div className = 'grid-post' 
           style = { gridPost }
-          onClick = { clickGridPost }>
+          onClick = { this.closeGrid }>
           { data? <Post data = { data } />: null } 
         </div>
         <NavBar />

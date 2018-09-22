@@ -6,6 +6,3 @@ export function toggleFn(e) {
   e.preventDefault();
   toggleClick();
 }
-
-export const toggleGrid = (state) => (state === 'none'? 'block' : 'none');
-

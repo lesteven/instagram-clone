@@ -1,4 +1,4 @@
-import { toggle, toggleGrid } from './popUpFunctions';
+import { toggle } from './popUpFunctions';
 
 
 const prefix = 'popUp';
@@ -10,8 +10,9 @@ export const toggleClick = () => ({
   type: TOGGLE_POP_UP,
 });
 
-export const clickGridPost = () => ({
+export const clickGridPost = (data) => ({
   type: CLICK_GRID,
+  data,
 });
 
 const initialState = {
@@ -34,8 +35,9 @@ export const popUp = (state = initialState, action) => {
         ...state,
         gridPost: {
           ...state.gridPost,
-          display: toggleGrid(state.gridPost.display),
-        }
+          display: toggle(state.gridPost.display),
+        },
+        data: action.data,
       }
     default:
       return state;
