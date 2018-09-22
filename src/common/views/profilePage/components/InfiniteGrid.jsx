@@ -6,7 +6,7 @@ import {
   WindowScroller,
 } from 'react-virtualized';
 import 'react-virtualized/styles.css';
-import Post from '../../feed/components/Post';
+import GridPostContainer from '../containers/GridPostContainer';
 import styles from '../css/infiniteGrid.css';
 
 function InfiniteGrid ({
@@ -30,16 +30,14 @@ function InfiniteGrid ({
       <div style = { style } key = { index }>
         <div className = 'post-grid'>
         { dataArr.map(e => 
-          <div className = 'grid-img-wrapper' key = { e.id }>
-            <img src = { e.imgname } />
-          </div>
+          <GridPostContainer key = { e.id } data = { e }/>
         )}
         </div>
       </div>
     )
   }
-  const gheight = 250;
-  const gwidth = 800;
+  const gheight = 230;
+  const gwidth = 750;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }

@@ -1,5 +1,5 @@
 import { RESET } from '../loginModule/loginModule';
-import updateFeed from './helperFunctions';
+import { updateGridFeed } from './helperFunctions';
 
 const prefix = 'profile';
 
@@ -32,7 +32,7 @@ export const profile = (state = initialState, action) => {
     case GET_PROFILE:
       return {
         ...action.profile,
-        feed: updateFeed(state, action.profile),
+        feed: updateGridFeed(state, action.profile),
         fetching: false,
         follow: 'check friends redux',
       };
