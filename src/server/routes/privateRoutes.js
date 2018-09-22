@@ -5,9 +5,9 @@ import authCheck from './private/utils/authCheck';
 
 const privateRoutes = express.Router();
 
-privateRoutes.all('*', authCheck, (req,res,next) => {
+privateRoutes.all('*', authCheck, (req, res, next) => {
   next();
-})
+});
 
 privateRoutes.use('/settings', accountSettings);
 privateRoutes.use('/upload', upload);

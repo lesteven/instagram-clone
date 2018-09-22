@@ -1,6 +1,6 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
-import { getNewestExplore, getOlderExplore } from'./utils/getExplore';
+import getExploreFeed from './utils/getExplore';
 import { checkFeed } from './utils/sendData';
 
 const debug = require('debug')('http');
@@ -11,23 +11,23 @@ explore.route('/')
 
   .get(asyncWrap(async (req, res) => {
     debug('reached explore page!');
-    const feed = await getNewestExplore();
-    const modifiedFeed = checkFeed(feed); 
+    const feed = await getExploreFeed();
+    const modifiedFeed = checkFeed(feed);
     res.json({
-      'success': 'reached explore',
+      success: 'reached explore',
       ...modifiedFeed,
-    });    
+    });
   }));
 
 explore.route('/older/:pagekey')
 
   .get(asyncWrap(async (req, res) => {
-      const feed = await getNewestExplore(req.params.pagekey);
-      const modifiedFeed = checkFeed(feed); 
-      res.json({
-        'success': 'reached explore',
-        ...modifiedFeed,
-      });    
+    const feed = await getExploreFeed(req.params.pagekey);
+    const modifiedFeed = checkFeed(feed);
+    res.json({
+      success: 'reached explore',
+      ...modifiedFeed,
+    });
   }));
 
 

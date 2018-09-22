@@ -16,7 +16,7 @@ export const uploadAC = data => ({
 
 export const clearUpload = () => ({
   type: CLEAR,
-})
+});
 
 const initialState = {
 

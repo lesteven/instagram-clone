@@ -10,7 +10,7 @@ export const toggleClick = () => ({
   type: TOGGLE_POP_UP,
 });
 
-export const clickGridPost = (data) => ({
+export const clickGridPost = data => ({
   type: CLICK_GRID,
   data,
 });
@@ -38,7 +38,7 @@ export const popUp = (state = initialState, action) => {
           display: toggle(state.gridPost.display),
         },
         data: action.data,
-      }
+      };
     default:
       return state;
   }

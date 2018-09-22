@@ -22,6 +22,6 @@ export const updateGridFeed = (state, data) => {
     ...state.feed,
     data.feed,
   ];
-}
+};
 
 export default updateFeed;

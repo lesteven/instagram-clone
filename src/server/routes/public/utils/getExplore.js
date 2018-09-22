@@ -1,6 +1,6 @@
 import { query } from '../../../db/dbQueries';
 
-const limit = 4;
+const limitNum = 4;
 
 
 const getExplore = limit => async (pageKey) => {
@@ -13,17 +13,18 @@ const getExplore = limit => async (pageKey) => {
 
   const join = 'INNER JOIN users.feed ON '
     + 'users.credentials.id = users.feed.username';
-   
+
   const order = `ORDER BY users.feed.id DESC LIMIT ${limit}`;
 
   const sql = `${select} ${join} ${where} ${order}`;
-  
+
   // console.log(sql);
 
   const feed = await query(sql);
-  
-  return feed;
-}
 
-export const getNewestExplore = getExplore(limit);
-export const getOlderExplore = getExplore(limit);
+  return feed;
+};
+
+const getExploreFeed = getExplore(limitNum);
+
+export default getExploreFeed;
