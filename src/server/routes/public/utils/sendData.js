@@ -26,6 +26,7 @@ function sendData(res, user, feed, follow) {
       posts: user.posts,
       following: user.following,
       followers: user.followers,
+      userimage: user.userimage,
       ...feedData,
       ...follow,
     };
