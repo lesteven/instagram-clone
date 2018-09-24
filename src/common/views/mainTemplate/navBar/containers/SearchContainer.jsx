@@ -17,10 +17,12 @@ class SearchContainer extends Component {
       searchUser(`/api/search/${search.value}`);
     } 
   }
-  clear = () => {
-    const { clearSearch, clearProfilePage } = this.props;
+  clear = (clickedProfile) => () => {
+    const { clearSearch, clearProfilePage, profile } = this.props;
     clearSearch()
-    clearProfilePage();
+    if (clickedProfile !== profile.profile) { 
+      clearProfilePage();
+    }
   }
   render() {
     const { clearSearch } = this.props;
@@ -40,8 +42,9 @@ class SearchContainer extends Component {
   }
 }
 
-const mapState = ({ search }) => ({
+const mapState = ({ search, profile }) => ({
   search,
+  profile,
 });
 
 const mapDispatch = {
