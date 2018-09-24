@@ -3,9 +3,9 @@ import styles from '../css/searchResults.css';
 import { Link } from 'react-router-dom';
 
 
-function SearchResults({ data }) {
+function SearchResults({ data, clear }) {
   return (
-    <div className = 'search-results'>
+    <div className = 'search-results' onClick = { clear }>
       <div className = 'arrow'></div>
         <div className = 'all-search-data'>
           { data.map((e) => 

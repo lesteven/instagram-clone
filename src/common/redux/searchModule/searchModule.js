@@ -1,6 +1,7 @@
 const prefix = 'search';
 const ON_CHANGE = `${prefix}/ON_CHANGE`;
 const ENTER = `${prefix}/ENTER`;
+const CLEAR = `${prefix}/CLEAR`;
 
 
 export const keyPress = e => ({
@@ -11,6 +12,10 @@ export const keyPress = e => ({
 export const onEnter = data => ({
   type: ENTER,
   data,
+});
+
+export const clearSearch = () => ({
+  type: CLEAR,
 });
 
 const initialState = {
@@ -29,6 +34,8 @@ export const search = (state = initialState, action) => {
         ...state,
         ...action.data,
       };
+    case CLEAR:
+      return initialState;
     default:
       return state;
   }

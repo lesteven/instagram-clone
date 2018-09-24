@@ -6,8 +6,8 @@ function ProfileNav(props) {
   const { userName } = props.login;
   return (
     <div className='user-nav'>
-      <Link to = { '/upload' }> <img src='/upload.svg'/></Link>
       <Link to = '/explore'><img src='/compass.svg'/></Link>
+      <Link to = { '/upload' }> <img src='/upload.svg'/></Link>
       <Link to = { `/${userName}` }><img src='/user.svg'/></Link>
     </div>
   )

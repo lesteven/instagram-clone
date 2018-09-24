@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import React, { Component, Fragment } from 'react';
 import SearchBar from '../components/SearchBar';
-import { keyPress } from '../../../../redux/searchModule/searchModule';
+import {
+  keyPress,
+  clearSearch,
+} from '../../../../redux/searchModule/searchModule';
 import searchUser from '../../../../redux/searchModule/searchFunctions';
 import SearchResult from '../components/SearchResults';
 
@@ -15,16 +18,17 @@ class SearchContainer extends Component {
     } 
   }
   render() {
+    const { clearSearch } = this.props;
     const { data } = this.props.search;
     return (
       <Fragment>
-      <SearchBar 
-        {...this.props}
-        findUser = { this.findUser }
-        >
-       { data? 
-          <SearchResult data = { data } />
-          : null } 
+        <SearchBar 
+          {...this.props}
+          findUser = { this.findUser }
+          >
+          {data? 
+            <SearchResult data = { data } clear = { clearSearch } />
+            : null } 
         </SearchBar>
       </Fragment>
     )
@@ -38,6 +42,7 @@ const mapState = ({ search }) => ({
 const mapDispatch = {
   keyPress,
   searchUser,
+  clearSearch,
 };
 
 export default connect(mapState, mapDispatch)(SearchContainer);
