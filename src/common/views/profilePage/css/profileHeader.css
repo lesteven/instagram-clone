@@ -18,4 +18,5 @@
 
 .drop-profile {
   border: none; 
+  cursor: pointer;
 }

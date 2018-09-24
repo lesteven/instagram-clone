@@ -11,7 +11,7 @@ class ProfileImageDrop extends Component {
         <DropZone className = 'drop-profile'
           accept = 'image/*'
           multiple = { false }
-          onDrop = { dropProfile}
+          onDrop = { dropProfile }
           >
       
           <img src = { userimage }/>
