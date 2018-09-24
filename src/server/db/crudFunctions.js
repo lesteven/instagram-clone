@@ -4,6 +4,8 @@ import {
   valuesPlaceholder,
 } from '../utils/queryHelpers';
 
+const debug = require('debug')('http');
+
 
 const where = (params, data) => {
   const dataKeys = Object.keys(data);
@@ -34,6 +36,7 @@ export const update = (table, newData, oldData) => {
   const values = `WHERE ${keyUpdate[0]} = ($2)`;
 
   const sql = `${updateStr} ${values}`;
+  debug('update!', sql,[newData[key[0]], oldData[keyUpdate[0]]]);
   return query(sql, [newData[key[0]], oldData[keyUpdate[0]]]);
 };
 
@@ -55,5 +58,6 @@ export const insert = (table, keys, data) => {
   const values = `VALUES${valuesPH} RETURNING *`;
 
   const sql = `${insertStr} ${values}`;
+  debug('!insert', sql, params);
   return query(sql, params);
 };
