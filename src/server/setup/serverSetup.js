@@ -18,6 +18,7 @@ const serverSetup = (app) => {
   app.use(express.static('dist'));
   app.use(express.static('imgs'));
   app.use(express.static('uploads'));
+  app.use(express.static('userimages'));
 };
 
 export default serverSetup;

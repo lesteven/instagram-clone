@@ -1,6 +1,6 @@
 import express from 'express';
 import asyncWrap from '../../utils/asyncWrap';
-import { savePosts } from './utils/saveImages';
+import { savePosts, saveUserimages } from './utils/saveImages';
 import updatePostCount from './utils/updatePostCount';
 import { sendError } from '../../utils/serverResponse';
 
@@ -34,7 +34,7 @@ upload.route('/userimage/:username')
   .post(asyncWrap(async (req, res, next) => {
     debug('!!!userimage');      
     if (req.params.username === req.user.username) {
-
+      return saveUserimages(req, res);
     }
     return sendError(res, 401, 'failed to post')();
   }));

@@ -27,8 +27,7 @@ export const find = (table, keys, data) => {
   return query(sql, params);
 };
 
-export const update = (table, keys, newData, oldData) => {
-  // const params = turnToParamsArr(keys, oldData);
+export const update = (table, newData, oldData) => {
   const key = Object.keys(newData);
   const keyUpdate = Object.keys(oldData);
   const updateStr = `UPDATE ${table} SET ${key[0]} = ($1)`;

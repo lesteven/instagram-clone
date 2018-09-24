@@ -4,7 +4,7 @@ import DropZone from 'react-dropzone';
 
 class ProfileImageDrop extends Component {
   render() {
-    const { dropProfile, profile } = this.props;
+    const { dropProfile, profile, image } = this.props;
     const { userimage } = profile;
     return (
       <Fragment>
@@ -13,7 +13,6 @@ class ProfileImageDrop extends Component {
           multiple = { false }
           onDrop = { dropProfile }
           >
-      
           <img src = { userimage }/>
         </DropZone>
       </Fragment>

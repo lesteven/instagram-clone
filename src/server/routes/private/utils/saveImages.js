@@ -27,5 +27,5 @@ const save = (folderName, uploadFn )=> (req, res) => {
 }
 
 export const savePosts = save('uploads', uploadFiles);
-export const saveUserimages = save('userimages');
+export const saveUserimages = save('userimages', uploadUserimages);
 

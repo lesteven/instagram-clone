@@ -1,5 +1,5 @@
 import { IncomingForm } from 'formidable';
-import { insert } from '../../../db/crudFunctions';
+import { insert, update } from '../../../db/crudFunctions';
 
 const debug = require('debug')('http');
 
@@ -16,7 +16,13 @@ function saveImagePost(req, imgPath) {
 }
 function saveUserimages(req, imgPath) {
   const table = 'users.credentials';
-
+  const data = {
+    userimage: imgPath,
+  };
+  const findData = {
+    id: req.user.id,
+  };
+  update(table, data, findData);
 }
 
 // split path
