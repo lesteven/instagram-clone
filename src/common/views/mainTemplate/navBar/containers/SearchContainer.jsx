@@ -7,7 +7,7 @@ import {
 } from '../../../../redux/searchModule/searchModule';
 import searchUser from '../../../../redux/searchModule/searchFunctions';
 import SearchResult from '../components/SearchResults';
-
+import { clearProfilePage } from '../../../../redux/profileModule/profileModule';
 
 class SearchContainer extends Component {
   findUser = (e) => {
@@ -16,6 +16,11 @@ class SearchContainer extends Component {
       console.log('enter!');
       searchUser(`/api/search/${search.value}`);
     } 
+  }
+  clear = () => {
+    const { clearSearch, clearProfilePage } = this.props;
+    clearSearch()
+    clearProfilePage();
   }
   render() {
     const { clearSearch } = this.props;
@@ -27,7 +32,7 @@ class SearchContainer extends Component {
           findUser = { this.findUser }
           >
           {data? 
-            <SearchResult data = { data } clear = { clearSearch } />
+            <SearchResult data = { data } clear = { this.clear } />
             : null } 
         </SearchBar>
       </Fragment>
@@ -43,6 +48,7 @@ const mapDispatch = {
   keyPress,
   searchUser,
   clearSearch,
+  clearProfilePage,
 };
 
 export default connect(mapState, mapDispatch)(SearchContainer);
