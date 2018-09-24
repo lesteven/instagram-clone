@@ -14,7 +14,7 @@ upload.route('/')
     await res.json({ success: 'hello upload!' });
   }));
 
-upload.route('/:username')
+upload.route('/post/:username')
 
   .post(asyncWrap(async (req, res, next) => {
     debug('params1!!!!', req.params.username);

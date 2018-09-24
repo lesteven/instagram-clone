@@ -4,7 +4,7 @@ CREATE TABLE users.credentials (
   email VARCHAR(254) UNIQUE, 
   name VARCHAR(70),
   username VARCHAR(70) UNIQUE,
-  userimage VARCHAR(254) default '/user.svg';,
+  userimage VARCHAR(254) default '/user.svg',
   password TEXT,
   posts INTEGER default 0,
   following INTEGER default 0,

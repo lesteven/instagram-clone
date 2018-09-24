@@ -15,7 +15,7 @@ class UploadContainer extends Component {
     if (accepted) {
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
-      uploadImage(`/api/upload/${login.userName}`, formData);
+      uploadImage(`/api/upload/post/${login.userName}`, formData);
     }
   }
   componentDidUpdate(prevProps) {

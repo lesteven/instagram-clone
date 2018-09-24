@@ -8,8 +8,7 @@ function updatePostCount(req) {
     id: req.user.id,
   };
   const table = 'users.credentials';
-  const key = 'posts';
-  return update(table, key, newData, oldData);
+  return update(table, newData, oldData);
 }
 
 export default updatePostCount;
