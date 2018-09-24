@@ -1,4 +1,4 @@
-import updateFeed from './helperFunctions'; 
+import { updateGridFeed } from './helperFunctions';
 
 
 const prefix = 'explore';
@@ -10,7 +10,7 @@ export const fetchingData = () => ({
   type: FETCHING,
 });
 
-export const fetchedExplore = (data) => ({
+export const fetchedExplore = data => ({
   type: GET_EXPLORE,
   data,
 });
@@ -23,15 +23,15 @@ export const explore = (state = initialState, action) => {
       return {
         ...state,
         fetching: true,
-      }
+      };
     case GET_EXPLORE:
       return {
         ...action.data,
         fetching: false,
-        feed: updateFeed(state, action.data),
-      }
+        // feed: updateFeed(state, action.data),
+        feed: updateGridFeed(state, action.data),
+      };
     default:
       return state;
-
   }
-}
+};

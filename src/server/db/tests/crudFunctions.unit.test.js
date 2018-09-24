@@ -28,7 +28,7 @@ describe('update', () => {
 
     const sql = `${updateStr} ${values}`;
     const updateParams = [newData.email, oldEmail.email];
-    expect(update(table, key, newData, oldEmail))
+    expect(update(table, newData, oldEmail))
       .toEqual([sql, updateParams])
   })
 

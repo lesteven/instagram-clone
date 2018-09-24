@@ -3,13 +3,14 @@ import styles from '../css/searchResults.css';
 import { Link } from 'react-router-dom';
 
 
-function SearchResults({ data }) {
+function SearchResults({ data, clear }) {
   return (
-    <div className = 'search-results'>
+    <div className = 'search-results' >
       <div className = 'arrow'></div>
         <div className = 'all-search-data'>
           { data.map((e) => 
             <Link to = {`/${e.username}`} 
+              onClick = { clear(e.username) } 
               key = { e.username + '/' + e.name }>
             <div className = 'search-data'>
               <img src = '/user.svg' />

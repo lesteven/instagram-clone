@@ -12,9 +12,9 @@ search.route('/:username')
     debug('reached search router!');
     const data = await searchUser(req);
     res.json({
-      'success': 'success!',
+      success: 'success!',
       data: data.rows,
     });
-  }))
+  }));
 
 export default search;

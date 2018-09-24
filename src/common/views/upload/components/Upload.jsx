@@ -5,7 +5,7 @@ import DropZone from 'react-dropzone';
 class Upload extends Component {
   render() {
     const { dropImage, upload, uploadImage } = this.props;
-    const { accepted } = upload;
+    const { accepted } = upload.post;
     return (
       <Fragment>
         <DropZone className = 'dropzone'

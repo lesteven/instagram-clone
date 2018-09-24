@@ -1,8 +1,6 @@
 import { update } from '../../../db/crudFunctions';
 
 const table = 'users.credentials';
-const followingKey = 'following';
-const followerKey = 'follower';
 
 function editFollowing(req, following) {
   const newData = {
@@ -11,7 +9,7 @@ function editFollowing(req, following) {
   const oldData = {
     id: req.user.id,
   };
-  return update(table, followingKey, newData, oldData);
+  return update(table, newData, oldData);
 }
 
 function editFollower(req, data, followers) {
@@ -21,7 +19,7 @@ function editFollower(req, data, followers) {
   const oldData = {
     id: data.username,
   };
-  return update(table, followerKey, newData, oldData);
+  return update(table, newData, oldData);
 }
 
 // username is the person being followed

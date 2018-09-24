@@ -1,11 +1,12 @@
 .profile-header {
-  display:flex;
-  width:650px;
-  margin:auto;
-  padding-bottom:3%;
+  display: flex;
+  width: 750px;
+  padding-bottom: 3%;
+  text-align: left;
 }
 .profile-header > div {
   flex: 3;
+  text-align:center;
 }
 .profile-header section {
   flex: 7;
@@ -15,3 +16,7 @@
   border-radius:50%;
 }
 
+.drop-profile {
+  border: none; 
+  cursor: pointer;
+}

@@ -9,8 +9,10 @@ export const getFeed = limit => async (user, pageKey) => {
   if (user) {
     const select = 'SELECT users.credentials.username, '
       + 'users.feed.imgname, users.feed.created_at, '
+      + 'users.credentials.userimage, '
       + 'users.feed.id FROM users.credentials';
-    const join = 'INNER JOIN users.feed ON users.credentials.id = users.feed.username';
+    const join = 'INNER JOIN users.feed ON '
+      + 'users.credentials.id = users.feed.username';
     const where = `WHERE users.credentials.id = ($1) ${keyIndex}`;
     const order = `ORDER BY users.feed.id DESC LIMIT ${limit}`;
 

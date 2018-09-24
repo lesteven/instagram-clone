@@ -10,12 +10,12 @@ import { clearUpload } from '../../../redux/uploadModule/uploadModule';
 class UploadContainer extends Component {
   uploadImage = () => {
     const { login, upload, uploadImage } = this.props;
-    const { accepted } = upload;
+    const { accepted } = upload.post;
     console.log(this.props); 
     if (accepted) {
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
-      uploadImage(`/api/upload/${login.userName}`, formData);
+      uploadImage(`/api/upload/post/${login.userName}`, formData);
     }
   }
   componentDidUpdate(prevProps) {
