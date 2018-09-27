@@ -3,11 +3,11 @@ const DROP = `${prefix}/DROP`;
 const UPLOAD = `${prefix}/UPLOAD`;
 const CLEAR = `${prefix}/CLEAR`;
 const PROFILE = `${prefix}/DROP_PROFILE_IMG`;
-
+export const IMG_UPLOAD = `${prefix}/IMG_UPLOAD`;
 
 export const genDrop = action => (accepted, rejected) => ({
   type: action,
-  data : {
+  data: {
     accepted,
     rejected,
   },
@@ -22,13 +22,18 @@ export const uploadAC = data => ({
   success: data.success,
 });
 
+export const profileAC = data => ({
+  type: IMG_UPLOAD,
+  data,
+});
+
 export const clearUpload = () => ({
   type: CLEAR,
 });
 
 const initialState = {
-  post : {},
-  userimage : {},
+  post: {},
+  userimage: {},
 };
 
 export const upload = (state = initialState, action) => {
@@ -47,6 +52,11 @@ export const upload = (state = initialState, action) => {
       return {
         ...state,
         success: action.success,
+      };
+    case IMG_UPLOAD:
+      return {
+        ...state,
+        data: action.data,
       };
     case CLEAR:
       return initialState;

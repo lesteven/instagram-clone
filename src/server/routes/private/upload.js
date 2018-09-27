@@ -30,9 +30,9 @@ upload.route('/post/:username')
   }));
 
 upload.route('/userimage/:username')
-  
+
   .post(asyncWrap(async (req, res, next) => {
-    debug('!!!userimage');      
+    debug('!!!userimage');
     debug('!!! visisted userimages!!');
     if (req.params.username === req.user.username) {
       return saveUserimages(req, res);

@@ -36,7 +36,7 @@ export const update = (table, newData, oldData) => {
   const values = `WHERE ${keyUpdate[0]} = ($2)`;
 
   const sql = `${updateStr} ${values}`;
-  debug('update!', sql,[newData[key[0]], oldData[keyUpdate[0]]]);
+  debug('update!', sql, [newData[key[0]], oldData[keyUpdate[0]]]);
   return query(sql, [newData[key[0]], oldData[keyUpdate[0]]]);
 };
 

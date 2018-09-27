@@ -1,4 +1,5 @@
 import { RESET } from '../loginModule/loginModule';
+import { IMG_UPLOAD } from '../uploadModule/uploadModule';
 import { updateGridFeed } from './helperFunctions';
 
 const prefix = 'profile';
@@ -35,6 +36,11 @@ export const profile = (state = initialState, action) => {
         feed: updateGridFeed(state, action.profile),
         fetching: false,
         follow: 'check friends redux',
+      };
+    case IMG_UPLOAD:
+      return {
+        ...state,
+        userimage: action.data.img,
       };
     case CLEAR:
       return initialState;

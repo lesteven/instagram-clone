@@ -5,18 +5,18 @@ import {
   clearUpload,
   dropProfile
 } from '../../../redux/uploadModule/uploadModule';
-import uploadImage from '../../../redux/uploadModule/uploadFunctions';
+import { uploadProfile } from '../../../redux/uploadModule/uploadFunctions';
 
 
 class ProfileImageContainer extends Component {
   componentDidUpdate(prevProps) {
-    const { upload, login, uploadImage, clearUpload } = this.props;
+    const { upload, login, uploadProfile, clearUpload } = this.props;
     const { accepted } = upload.userimage;
     if (prevProps.upload !== upload && accepted ) {
       console.log('image dropped!');
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
-      uploadImage(`/api/upload/userimage/${login.userName}`, formData);
+      uploadProfile(`/api/upload/userimage/${login.userName}`, formData);
       clearUpload();
     }
   }
@@ -45,7 +45,7 @@ const mapState = ({ profile, login, upload }) => ({
 
 const mapDispatch = {
   dropProfile,
-  uploadImage,
+  uploadProfile,
   clearUpload,
 };
 

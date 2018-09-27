@@ -36,7 +36,7 @@ const genUpload = saveFn => (req, res, dir) => {
   const form = new IncomingForm();
   const files = [];
   const fields = [];
-
+  let imgPath = '';
   form.uploadDir = dir;
   form.keepExtensions = true;
 
@@ -45,16 +45,20 @@ const genUpload = saveFn => (req, res, dir) => {
       fields.push([field, value]);
     })
     .on('file', (field, file) => {
-      const imgPath = split(file.path);
+      imgPath = split(file.path);
       debug(imgPath);
       saveFn(req, imgPath);
       files.push([field, file]);
     })
     .on('end', () => {
-      res.json({ success: 'images uploaded!' });
+      debug('imgpath', imgPath);
+      res.json({
+        success: 'images uploaded!',
+        img: imgPath,
+      });
     });
   form.parse(req);
-}
+};
 
 export const uploadFiles = genUpload(saveImagePost);
 export const uploadUserimages = genUpload(saveUserimages);

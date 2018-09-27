@@ -15,7 +15,7 @@ export function makeDir(req, res, dir, uploadFn) {
   });
 }
 
-const save = (folderName, uploadFn )=> (req, res) => {
+const save = (folderName, uploadFn) => (req, res) => {
   const dir = folderName;
   fs.readdir(dir, (err) => {
     if (err) {
@@ -24,8 +24,7 @@ const save = (folderName, uploadFn )=> (req, res) => {
       uploadFn(req, res, dir);
     }
   });
-}
+};
 
 export const savePosts = save('uploads', uploadFiles);
 export const saveUserimages = save('userimages', uploadUserimages);
-
