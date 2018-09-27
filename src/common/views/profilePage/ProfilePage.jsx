@@ -6,7 +6,7 @@ import getProfile from '../../redux/profileModule/profileFunctions';
 // import FeedContainer from './containers/FeedContainer';
 import InfiniteFeed from './containers/InfiniteFeed';
 import ErrorPage from '../generalComponents/ErrorPage';
-
+import { clearProfilePage } from '../../redux/profileModule/profileModule';
 
 const api = '/api/account/';
 
@@ -30,10 +30,11 @@ class ProfilePage extends Component {
     } 
   }  
   componentDidUpdate(prevProps) {
-    const { getProfile } = this.props;
+    const { getProfile, clearProfilePage } = this.props;
     const { params } = this.props.match;
     if (prevProps.match.params.profile !== params.profile) {
       console.log('different!');
+      clearProfilePage();
       getProfile(`${api}${params.profile}`);
     } 
   }
@@ -73,6 +74,7 @@ const mapState = ({ login, profile, error }) => ({
 
 const mapDispatch = {
   getProfile,
+  clearProfilePage,
 }
 
 export default connect(mapState,mapDispatch)(ProfilePage);
