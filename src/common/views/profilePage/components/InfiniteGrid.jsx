@@ -5,7 +5,7 @@ import {
   AutoSizer,
   WindowScroller,
 } from 'react-virtualized';
-import 'react-virtualized/styles.css';
+// import 'react-virtualized/styles.css';
 import GridPostContainer from '../containers/GridPostContainer';
 import styles from '../css/infiniteGrid.css';
 

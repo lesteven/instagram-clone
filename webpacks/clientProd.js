@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./clientCommon');
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 // const CompressionPlugin = require("compression-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -25,7 +24,6 @@ module.exports = merge(common, {
   ],
 /*
   optimization: {
-
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
