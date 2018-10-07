@@ -10,7 +10,7 @@ module.exports = merge(common, {
   target: 'node',
   externals: [nodeExternals()],
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
    './src/server/server.js'
   ],
   output: {
