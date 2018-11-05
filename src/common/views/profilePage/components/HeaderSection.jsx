@@ -9,9 +9,11 @@ function DiffUser(props) {
     <div className ='first-row'>
       <h1> { profile } </h1>
       { user == undefined?
-        <Link to = '/accounts/login'>
-          <button> Follow </button>
-        </Link> :
+          <button className = { followStatus.className }> 
+            <Link to = '/accounts/login'>
+            Follow 
+            </Link> 
+          </button> :
         <button className= { followStatus.className }
           onClick = { follow }> 
           { followStatus.text } 
@@ -26,7 +28,9 @@ function SameUser(props) {
     <div className ='first-row'>
       <h1> { profile } </h1>
       <Link to = '/accounts/edit'>
-        <button> Edit Profile </button>
+        <button className = 'edit-profile'> 
+          Edit Profile 
+        </button>
       </Link>  
       <button className='settings' onClick = { onClick }>
         <img src ='/settings.svg' />

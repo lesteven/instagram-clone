@@ -1,0 +1,8 @@
+.reglog a {
+  padding-right: 10px;
+  text-decoration: none;
+}
+.reglog {
+  display: flex;
+  align-items: center;
+}
