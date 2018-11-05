@@ -3,7 +3,7 @@ import IconContainer from './containers/IconContainer';
 import SearchContainer from './containers/SearchContainer';
 import styles from './css/navbar.css';
 import { Link } from 'react-router-dom';
-
+import RegLog from './components/RegLog';
 
 function Logo() {
   return (
@@ -18,12 +18,13 @@ function Logo() {
 
 class NavBar extends Component {
   render() {
+    const { login } = this.props;
     return (
       <div className='nav-wrapper'>
         <nav className='nav-bar max-width'>
           <Logo />
           <SearchContainer />
-          <IconContainer />
+          { login.userName? <IconContainer /> : <RegLog /> }
         </nav>    
       </div>
     )
