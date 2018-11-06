@@ -1,0 +1,9 @@
+.footer a {
+  color: #003569;
+  text-decoration: none;
+  font-weight: bold;
+}
+.footer {
+  padding: 5%;
+  flex-shrink: 0;
+}

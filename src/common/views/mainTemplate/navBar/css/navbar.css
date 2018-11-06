@@ -3,7 +3,6 @@
   border-bottom:1px solid #e6e6e6;
 }
 
-
 .nav-bar img {
   max-height:25px;
 }
@@ -30,9 +29,6 @@
 }
 
 
-.nav-searchbar {
-  
-}
 .nav-searchbar input{
   background-color:#fafafa;
   border:solid 1px #dbdbdb;
