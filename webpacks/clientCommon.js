@@ -40,5 +40,4 @@ module.exports = merge(common, {
     filename: 'styles.css',
   })]
 
-
 });

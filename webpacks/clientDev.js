@@ -7,6 +7,9 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
+    watchOptions: {
+      poll: true
+    },
     publicPath: '/',
     contentBase: './src/client',
     inline: true,
