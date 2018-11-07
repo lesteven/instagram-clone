@@ -10,6 +10,7 @@ export const genDrop = action => (accepted, rejected) => ({
   data: {
     accepted,
     rejected,
+    preview: accepted.map(each => URL.createObjectURL(each)),
   },
 });
 

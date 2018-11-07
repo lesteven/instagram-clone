@@ -54,6 +54,23 @@ function SecondRow(props) {
     </div>
   )
 }
+
+function SecondRow2(props) {
+  const { account } = props;
+//  console.log('!!!!!!1props!!!', props);
+  return (
+    <div className ='second-row'>
+      <p> <strong>{ account.posts }</strong> 
+        { account.posts < 2? ' post' : ' posts' } 
+      </p>
+      <p> <strong> x </strong> 
+        followers
+      </p>
+      <p> <strong> y </strong> following </p>
+    </div>
+  )
+}
+
 function ThirdRow() {
   return (
     <div className = 'third-row'>
@@ -71,7 +88,7 @@ class HeaderSection extends Component {
           <SameUser { ...this.props }/>
           :<DiffUser { ...this.props }/> 
         }
-        <SecondRow {...this.props }/>
+        <SecondRow2 {...this.props }/>
         <ThirdRow {...this.props}/>
       </section>
     )
