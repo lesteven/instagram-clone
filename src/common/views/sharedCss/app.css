@@ -9,26 +9,26 @@
 }
 
 html, body, #root {
-  height:100%;
-  margin:0;
-  text-align:center;
-  background-color:#fafafa;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  background-color: #fafafa;
 }
 
 .max-width {
-  margin:auto;
-  max-width:960px;
+  margin: auto;
+  max-width: 960px;
 }
 .top-pad {
-  padding-top:8%;
+  padding-top: 25px;
 }
 
 .fail {
-  color:red;
+  color: red;
 }
 
 .success {
-  color:green;
+  color: green;
 }
 
 .with-footer {
@@ -37,6 +37,6 @@ html, body, #root {
   flex-direction: column;
 }
 .content {
-  flex: 1 0 auto;
+  flex: 1;
 }
 

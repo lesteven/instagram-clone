@@ -6,7 +6,7 @@ class AboutPage extends Component {
   render() {
     console.log('about page!');
     return (
-      <div className = 'about'> hello!  </div>  
+      <div className = 'about'> goodbye world! </div>  
     )
   }
 }
