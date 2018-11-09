@@ -22,7 +22,7 @@ module.exports = {
               '@babel/preset-react',
               '@babel/preset-env',
             ],
-            plugins: ['transform-class-properties']
+            plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
       },

@@ -1,0 +1,19 @@
+.reglog a {
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  min-width: 55px;
+}
+.reglog {
+  display: flex;
+  align-items: center;
+}
+.reglog a:first-child {
+  background-color:#3897f0;
+  color: white;
+  padding: 5px 9px;
+  border-radius: 4px;
+}
+.reglog a:last-child {
+  color: #3897f0;
+}

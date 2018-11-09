@@ -9,9 +9,11 @@ function DiffUser(props) {
     <div className ='first-row'>
       <h1> { profile } </h1>
       { user == undefined?
-        <Link to = '/accounts/login'>
-          <button> Follow </button>
-        </Link> :
+          <button className = { followStatus.className }> 
+            <Link to = '/accounts/login'>
+            Follow 
+            </Link> 
+          </button> :
         <button className= { followStatus.className }
           onClick = { follow }> 
           { followStatus.text } 
@@ -26,7 +28,9 @@ function SameUser(props) {
     <div className ='first-row'>
       <h1> { profile } </h1>
       <Link to = '/accounts/edit'>
-        <button> Edit Profile </button>
+        <button className = 'edit-profile'> 
+          Edit Profile 
+        </button>
       </Link>  
       <button className='settings' onClick = { onClick }>
         <img src ='/settings.svg' />
@@ -40,16 +44,33 @@ function SecondRow(props) {
 //  console.log('!!!!!!1props!!!', props);
   return (
     <div className ='second-row'>
-      <p> <strong>{ account.posts }</strong> 
+      <p> <b>{ account.posts }</b> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong> { account.followers }</strong> 
+      <p> <b> { account.followers }</b> 
         { account.followers === 1? ' follower': ' followers' } 
       </p>
-      <p> <strong>{ account.following }</strong> following </p>
+      <p> <b>{ account.following }</b> following </p>
     </div>
   )
 }
+
+function SecondRow2(props) {
+  const { account } = props;
+//  console.log('!!!!!!1props!!!', props);
+  return (
+    <div className ='second-row'>
+      <p> <b>{ account.posts }</b> 
+        { account.posts < 2? ' post' : ' posts' } 
+      </p>
+      <p> <b> x </b> 
+        followers
+      </p>
+      <p> <b> y </b> following </p>
+    </div>
+  )
+}
+
 function ThirdRow() {
   return (
     <div className = 'third-row'>
@@ -67,7 +88,7 @@ class HeaderSection extends Component {
           <SameUser { ...this.props }/>
           :<DiffUser { ...this.props }/> 
         }
-        <SecondRow {...this.props }/>
+        <SecondRow2 {...this.props }/>
         <ThirdRow {...this.props}/>
       </section>
     )

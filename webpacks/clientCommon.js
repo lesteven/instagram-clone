@@ -12,7 +12,7 @@ const assetsPath = path.resolve(__dirname, '../dist');
 module.exports = merge(common, {
   entry: {
     client: [
-      'babel-polyfill',
+      '@babel/polyfill',
       './src/client/index.jsx'
     ]
   },
@@ -39,6 +39,5 @@ module.exports = merge(common, {
   plugins: [new MiniCssExtractPlugin({
     filename: 'styles.css',
   })]
-
 
 });

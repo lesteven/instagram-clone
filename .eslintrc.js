@@ -11,5 +11,8 @@ module.exports = {
       }
     ],
     "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default" : 0,
+    "import/no-named-as-default-member" : 0,
+    "import/named" : 0,
   },
 };

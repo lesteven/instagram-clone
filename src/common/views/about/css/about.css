@@ -1,0 +1,19 @@
+.about {
+  background-color: white;
+  width: 90%;
+  text-align: left;
+  padding: 3%;
+  white-space: pre-wrap;
+  border: 1px solid #efefef;
+}
+
+.about a {
+  text-decoration: none;
+  color:#003569;
+}
+.about-name {
+  font-size: 20px;
+}
+.about p {
+  font-size: 17px;
+}

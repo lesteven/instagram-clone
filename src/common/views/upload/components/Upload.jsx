@@ -5,7 +5,9 @@ import DropZone from 'react-dropzone';
 class Upload extends Component {
   render() {
     const { dropImage, upload, uploadImage } = this.props;
-    const { accepted } = upload.post;
+    const { accepted, preview } = upload.post;
+    console.log(accepted);
+    accepted? console.log('preview',accepted) : null;
     return (
       <Fragment>
         <DropZone className = 'dropzone'
@@ -14,7 +16,7 @@ class Upload extends Component {
           onDrop = { dropImage }
           >
           { accepted? 
-              <img src = { accepted[0].preview } />
+              <img src = { preview[0] } />
               : <p> Drag and drop or click! </p>
           }
         </DropZone>

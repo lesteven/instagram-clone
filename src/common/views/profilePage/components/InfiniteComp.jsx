@@ -5,7 +5,7 @@ import {
   AutoSizer,
   WindowScroller,
 } from 'react-virtualized';
-import 'react-virtualized/styles.css';
+// import styles from 'react-virtualized/styles.css';
 import Post from '../../feed/components/Post';
 
 
