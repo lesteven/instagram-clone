@@ -44,13 +44,13 @@ function SecondRow(props) {
 //  console.log('!!!!!!1props!!!', props);
   return (
     <div className ='second-row'>
-      <p> <strong>{ account.posts }</strong> 
+      <p> <b>{ account.posts }</b> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong> { account.followers }</strong> 
+      <p> <b> { account.followers }</b> 
         { account.followers === 1? ' follower': ' followers' } 
       </p>
-      <p> <strong>{ account.following }</strong> following </p>
+      <p> <b>{ account.following }</b> following </p>
     </div>
   )
 }
@@ -60,13 +60,13 @@ function SecondRow2(props) {
 //  console.log('!!!!!!1props!!!', props);
   return (
     <div className ='second-row'>
-      <p> <strong>{ account.posts }</strong> 
+      <p> <b>{ account.posts }</b> 
         { account.posts < 2? ' post' : ' posts' } 
       </p>
-      <p> <strong> x </strong> 
+      <p> <b> x </b> 
         followers
       </p>
-      <p> <strong> y </strong> following </p>
+      <p> <b> y </b> following </p>
     </div>
   )
 }
