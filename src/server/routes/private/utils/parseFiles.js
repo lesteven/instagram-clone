@@ -42,8 +42,6 @@ const genUpload = saveFn => (req, res, dir) => {
   form.uploadDir = dir;
   form.keepExtensions = true;
 
-  debug('!!!req!!!', req);
-
   form
     .on('field', (field, value) => {
       fields.push([field, value]);
