@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import { clearProfilePage } from '../../../redux/profileModule/profileModule';
 import { clearUpload } from '../../../redux/uploadModule/uploadModule';
 
+const api = '/api/upload/post';
+
 class UploadContainer extends Component {
   uploadImage = () => {
     const { login, upload, uploadImage } = this.props;
@@ -15,7 +17,7 @@ class UploadContainer extends Component {
     if (accepted) {
       let formData = new FormData();
       formData.append(accepted[0].name, accepted[0]);
-      uploadImage(`/api/upload/post/${login.userName}`, formData);
+      uploadImage(`${api}/${login.userName}`, formData);
     }
   }
   componentDidUpdate(prevProps) {

@@ -2,13 +2,15 @@
   text-align:center;
   padding:5%;
 }
-.upload-wrapper button {
-  margin:5%;
-  padding:2%;
+.upload-button {
+  margin:3%;
+  padding:1.5%;
   background-color:#8563c9;
   color:white;
   border:none;
   cursor:pointer;
+  font-size: 18px;
+  font-weight: bold;
 }
 .dropzone {
   border:2px dashed #8563c9;

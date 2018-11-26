@@ -17,10 +17,13 @@ class Upload extends Component {
           >
           { accepted? 
               <img src = { preview[0] } />
-              : <p> Drag and drop or click! </p>
+              : <h2> Drag and drop or click! </h2>
           }
         </DropZone>
-        <button onClick = { uploadImage }> Upload! </button>
+          { accepted?
+            <button className = 'upload-button' 
+              onClick = { uploadImage }> Upload! </button>
+            : null }
       </Fragment>
     )
   }
