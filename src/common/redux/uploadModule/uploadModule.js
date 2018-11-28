@@ -1,7 +1,7 @@
 import { RESET } from '../loginModule/loginModule';
 
 const prefix = 'upload';
-const DROP = `${prefix}/DROP`;
+export const DROP = `${prefix}/DROP`;
 const UPLOAD = `${prefix}/UPLOAD`;
 const CLEAR = `${prefix}/CLEAR`;
 const PROFILE = `${prefix}/DROP_PROFILE_IMG`;

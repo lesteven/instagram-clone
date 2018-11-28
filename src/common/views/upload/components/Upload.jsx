@@ -6,8 +6,6 @@ class Upload extends Component {
   render() {
     const { dropImage, upload, uploadImage } = this.props;
     const { accepted, preview } = upload.post;
-    console.log(accepted);
-    accepted? console.log('preview',accepted) : null;
     return (
       <Fragment>
         <DropZone className = 'dropzone'

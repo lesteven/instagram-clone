@@ -1,3 +1,5 @@
+import { DROP } from '../uploadModule/uploadModule';
+
 const JSON_ERR = 'error/JSON_ERROR';
 const SERVER_ERR = 'error/SERVER_ERROR';
 const INPUT_ERR = 'error/INPUT_ERROR';
@@ -46,6 +48,9 @@ export const error = (state = initialState, action) => {
       return {
         ...rest,
       };
+    }
+    case DROP: {
+      return initialState;
     }
     default:
       return state;
