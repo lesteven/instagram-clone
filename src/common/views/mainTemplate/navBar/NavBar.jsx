@@ -10,7 +10,7 @@ function Logo() {
     <div className='nav-logo'>
       <Link to = '/'><img src='/ig-logo.svg'/></Link>
       <div></div>
-      <Link to = '/'><h1> Instagram</h1></Link>
+      <Link to = '/'><h1> IgClone</h1></Link>
     </div>
   )
 } 

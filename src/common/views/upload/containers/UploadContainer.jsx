@@ -40,7 +40,7 @@ class UploadContainer extends Component {
       <Fragment>
         <h2>Only upload images that are 1MB or less</h2>
         { err? <FlashMsg className = 'fail'
-                msg = 'image size is over 1mb!' /> 
+                msg = 'image size is over 1MB!' /> 
           : null }
         <Upload 
           { ...this.props }
