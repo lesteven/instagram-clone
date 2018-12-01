@@ -20,19 +20,22 @@ class ExploreContainer extends Component {
   }
   render() {
     const { feed, hasOldPage, fetching } = this.props.explore; 
+    const { view } = this.props;
     return (
       <InfiniteGrid
         hasNextPage = { hasOldPage }
         isNextPageLoading = { fetching }
         list = { feed }
         loadNextPage = { this.loadNextPage }
+        screenSize = { view.screenSize }
       />
     )
   }
 }
 
-const mapState = ({ explore }) => ({
+const mapState = ({ explore, view }) => ({
   explore,
+  view,
 });
 
 const mapDispatch = {

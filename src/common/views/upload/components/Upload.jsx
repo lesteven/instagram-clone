@@ -6,8 +6,6 @@ class Upload extends Component {
   render() {
     const { dropImage, upload, uploadImage } = this.props;
     const { accepted, preview } = upload.post;
-    console.log(accepted);
-    accepted? console.log('preview',accepted) : null;
     return (
       <Fragment>
         <DropZone className = 'dropzone'
@@ -17,10 +15,13 @@ class Upload extends Component {
           >
           { accepted? 
               <img src = { preview[0] } />
-              : <p> Drag and drop or click! </p>
+              : <h2> Drag and drop or click! </h2>
           }
         </DropZone>
-        <button onClick = { uploadImage }> Upload! </button>
+          { accepted?
+            <button className = 'upload-button' 
+              onClick = { uploadImage }> Upload! </button>
+            : null }
       </Fragment>
     )
   }

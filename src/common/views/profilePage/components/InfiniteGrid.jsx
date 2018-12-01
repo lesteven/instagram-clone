@@ -13,7 +13,8 @@ function InfiniteGrid ({
   hasNextPage,
   isNextPageLoading,
   list,
-  loadNextPage
+  loadNextPage,
+  screenSize,
 }) {
   
   const rowCount = hasNextPage? list.length + 1: list.length;
@@ -24,20 +25,27 @@ function InfiniteGrid ({
     return !!list[index];
   };
 
+  const smallLen = (screenSize - 50)/3;
+  const boxLen = (screenSize < 750)? smallLen: 230;
+  const gwidth = (screenSize < 750)? screenSize : 750;
+
+  const gridStyle = {
+    height: boxLen,
+    width: boxLen,
+  };
   const rowRenderer = ({ index, key, style }) => {
     const dataArr = list[index]? list[index] : [{id:1}];
     return (
       <div style = { style } key = { index }>
         <div className = 'post-grid'>
         { dataArr.map(e => 
-          <GridPostContainer key = { e.id } data = { e }/>
+          <GridPostContainer key = { e.id } data = { e } 
+            style = { gridStyle }/>
         )}
         </div>
       </div>
     )
   }
-  const gheight = 230;
-  const gwidth = 750;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }
@@ -53,7 +61,7 @@ function InfiniteGrid ({
                 onRowsRendered = { onRowsRendered }
                 rowRenderer = { rowRenderer }
                 rowCount = { rowCount }
-                rowHeight = { gheight }
+                rowHeight = { boxLen }
                 height = { height }
                 width = { gwidth }
                 scrollTop = { scrollTop }

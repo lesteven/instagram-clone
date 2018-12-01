@@ -23,7 +23,7 @@
 }
 
 
-.nav-logo, .nav-searchbar, .user-nav {
+.nav-logo, .user-nav {
   display:flex;
   align-items:center;
 }
@@ -57,4 +57,22 @@
   font-family: 'Norican';
   font-size:32px;
   font-weight:normal;
+}
+
+/* DESKTOP VIEW */
+
+@media only screen and (min-width:500px) {
+  .nav-searchbar {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+/* MOBILE VIEW */
+
+@media only screen and (max-width:500px) {
+  .nav-searchbar {
+    display: none;
+  }
 }

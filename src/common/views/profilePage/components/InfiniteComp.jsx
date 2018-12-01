@@ -13,7 +13,8 @@ function InfiniteComp ({
   hasNextPage,
   isNextPageLoading,
   list,
-  loadNextPage
+  loadNextPage,
+  screenSize,
 }) {
   
   const rowCount = hasNextPage? list.length + 1: list.length;
@@ -44,8 +45,7 @@ function InfiniteComp ({
       </div>
     )
   }
-  const gheight = 600;
-  const gwidth = 600;
+  const size = (screenSize < 600)? screenSize: 600;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }
@@ -53,7 +53,7 @@ function InfiniteComp ({
       rowCount = { rowCount }
     >
       {({ onRowsRendered, registerChild }) => (
-        <WindowScroller serverHeight = { 1000 } serverWidth = { gwidth }>
+        <WindowScroller serverHeight = { 1000 } serverWidth = { size }>
           {({ height, isScrolling, scrollTop }) => (
               <List
                 ref = { registerChild }
@@ -61,9 +61,9 @@ function InfiniteComp ({
                 onRowsRendered = { onRowsRendered }
                 rowRenderer = { rowRenderer }
                 rowCount = { rowCount }
-                rowHeight = { gheight }
+                rowHeight = { size }
                 height = { height }
-                width = { gwidth }
+                width = { size }
                 scrollTop = { scrollTop }
               />
           )}

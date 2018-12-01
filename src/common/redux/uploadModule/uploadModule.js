@@ -1,5 +1,7 @@
+import { RESET } from '../loginModule/loginModule';
+
 const prefix = 'upload';
-const DROP = `${prefix}/DROP`;
+export const DROP = `${prefix}/DROP`;
 const UPLOAD = `${prefix}/UPLOAD`;
 const CLEAR = `${prefix}/CLEAR`;
 const PROFILE = `${prefix}/DROP_PROFILE_IMG`;
@@ -60,6 +62,8 @@ export const upload = (state = initialState, action) => {
         data: action.data,
       };
     case CLEAR:
+      return initialState;
+    case RESET:
       return initialState;
     default:
       return state;
