@@ -46,7 +46,6 @@ function InfiniteGrid ({
       </div>
     )
   }
-  console.log('boxLen', boxLen, 'gWidth', gwidth);
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }
