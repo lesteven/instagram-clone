@@ -29,19 +29,22 @@ class InfiniteFeed extends Component {
   }
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.profile; 
+    const { view } = this.props;
     return (
       <InfiniteGrid 
         hasNextPage = { hasOldPage }
         isNextPageLoading = { fetchStatus }
         list = { feed }
         loadNextPage = { this.loadNextPage }
+        screenSize = { view.screenSize }
       />
     )
   }
 }
 
-const mapState = ({ profile }) => ({
+const mapState = ({ profile, view }) => ({
   profile,
+  view,
 });
 
 const mapDispatch = {

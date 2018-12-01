@@ -1,6 +1,5 @@
 .profile-header {
   display: flex;
-  width: 750px;
   padding-bottom: 3%;
   text-align: left;
 }
@@ -19,4 +18,22 @@
 .drop-profile {
   border: none; 
   cursor: pointer;
+}
+
+
+/* DESKTOP VIEW */
+
+@media only screen and (min-width: 750px) {
+  .profile-header {
+    width: 750px;
+  }
+}
+
+
+/* MOBILE VIEW */
+
+@media only screen and (max-width: 750px) {
+  .profile-header {
+    width: 100%;
+  }
 }

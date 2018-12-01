@@ -9,8 +9,6 @@
 .grid-img-wrapper {
   cursor: pointer;
   margin: 5px;
-  width: 230px;
-  height: 230px;
   overflow: hidden;
   display: flex;
   align-items: center;

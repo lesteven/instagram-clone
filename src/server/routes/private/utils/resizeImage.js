@@ -4,8 +4,8 @@ function resizeImage(input) {
   return sharp(input)
     .resize({
       height: 400,
-      fit: 'outside'
-    })
+      fit: 'outside',
+    });
 }
 
 export default resizeImage;

@@ -18,10 +18,10 @@ class GridPostContainer extends Component {
     document.addEventListener("keydown", this.keyPress, false);
   }
   render() {
-  const { popUp, data } = this.props;
+  const { popUp, data, style } = this.props;
     return (
       <div onClick = { this.clickGrid }>
-        <GridPost data = { data } />
+        <GridPost data = { data }  style = { style }/>
       </div>
     )
   }
