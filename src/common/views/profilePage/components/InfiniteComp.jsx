@@ -13,7 +13,8 @@ function InfiniteComp ({
   hasNextPage,
   isNextPageLoading,
   list,
-  loadNextPage
+  loadNextPage,
+  screenSize,
 }) {
   
   const rowCount = hasNextPage? list.length + 1: list.length;
@@ -45,7 +46,7 @@ function InfiniteComp ({
     )
   }
   const gheight = 600;
-  const gwidth = 600;
+  const gwidth = (screenSize < 600)? screenSize: 600;
   return (
     <InfiniteLoader
       isRowLoaded = { isRowLoaded }

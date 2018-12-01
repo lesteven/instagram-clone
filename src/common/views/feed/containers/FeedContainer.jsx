@@ -39,6 +39,7 @@ class FeedContainer extends Component {
   }  
   render() {
     const { feed, hasOldPage, fetchStatus } = this.props.feed; 
+    const { view } = this.props;
     if (feed) {
       return (
         <InfiniteComp 
@@ -46,6 +47,7 @@ class FeedContainer extends Component {
           isNextPageLoading = { fetchStatus }
           list = { feed }
           loadNextPage = { this.loadNextPage }
+          screenSize = { view.screenSize }
         />
       )
     } else {
@@ -54,9 +56,10 @@ class FeedContainer extends Component {
   }
 }
 
-const mapState = ({ feed, login }) => ({
+const mapState = ({ feed, login, view }) => ({
   feed,
   login,
+  view,
 });
 
 const mapDispatch = {
