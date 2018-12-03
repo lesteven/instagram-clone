@@ -11,14 +11,16 @@ class MainTemplate extends Component {
     clickGridPost();
   }
   render() {
-    const { popUp, login } = this.props;
+    const { popUp, login, view } = this.props;
     const { gridPost, data } = popUp;
+    const { screenSize } = view;
     return (
       <Fragment>
         <div className = 'grid-post' 
           style = { gridPost }
           onClick = { this.closeGrid }>
-          { data? <Post data = { data } />: null } 
+          { data? <Post data = { data } screenSize = { screenSize } />
+            : null } 
         </div>
         <NavBar login = { login } />
         <div className='max-width view'>
@@ -32,9 +34,10 @@ class MainTemplate extends Component {
 }
 
 
-const mapState = ({ popUp, login }) => ({
+const mapState = ({ popUp, login, view }) => ({
   popUp,
   login,
+  view,
 });
 
 const mapDispatch = {
