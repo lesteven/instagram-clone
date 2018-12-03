@@ -7,6 +7,10 @@ class Post extends Component {
 
   render() {
     const { userimage, username, imgname, created_at} = this.props.data;
+    const { screenSize } = this.props;
+    const style = {
+      height: screenSize * .65,
+    };
     return (
       <div className = 'post-wrapper'>
         <div className = 'post-user'>
@@ -15,7 +19,7 @@ class Post extends Component {
             <p><strong>{ username }</strong></p>
           </Link>
         </div>
-        <img src = { imgname } /> 
+        <img style = { style } src = { imgname } /> 
         <div className = 'post-data'>
           <p className = 'date'> 
             { new Date(created_at).toDateString() } 

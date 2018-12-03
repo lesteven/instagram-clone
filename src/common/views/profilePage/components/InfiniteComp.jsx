@@ -41,7 +41,7 @@ function InfiniteComp ({
     }
     return (
       <div style = { style } key = { dataObj.imgname + '/' + index } >
-        <Post data = { dataObj } />
+        <Post data = { dataObj } screenSize = { screenSize } />
       </div>
     )
   }
