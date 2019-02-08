@@ -13,6 +13,20 @@ const serverSetup = (app) => {
   }));
   app.use(bodyParser.json());
 
+  // get gzip files
+  app.get('*.js', (req, res, next) => {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/javascript');
+    next();
+  });
+
+  app.get('*.css', (req, res, next) => {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/css');
+    next();
+  });
 
   // serve static files
   app.use(express.static('dist'));
